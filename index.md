@@ -8,3 +8,4 @@ Actuellement, le projet est en **phase de développement**. Il est donc possible
 
 > Si il manque des informations, n'hésitez pas à contacter **MrSpaar#9229** sur Discord.
 > Vous pouvez aussi éditer le [code source](https://github.com/RobotechNancy/Wiki){:target="_blank"} du wiki.
+
