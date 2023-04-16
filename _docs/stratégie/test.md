@@ -1,5 +1,6 @@
 ---
 title: Test
-category: Stratégie
 order: 1
+category: Stratégie
+category_order: 5
 ---
