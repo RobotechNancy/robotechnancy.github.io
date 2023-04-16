@@ -1,5 +1,6 @@
 ---
 title: Test
-category: Communication
 order: 1
+category: Communication
+category_order: 2
 ---

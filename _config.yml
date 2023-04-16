@@ -65,17 +65,3 @@ defaults:
         content:
           width: 800
           height: 2000
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      _comments:
-        type: Marks the impact of this release
-
-# -----------
-# CloudCannon
-
-types:
-  - minor
-  - major

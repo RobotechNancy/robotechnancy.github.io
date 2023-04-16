@@ -1,5 +1,6 @@
 ---
 title: Test
-category: Actionneurs
 order: 1
+category: Actionneurs
+category_order: 4
 ---

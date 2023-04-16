@@ -1,5 +1,6 @@
 ---
 title: Test
-category: Capteurs
 order: 1
+category: Capteurs
+category_order: 3
 ---

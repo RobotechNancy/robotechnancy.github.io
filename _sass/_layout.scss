@@ -96,6 +96,10 @@ header {
 
 	a {
 		color: var(--content-color) !important;
+
+		&:hover {
+			color: var(--brand-colour) !important;
+		}
 	}
 
 	ul {
