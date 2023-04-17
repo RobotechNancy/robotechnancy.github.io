@@ -46,17 +46,25 @@
 				</ul>
 
 				<ul>
-					{% assign grouped = site.docs | sort: 'category_order'| group_by: 'category' %}
+					{% assign grouped = site.docs | group_by: 'category' | sort: 'category_order' %}
 					{% for group in grouped %}
-						<li class="nav-item top-level {% if group.name == page.category %}current{% endif %}">
-							{% assign items = group.items | sort: 'order' %}
-							<a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
+					<li class="nav-item top-level">
+						<a href="{{ site.baseurl }}{{ group.items.first.url }}">{{ group.name }}</a>
+
+						{% assign subcategories = site.docs | where: 'category', group.name | group_by: 'subcategory' | sort: 'subcategory_order' %}
+						{% for subcategory in subcategories %}
+							{% if subcategory.name != "" %}
+							<a href="{{ site.baseurl }}{{ subcategory.items.first.url }}" class="nav-subitem">{{ subcategory.name }}</a>
+							{% endif %}
+
 							<ul>
+								{% assign items = subcategory.items | sort: 'order' %}
 								{% for item in items %}
-									<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+								<li class="nav-item {% if subcategory.name != '' %}sub{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
 								{% endfor %}
 							</ul>
-						</li>
+						{% endfor %}
+					</li>
 					{% endfor %}
 				</ul>
 			</nav>
@@ -64,7 +72,15 @@
 
 		<section class="main">
 			<div class="page-header">
-				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+				<h2>
+					{% if page.category and page.subcategory %}
+						{{ page.category }}/{{ page.subcategory }}
+					{% elsif page.category %}
+						{{ page.category }}
+					{% else %}
+						{{ site.title }}
+					{% endif %}
+				</h2>
 				<h3>{{ page.title }}</h3>
 			</div>
 			<article class="content">
