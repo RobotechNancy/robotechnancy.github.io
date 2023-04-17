@@ -53,14 +53,16 @@
 
 						{% assign subcategories = site.docs | where: 'category', group.name | group_by: 'subcategory' | sort: 'subcategory_order' %}
 						{% for subcategory in subcategories %}
-							{% if subcategory.name != "" %}
-							<a href="{{ site.baseurl }}{{ subcategory.items.first.url }}" class="nav-subitem">{{ subcategory.name }}</a>
-							{% endif %}
-
 							<ul>
+								{% if subcategory.name != "" %}
+								<li class="nav-item mid-level">
+									<a href="{{ site.baseurl }}{{ subcategory.items.first.url }}">{{ subcategory.name }}</a>
+								</li>
+								{% endif %}
+
 								{% assign items = subcategory.items | sort: 'order' %}
 								{% for item in items %}
-								<li class="nav-item {% if subcategory.name != '' %}sub{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+								<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
 								{% endfor %}
 							</ul>
 						{% endfor %}

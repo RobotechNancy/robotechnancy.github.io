@@ -277,6 +277,15 @@ nav > ul {
 		font-weight: 600;
 		padding-left: $space;
 	}
+
+	&.mid-level > a {
+		font-weight: 600;
+		padding-left: $space * 2;
+	}
+
+	&.sub-level > a {
+		padding-left: $space * 3;
+	}
 }
 
 .highlight {
