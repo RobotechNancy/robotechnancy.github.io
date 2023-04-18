@@ -131,10 +131,11 @@ header {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 
 		a {
+			color: #fff !important;
 			text-decoration: none;
 
 			&:hover {
-				color: var(--content-color) !important;
+				color: #fff !important;
 			}
 		}
 
