@@ -39,19 +39,12 @@
 
 			<nav {% if site.show_full_navigation %}class="full-navigation"{% endif %}>
 				<ul>
-					<li class="nav-item top-level {% if page.url == '/' %}current{% endif %}">
-						{% assign home = site.html_pages | where: 'url', '/' | first %}
-						<a href="{{ site.baseurl }}/">{{ home.title }}</a>
-					</li>
-				</ul>
-
-				<ul>
-					{% assign grouped = site.docs | group_by: 'category' | sort: 'category_order' %}
+					{% assign grouped = site.docs | sort: 'category_order' | group_by: 'category' %}
 					{% for group in grouped %}
 					<li class="nav-item top-level">
 						<a href="{{ site.baseurl }}{{ group.items.first.url }}">{{ group.name }}</a>
 
-						{% assign subcategories = site.docs | where: 'category', group.name | group_by: 'subcategory' | sort: 'subcategory_order' %}
+						{% assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' %}
 						{% for subcategory in subcategories %}
 							<ul>
 								{% if subcategory.name != "" %}
@@ -62,7 +55,9 @@
 
 								{% assign items = subcategory.items | sort: 'order' %}
 								{% for item in items %}
-								<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+								<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}">
+									<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+								</li>
 								{% endfor %}
 							</ul>
 						{% endfor %}

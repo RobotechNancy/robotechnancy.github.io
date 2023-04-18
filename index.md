@@ -10,8 +10,9 @@ Actuellement, le projet est en **phase de développement**. Il est donc possible
 > Vous pouvez aussi éditer le [code source](https://github.com/RobotechNancy/Wiki){:target="_blank"} du wiki.
 
 <br>Le wiki couvre les sujets suivants :
-- Création de [librairies](/Libraries) de composants
-- Méthodes de [communication](/Communication) entre les composants
-- Fonctionnement des [capteurs](/Capteurs)
-- Fonctionnement des [actionneurs](/Actionneurs)
-- Le gestionnaire de graphe pour la [stratégie](/Stratégie)
+- Création de librairies de composants
+- Méthodes de communication entre les composants
+- Fonctionnement des capteurs pour l'odométrie
+- Fonctionnement des actionneurs
+- Le gestionnaire de graphe pour la stratégie
+- La gestion de ce wiki  
