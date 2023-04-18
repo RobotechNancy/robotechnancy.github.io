@@ -1,5 +1,6 @@
 ---
 title: Accueil
+permalink: /
 ---
 
 Bienvenue sur le wiki de **Robotech**, ici, vous trouverez tout ce qu'il y a à savoir pour **développer un software** pour le projet.

@@ -7,9 +7,10 @@ url: https://RobotechNancy.github.io/Wiki
 
 google_analytics_key:
 show_full_navigation: true
+include: /_includes
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /siteicon.png
+logo: /images/siteicon.png
 description: Wiki du pôle informatique de Robotech Nancy
 author:
   name: MrSpaar
@@ -25,7 +26,6 @@ social:
 # Build
 
 timezone: Europe/Paris
-
 permalink: pretty
 
 plugins:
