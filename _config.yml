@@ -2,12 +2,13 @@
 # Site
 
 title: Wiki Robotech Nancy
-domain: RobotechNancy.github.io
-url: https://RobotechNancy.github.io/Wiki
+domain: robotechnancy.github.io
+url: https://robotechnancy.github.io/
 
 google_analytics_key:
 show_full_navigation: true
-include: /_includes
+include:
+  - _includes
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /images/siteicon.png
