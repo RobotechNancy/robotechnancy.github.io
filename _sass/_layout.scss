@@ -104,15 +104,6 @@ header {
 		overflow-y: scroll;
 	}
 
-	a {
-		width: fit-content;
-		color: var(--content-color) !important;
-
-		&:hover {
-			color: var(--brand-colour) !important;
-		}
-	}
-
 	ul {
 		padding: 0;
 		margin: 0;
@@ -280,17 +271,22 @@ nav > ul {
 	}
 
 	> a {
-		color: #666;
+		color: var(--content-color);
 		text-decoration: none;
 		font-size: 1.4rem;
+		width: fit-content;
 		padding: $space / 2 0 $space / 2 $space * 2;
 		display: block;
+
+		&.current {
+			color: var(--brand-colour);
+		}
 	}
 
 	&.current > a,
 	> a:active,
 	> a:hover {
-		color: #111;
+		color: var(--brand-colour);
 	}
 
 	&.top-level > a {
