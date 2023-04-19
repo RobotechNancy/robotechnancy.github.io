@@ -17,3 +17,5 @@ Actuellement, le projet est en **phase de développement**. Il est donc possible
 - Fonctionnement des actionneurs
 - Le gestionnaire de graphe pour la stratégie
 - La gestion de ce wiki  
+
+> Ce wiki est une version modifiée de la template [Edition](https://github.com/CloudCannon/edition-jekyll-template)
