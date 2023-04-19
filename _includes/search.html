@@ -17,7 +17,7 @@ permalink: /search.html
 
 					"{{ item.url | slugify }}": {
 						"id": "{{ item.url | slugify }}",
-						"title": "{{ item.title | xml_escape }}",
+						"title": "{{ item.category }}/{% if item.subcategory %}{{ item.subcategory }}/{% endif %}{{ item.title | xml_escape }}",
 						"category": "{{ collection.title | xml_escape }}",
 						"url": " {{ item.url | xml_escape }}",
 						"content": {{ item.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
