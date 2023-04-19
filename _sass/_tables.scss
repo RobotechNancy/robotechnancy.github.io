@@ -8,7 +8,7 @@ tr {
 }
 
 tr:nth-child(even) {
-	background: #fcfcfc;
+	background: var(--nav-background-color);
 }
 
 td, th {
