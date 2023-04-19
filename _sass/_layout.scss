@@ -74,6 +74,11 @@ body {
 .main {
 	margin-top: $space + $nav-header-height;
 
+	img {
+		display: block;
+		margin: 20px auto 0 auto;
+	}
+
 	@media (min-width: $mobile-break) {
 		margin-top: 0;
 	}
