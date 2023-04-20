@@ -286,6 +286,11 @@ nav > ul {
 		}
 	}
 
+	.cat:hover, .cat:active {
+		cursor: default;
+		color: var(--content-color);
+	}
+
 	> a:active,
 	> a:hover {
 		color: var(--brand-colour);
