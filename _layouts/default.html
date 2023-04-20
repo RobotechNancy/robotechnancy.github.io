@@ -41,6 +41,7 @@
 				<ul>
 					{% assign grouped = site.docs | sort: 'category_order' | group_by: 'category' %}
 					{% for group in grouped %}
+
 					<li class="nav-item top-level">
 						<a href="{{ site.baseurl }}{{ group.items.first.url }}" {% if group.name == page.category %}class="current"{% endif %}>{{ group.name }}</a>
 
@@ -49,7 +50,7 @@
 							<ul>
 								{% if subcategory.name != "" %}
 								<li class="nav-item mid-level">
-									<a href="{{ site.baseurl }}{{ subcategory.items.first.url }}" {% if subcategory.name == page.subcategory %}class="current"{% endif %}>{{ subcategory.name }}</a>
+									<a href="{{ site.baseurl }}{{ subcategory.items.first.url }}" {% if page.subcategory == subcategory.name %}class="current"{% endif %}>{{ subcategory.name }}</a>
 								</li>
 								{% endif %}
 
