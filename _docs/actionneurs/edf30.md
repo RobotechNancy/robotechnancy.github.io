@@ -17,6 +17,8 @@ Paramétrage de la clock sur STM32CubeMX :
 
 On obtient un signal d'environ 100Hz avec des cycles divisés en 4096 comptes. 
 
+<br>
+
 ## Utilisation de la librairie
 
 Si vous votre clock est configurée différemment, vous devez modifier les variables suivantes dans `edf30.h` :
