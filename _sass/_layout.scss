@@ -277,13 +277,15 @@ nav > ul {
 		width: fit-content;
 		padding: $space / 2 0 $space / 2 $space * 2;
 		display: block;
+		cursor: pointer;
 
-		&.current {
+		&.current::before {
+			content: '▶';
+			margin-right: 5px;
 			color: var(--brand-colour);
 		}
 	}
 
-	&.current > a,
 	> a:active,
 	> a:hover {
 		color: var(--brand-colour);
