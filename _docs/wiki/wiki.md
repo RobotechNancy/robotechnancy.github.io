@@ -6,10 +6,11 @@ category_order: 6
 ---
 
 Ce wiki utilise [Jekyll](https://jekyllrb.com/) et [Github Pages](https://pages.github.com/) :
+- La configuration de l'hébergement se fait [ici](https://github.com/RobotechNancy/robotechnancy.github.io/settings/pages)
+- Toutes les pages sont rendues côté serveur avec [Liquid](https://shopify.github.io/liquid/)
 - Chaque page est correspond à un fichier Markdown dans le dossier [`_docs`](https://github.com/RobotechNancy/robotechnancy.github.io/tree/master/_docs)
 - Le site est reconstruit automatiquement à chaque commit sur la branche [`master`](https://github.com/RobotechNancy/robotechnancy.github.io)
 - La base commune à chaque page est contenue dans le fichier [`_layouts/default.html`](https://github.com/RobotechNancy/robotechnancy.github.io/blob/master/_layouts/default.html)
-- Toutes les pages sont rendues côté serveur avec [Liquid](https://shopify.github.io/liquid/)
 
 ### Ajouter une page
 
