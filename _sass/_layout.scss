@@ -469,6 +469,11 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 3px;
+
+	&.inline-img {
+		display: inline-block;
+		margin: 0 0.5em 0.5em 0;
+	}
 }
 
 .editor-link {
