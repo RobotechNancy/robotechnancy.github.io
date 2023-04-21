@@ -28,6 +28,7 @@ Dans les deux cas, il faut ajouter un `case` pour chaque code fonction :
 switch (response.fct_code) {
     case VOTRE_CODE_FONCTION:
         // Traitement du message
+    break;
     case FCT_ACCUSER_RECPETION:
         // Traitement du message
     break;
