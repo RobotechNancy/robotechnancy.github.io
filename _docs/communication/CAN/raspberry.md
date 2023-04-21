@@ -94,8 +94,8 @@ cansend vcan0 0x110#1122334455667788
 
 ### Bus CAN réel
 
-Pour utiliser le bus CAN réel, il faut d'abord connecter le Raspberry Pi au bus CAN :
-![Circuit](/images/diagrams/can-raspberry.webp)
+Pour utiliser le bus CAN réel, il faut d'abord connecter le Raspberry Pi au shield :
+![Circuit](/images/diagrams/CAN%20Raspberry.webp)
 
 Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/firmware/config.txt` :
 ```
