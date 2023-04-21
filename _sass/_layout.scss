@@ -116,6 +116,7 @@ header {
 			-moz-user-select: none;
 
 			&::before {
+				content: '▶';
 				margin-right: .75em;
 			}
 		}
@@ -124,14 +125,8 @@ header {
 			content: '▼';
 		}
 
-		&:not(#active) {
-			> .nav-cat::before {
-				content: '▶';
-			}
-
-			> ul {
-				display: none;
-			}
+		&:not(#active) > ul {
+			display: none;
 		}
 	}
 
