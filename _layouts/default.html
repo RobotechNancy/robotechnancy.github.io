@@ -94,6 +94,7 @@
 			document.querySelectorAll("h3").forEach(item => {
 				item.addEventListener("click", event => {
 					navigator.clipboard.writeText(window.location.href + "#" + item.id);
+					item.scrollIntoView({behavior: "smooth"});
 				});
 			});
 		</script>
