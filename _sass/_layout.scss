@@ -191,6 +191,16 @@ header {
 
 	h3 {
 		margin-top: 60px;
+		position: relative;
+		cursor: pointer;
+
+		&:hover::before {
+			content: '﹟';
+			position: absolute;
+			left: -25px;
+			bottom: 3px;
+			color: #888;
+		}
 	}
 
 	p {
