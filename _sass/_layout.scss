@@ -109,8 +109,30 @@ header {
 		margin: 0;
 	}
 
-	li:not(#active) > ul {
-		display: none;
+	li {
+		.nav-cat {
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+
+			&::before {
+				margin-right: .75em;
+			}
+		}
+
+		&#active > .nav-cat::before {
+			content: '▼';
+		}
+
+		&:not(#active) {
+			> .nav-cat::before {
+				content: '▶';
+			}
+
+			> ul {
+				display: none;
+			}
+		}
 	}
 
 	h1 {
@@ -294,12 +316,6 @@ nav > ul {
 		padding: $space / 2 0 $space / 2 $space * 2;
 		display: block;
 		cursor: pointer;
-
-		&.current::before {
-			content: '▶';
-			margin-right: 5px;
-			color: var(--brand-colour);
-		}
 	}
 
 	> a:active,

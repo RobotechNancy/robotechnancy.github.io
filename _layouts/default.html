@@ -43,21 +43,21 @@
 					{% for group in grouped %}
 
 					<li class="nav-item top-level" {% if group.name == page.category %}id="active"{% endif %}>
-						<a class="cat {% if group.name == page.category %}current{% endif %}">{{ group.name }}</a>
+						<a class="nav-cat">{{ group.name }}</a>
 
 						{% assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' %}
 						{% for subcategory in subcategories %}
 							<ul>
 								{% if subcategory.name != "" %}
 								<li class="nav-item mid-level">
-									<a class="cat {% if page.subcategory == subcategory.name %}current{% endif %}">{{ subcategory.name }}</a>
+									<a>{{ subcategory.name }}</a>
 								</li>
 								{% endif %}
 
 								{% assign items = subcategory.items | sort: 'order' %}
 								{% for item in items %}
 								<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}">
-									<a href="{{ site.baseurl }}{{ item.url }}" {% if item.url == page.url %}class="current"{% endif %}>{{ item.title }}</a>
+									<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
 								</li>
 								{% endfor %}
 							</ul>
