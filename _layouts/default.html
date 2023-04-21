@@ -90,6 +90,12 @@
 			document.getElementById("open-nav").addEventListener("click", function () {
 				document.body.classList.toggle("nav-open");
 			});
+
+			document.querySelectorAll("h3").forEach(item => {
+				item.addEventListener("click", event => {
+					navigator.clipboard.writeText(window.location.href + "#" + item.id);
+				});
+			});
 		</script>
 		<script type="text/javascript" id="MathJax-script" async
 			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
