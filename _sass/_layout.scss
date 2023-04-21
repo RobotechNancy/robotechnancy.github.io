@@ -109,6 +109,10 @@ header {
 		margin: 0;
 	}
 
+	li:not(#active) > ul {
+		display: none;
+	}
+
 	h1 {
 		padding: $emblem-vertical-padding $emblem-horizontal-padding;
 		height: $nav-header-height;
@@ -296,11 +300,6 @@ nav > ul {
 			margin-right: 5px;
 			color: var(--brand-colour);
 		}
-	}
-
-	.cat:hover, .cat:active {
-		cursor: default;
-		color: var(--content-color);
 	}
 
 	> a:active,
