@@ -76,7 +76,7 @@ body {
 
 	img {
 		display: block;
-		margin: 20px auto 0 auto;
+		margin: .5em auto 1em auto;
 	}
 
 	@media (min-width: $mobile-break) {
@@ -189,10 +189,12 @@ header {
 	background-color: var(--content-background-color);
 	color: var(--content-color);
 
-	h3::before {
-		content: "";
-		@extend hr;
-		margin: 60px 0;
+	h3 {
+		margin-top: 60px;
+	}
+
+	p {
+		margin-bottom: .5em;
 	}
 }
 
@@ -417,15 +419,18 @@ h4 svg {
 }
 
 blockquote {
-	border-left: 5px solid #FD0;
+	border-left: 5px solid var(--brand-colour);
 	padding: 10px 15px;
 	margin-left: -15px;
 	margin-right: -10px;
-	background-color: var(--brand-colour-light);
-	border-color: var(--brand-colour);
+	background-color: var(--nav-background-color);
 
 	p:last-child {
 		margin-bottom: 0;
+	}
+
+	&.warning {
+		border-color: #cd5c5c;
 	}
 
 	@media (max-width: $full-width-break) {
