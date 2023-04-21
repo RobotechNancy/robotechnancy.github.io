@@ -114,10 +114,16 @@ header {
 			user-select: none;
 			-webkit-user-select: none;
 			-moz-user-select: none;
+			position: relative;
+			margin-left: 12px;
 
 			&::before {
 				content: '▶';
+				font-size: .75em	;
 				margin-right: .75em;
+				position: absolute;
+				top: 12px;
+				left: 5px;
 			}
 		}
 
@@ -308,7 +314,7 @@ nav > ul {
 		text-decoration: none;
 		font-size: 1.4rem;
 		width: fit-content;
-		padding: $space / 2 0 $space / 2 $space * 2;
+		padding: $space/2 0 $space/2 $space*2;
 		display: block;
 		cursor: pointer;
 	}
