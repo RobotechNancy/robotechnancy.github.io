@@ -27,8 +27,8 @@ D'abord, il faut installer le Boards Manager STM32 :
 - Aller dans `File > Preferences` et spécifiez [ce lien](https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json) (Image 1)
 - Aller dans `Tools > Board > Boards Manager` et installez`STM32 MCU based boards` (Image 2)
 
-![Ajout Boards Manager](/images/IDEs/AIDE BM1.png){:.inline-img}
-![Installation Boards Manager STM32](/images/IDEs/AIDE%20BM2.png){:.inline-img}
+![Ajout Boards Manager](/images/IDEs/AIDE%20BM1.webp){:.inline-img}
+![Installation Boards Manager STM32](/images/IDEs/AIDE%20BM2.webp){:.inline-img}
 
 Maintenant, on sélectionne notre carte :
 - Aller dans `Tools > Board > STM32 MCU based boards` et choisir le type (32 pins → Nucleo-32)
@@ -69,7 +69,7 @@ Il est gratuit mais nécessite un compte STM ou de fournir un nom, prénom et ad
 Pour créer un nouveau projet :
 
 - Aller dans `File > New > STM32 Project` et sélectionner une carte :
-![Création d'un nouveau projet](/images/IDEs/CubeIDE%20BS.png)
+![Création d'un nouveau projet](/images/IDEs/CubeIDE%20BS.webp)
 - Ecrire le nom du projet puis `Finish`
 
 Il est aussi possible d'ouvrir un projet existant :
@@ -77,4 +77,4 @@ Il est aussi possible d'ouvrir un projet existant :
 - Sélectionner le dossier du projet puis `Finish`
 
 Avec CubeIDE, la confuguration de la carte est directement intégrée dans l'IDE, mais passe quand même par [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) :
-![Configuration de la carte](/images/IDEs/CubeMX.png)
+![Configuration de la carte](/images/IDEs/CubeMX.webp)
