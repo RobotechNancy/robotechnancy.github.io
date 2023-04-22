@@ -43,14 +43,14 @@
 					{% for group in grouped %}
 
 					<li class="nav-item top-level" {% if group.name == page.category %}id="active"{% endif %}>
-						<a class="nav-cat">{{ group.name }}</a>
+						<span class="nav-cat" onclick="changeActive(this)" onkeydown="onKeyDown(event, this)" tabindex="0">{{ group.name }}</span>
 
 						{% assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' %}
 						{% for subcategory in subcategories %}
 							<ul>
 								{% if subcategory.name != "" %}
 								<li class="nav-item mid-level">
-									<a>{{ subcategory.name }}</a>
+									<span>{{ subcategory.name }}</span>
 								</li>
 								{% endif %}
 
@@ -94,31 +94,38 @@
 			document.querySelectorAll("h3").forEach(item => {
 				item.addEventListener("click", event => {
 					navigator.clipboard.writeText(window.location.href + "#" + item.id);
-					item.scrollIntoView({behavior: "smooth"});
+					
 				});
 			});
 
 			let active = document.getElementById("active");
 
-			document.querySelectorAll(".nav-item").forEach(item => {
-				item.addEventListener("click", event => {
-					if (active == item) {
-						item.removeAttribute("id");
-						active = null;
-						return;
-					}
+			function changeActive(newActive) {
+				newActive = newActive.parentNode;
 
-					if (active == null) {
-						item.id = "active";
-						active = item;
-						return;
-					}
+				if (active == newActive) {
+					newActive.removeAttribute("id");
+					active = null;
+					return;
+				}
 
-					active.removeAttribute("id");
-					item.id = "active";
-					active = item;
-				})
-			});
+				if (active == null) {
+					newActive.id = "active";
+					active = newActive;
+					return;
+				}
+
+				active.removeAttribute("id");
+				newActive.id = "active";
+				active = newActive;
+			}
+
+			function onKeyDown(event, element) {
+				if (event.key === "Enter") {
+					event.preventDefault();
+					changeActive(element);
+				}
+			}
 		</script>
 		<script type="text/javascript" id="MathJax-script" async
 			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">

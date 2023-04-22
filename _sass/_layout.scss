@@ -300,6 +300,7 @@ nav > ul {
 	font-family: "Open Sans", sans-serif;
 	line-height: 1;
 	margin: 0;
+	width: fit-content;
 
 	nav:not(.full-navigation) & > ul {
 		display: none;
@@ -309,7 +310,7 @@ nav > ul {
 		display: block;
 	}
 
-	> a {
+	> a, span {
 		color: var(--content-color);
 		text-decoration: none;
 		font-size: 1.4rem;
@@ -319,18 +320,17 @@ nav > ul {
 		cursor: pointer;
 	}
 
-	> a:active,
-	> a:hover {
+	> a:active, > a:hover, span:hover, span:active {
 		color: var(--brand-colour);
 	}
 
-	&.top-level > a {
+	&.top-level > span {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
 	}
 
-	&.mid-level > a {
+	&.mid-level > span {
 		font-weight: 600;
 		padding-left: $space * 2;
 	}
