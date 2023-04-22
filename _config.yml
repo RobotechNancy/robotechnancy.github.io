@@ -4,34 +4,12 @@
 title: Wiki Robotech Nancy
 domain: robotechnancy.github.io
 url: https://robotechnancy.github.io/
-
-google_analytics_key:
 show_full_navigation: true
-include:
-  - _includes
-
-# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /images/icons/siteicon.webp
-description: Wiki du pôle informatique de Robotech Nancy
-author:
-  name: MrSpaar
-  email:
-  twitter: MrSpaar
-social:
-  name: Wiki Robotech Nancy
-  links:
-    - https://github.com/RobotechNancy
-    - https://robotech.polytech-nancy.univ-lorraine.fr/
 
 # -----
 # Build
 
-timezone: Europe/Paris
-permalink: pretty
-
 plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
   - jekyll-feed
 
 exclude:
@@ -39,6 +17,9 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENCE
+
+include:
+  - _includes
 
 collections:
   docs:
