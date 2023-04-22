@@ -144,22 +144,16 @@ header {
 		color: #fff;
 		margin: 0;
 		font-size: 1.7rem;
-		line-height: 0.8;
 		letter-spacing: 0;
 		font-weight: 600;
-		text-indent: 0;
-		@include display-flex();
-		@include flex-direction(row);
-		@include align-items(center);
+		position: relative;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 
 		a {
-			color: #fff !important;
+			color: inherit !important;
 			text-decoration: none;
-
-			&:hover {
-				color: #fff !important;
-			}
+			height: $emblem-size;
+			display: inline-block;
 		}
 
 		img {
@@ -167,12 +161,15 @@ header {
 			width: $emblem-size;
 			margin-right: $space - 5;
 		}
+
+		span {
+			top: $emblem-size/2 + 3px;
+			position: absolute;
+		}
 	}
 
-	$nav-image: $baseurl + "/images/icons/menu.svg";
-
 	.open-nav {
-		background-image: url($nav-image);
+		background-image: url($baseurl + "/images/icons/menu.svg");
 		background-color: transparent;
 		background-repeat: no-repeat;
 		background-size: 100%;
@@ -301,14 +298,6 @@ nav > ul {
 	line-height: 1;
 	margin: 0;
 	width: fit-content;
-
-	nav:not(.full-navigation) & > ul {
-		display: none;
-	}
-
-	nav:not(.full-navigation) &.current > ul {
-		display: block;
-	}
 
 	> a, span {
 		color: var(--content-color);

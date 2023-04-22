@@ -261,8 +261,6 @@ DEPENDENCIES
   github-pages (= 228)
   jekyll (= 3.9.3)
   jekyll-feed (= 0.15.1)
-  jekyll-seo-tag (= 2.8.0)
-  jekyll-sitemap (= 1.4.0)
   webrick (= 1.8.1)
 
 BUNDLED WITH
