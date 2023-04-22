@@ -27,11 +27,11 @@ project(my_project)                   # Nom du projet
 set(CMAKE_CXX_STANDARD 20)            # Version de C++
 cmake_minimum_required(VERSION 3.24)  # Version de cmake
 
-find_package(PkgConfig REQUIRED)                   # Utilitaire pour trouver des librairies
-pkg_check_modules(IMPORTED_LIB REQUIRED LIB_NAME)  # Trouver une librairie "LIB_NAME"
+find_package(PkgConfig REQUIRED)            # Utilitaire pour trouver des librairies
+pkg_check_modules(MY_LIB REQUIRED LibName)  # Trouver une librairie "LibName"
 
-add_executable(my_project main.cpp)                          # Créer un exécutable
-target_link_libraries(my_project ${IMPORTED_LIB_LIBRARIES})  # Lier les librairies
+add_executable(my_project main.cpp)                     # Créer un exécutable
+target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
 ```
 
 Pour compiler le projet, il suffit d'exécuter les commandes suivantes :
@@ -56,7 +56,9 @@ add_library(${PROJECT_NAME} ...) # Inclure tous les fichiers sources
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 1)
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...") # Inclure tous les headers publics séparés par des ";"
+
+# Inclure tous les headers publics séparés par des ";"
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...")
 
 # Inclure les sous-dossiers de votre projet (ici, "include" et "src")
 target_include_directories(${PROJECT_NAME} PRIVATE include)
@@ -87,4 +89,21 @@ Libs: -L${libdir} -l@PROJECT_NAME@
 Cflags: -I${includedir}
 ```
 
-Les headers de `LibName` sont alors accessibles avec `#include <robotech/...>`.
+Maintenant, pour installer la librairie, il suffit d'exécuter les commandes suivantes :
+```bash
+mkdir build && cd build
+cmake ..
+sudo make install
+```
+
+La librairie sera alors disponible pour tous les projets utilisant `pkg-config`.
+Par exemple, si notre librairie contient un header publique `libName.h`, on pourra l'inclure dans un projet avec :
+```c
+#include <robotech/LibName.h>
+
+int main() {
+    // ...
+}
+```
+
+> **Note :** Il faut que la librairie soit bien liée au projet (cf. [Création d'un software](#création-dun-software)).
