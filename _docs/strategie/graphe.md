@@ -44,4 +44,4 @@ void step2(Graph &graph) {
 ```
 
 Il devient alors possible d'utiliser les librairies CAN et XBee pour tout contrôler depuis un programme unique.
-Pour plus de détails sur l'utilisation des codes fonction, vous pouvez consulter le code source des librairies.
+Pour plus de détails sur l'utilisation des codes fonction, le code source est disponible sur le Github.

@@ -16,7 +16,7 @@ D'abord, il faut activer `CAN1` (ou `CAN`) dans l'onglet `Connectivity` de votre
 - Time Quanta in Bit Segment 1 ($$t_{BS1}$$)
 - Time Quanta in Bit Segment 2 ($$t_{BS2}$$)
 
-Vous pouvez utiliser ce schéma pour vous aider à comprendre les différents paramètres :
+Le calcul du baudrate et les différents paramètres sont expliqués ci-dessous :
 ![CAN timing](/images/diagrams/CAN%20Timing.webp)
 
 Enfin, il faut tout cocher dans `NVIC Settings` pour activer les interruptions.
@@ -37,4 +37,4 @@ Pour envoyer un message :
 int send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t data[], uint data_len, bool is_rep, uint rep_len, uint msg_id)
 ```
 
-Pour gérer la réception des messages, referrez-vous cette [section](/communication/CAN/codes).
+Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes).

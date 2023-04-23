@@ -21,7 +21,7 @@ On obtient un signal d'environ 100Hz avec des cycles divisés en 4096 comptes.
 
 ## Utilisation de la librairie
 
-Si vous votre clock est configurée différemment, vous devez modifier les variables suivantes dans `edf30.h` :
+La librairie est configurable avec les paramètres suivants :
 - `EDF30_PWM_MAX ...` : Nombre de comptes maximum du timer
 - `EDF30_CHANNEL TIM_CHANNEL_x` : Channel utilisé pour le PWM
 
