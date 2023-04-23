@@ -7,12 +7,12 @@ subcategory: CAN
 subcategory_order: 1
 ---
 
-Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe) avec un Raspberry Pi.
+Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe){:target="_blank"} avec un Raspberry Pi.
 
 ### Installation
 
 Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
-- Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication)
+- Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager install Logs CAN`
 
 Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
@@ -68,7 +68,7 @@ Pour envoyer un message, il faut utiliser la méthode `Can::send` :
 int Can::send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t *data, uint8_t data_len, bool is_rep, uint8_t rep_len, uint8_t msg_id)
 ```
 
-Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes).
+Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes){:target="_blank"}.
 
 ### Bus CAN virtuel
 

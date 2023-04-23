@@ -20,8 +20,8 @@ typedef enum {
 > **Attention :** il faut absolument que les fichiers `can_vars.h` soient identiques pour les deux librairies.
 
 Le traitement des messages se fait dans :
-- `Can::process_resp` pour la [librairie Raspberry](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/src/can.cpp#L121)
-- `HAL_CAN_RxFifo0MsgPendingCallback` pour la [librairie STM32](https://github.com/RobotechNancy/Communication/blob/master/CAN/L432/Core/Src/can.c#L53)
+- `Can::process_resp` pour la [librairie Raspberry](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/src/can.cpp#L121){:target="_blank"}
+- `HAL_CAN_RxFifo0MsgPendingCallback` pour la [librairie STM32](https://github.com/RobotechNancy/Communication/blob/master/CAN/L432/Core/Src/can.c#L53){:target="_blank"}
 
 Dans les deux cas, il faut ajouter un `case` pour chaque code fonction :
 ```c

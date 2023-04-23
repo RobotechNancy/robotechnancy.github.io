@@ -14,14 +14,14 @@ Les modules XBee se connectent de la manière suivante :
 
 Un problème de communication peut avoir plusieures causes :
 - Une sous-tension (tension nominale : 3.3V)
-- Un mauvais paramétrage (utiliser [XCTU](https://www.digi.com/products/embedded-systems/digi-xbee/digi-xbee-tools/xctu))
+- Un mauvais paramétrage (utiliser [XCTU](https://www.digi.com/products/embedded-systems/digi-xbee/digi-xbee-tools/xctu){:target="_blank"})
 - Un mauvais branchement ou module défectueux
 - Les modules sont configurés différemment ou ne sont pas du même type
 
 ### Installation de la librairie
 
 Pour utiliser la librairie dans un projet, il faut d’abord l’installer :
-- Cloner le [dépôt](https://github.com/RobotechNancy/Communication)
+- Cloner le [dépôt](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager Logs Xbee`
 
 Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
@@ -78,7 +78,7 @@ Le module est configuré de la manière suivante :
 
 ### Utilisation
 
-Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33) et se gèrent dans la fonction [`XBee::processFctCode`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L448) :
+Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33){:target="_blank"} et se gèrent dans la fonction [`XBee::processFctCode`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L448){:target="_blank"}{:target="_blank"} :
 ```cpp
 switch (fct_code) {
     case XB_FCT_X:
@@ -92,7 +92,7 @@ switch (fct_code) {
 }
 ```
 
-Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L494) :
+Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L494){:target="_blank"} :
 ```cpp
 /*!
  *  @brief  Envoyer une trame structurée via UART au XBee
