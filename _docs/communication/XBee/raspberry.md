@@ -21,8 +21,8 @@ Un problème de communication peut avoir plusieures causes :
 ### Installation de la librairie
 
 Pour utiliser la librairie dans un projet, il faut d’abord l’installer :
-- Clonez le [dépôt](https://github.com/RobotechNancy/Communication)
-- Lancez la commande `./lib_manager Logs Xbee`
+- Cloner le [dépôt](https://github.com/RobotechNancy/Communication)
+- Lancer la commande `./lib_manager Logs Xbee`
 
 Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
 ```cmake
@@ -36,7 +36,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(LOGS REQUIRED Logs)
 pkg_check_modules(XBEE REQUIRED Xbee)
 
-# Ajoutez tous vos fichiers source dans "add_executable"
+# Ajouter tous les fichiers source dans "add_executable"
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} ${LOGS_LIBRARIES} ${XBEE_LIBRARIES})
 ```

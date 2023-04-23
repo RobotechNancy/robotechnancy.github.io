@@ -12,8 +12,8 @@ Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe
 ### Installation
 
 Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
-- Clonez le dépôt [Communication](https://github.com/RobotechNancy/Communication)
-- Lancez la commande `./lib_manager install Logs CAN`
+- Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication)
+- Lancer la commande `./lib_manager install Logs CAN`
 
 Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
 ```cmake
@@ -27,7 +27,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(LOGS REQUIRED Logs)
 pkg_check_modules(CAN REQUIRED CAN)
 
-# Ajoutez tous vos fichiers source dans "add_executable"
+# Ajouter tous les fichiers source dans "add_executable"
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} ${LOGS_LIBRARIES} ${CAN_LIBRARIES})
 ```
@@ -68,11 +68,11 @@ Pour envoyer un message, il faut utiliser la méthode `Can::send` :
 int Can::send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t *data, uint8_t data_len, bool is_rep, uint8_t rep_len, uint8_t msg_id)
 ```
 
-Pour gérer la réception des messages, referrez-vous cette [section](/communication/CAN/codes).
+Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes).
 
 ### Bus CAN virtuel
 
-Si vous n'avez pas de raspberry, vous pouvez utiliser le package `can-utils` pour créer un bus CAN virtuel et tester votre code :
+Le package `can-utils` peut être utilisé pour créer un bus CAN virtuel et tester votre code :
 ```bash
 # Installation
 sudo apt install can-utils
