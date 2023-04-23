@@ -7,7 +7,7 @@ subcategory: CAN
 subcategory_order: 1
 ---
 
-Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe) avec une STM32.
+Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe){:target="_blank"} avec une STM32.
 
 ### Configuration
 
@@ -37,4 +37,4 @@ Pour envoyer un message :
 int send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t data[], uint data_len, bool is_rep, uint rep_len, uint msg_id)
 ```
 
-Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes).
+Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes){:target="_blank"}.

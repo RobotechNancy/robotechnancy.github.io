@@ -5,7 +5,7 @@ category: Actionneurs
 category_order: 4
 ---
 
-Les turbines EDF30 sont contrôlées par [PWM](/actionneurs/pwm){:target="_blank} avec une [librairie custom](https://github.com/RobotechNancy/Actionneurs/tree/master/EDF30){:target="_blank"} :
+Les turbines EDF30 sont contrôlées par [PWM](/actionneurs/pwm){:target="_blank"} avec une [librairie custom](https://github.com/RobotechNancy/Actionneurs/tree/master/EDF30){:target="_blank"} :
 ![EDF30](/images/diagrams/EDF30.webp)
 
 Paramétrage de la clock sur STM32CubeMX :
