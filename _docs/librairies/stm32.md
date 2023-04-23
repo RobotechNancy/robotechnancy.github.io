@@ -6,9 +6,9 @@ category_order: 1
 ---
 
 Quelques options sont disponibles pour développer sur des microcontrôleurs STM32 :
-- [CLion](https://www.jetbrains.com/clion/) : IDE développé par JetBrains
-- [Arduino IDE](https://www.arduino.cc/en/Main/Software) : IDE développé par Arduino
-- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) : IDE développé par STMicroelectronics
+- [CLion](https://www.jetbrains.com/clion/){:target="_blank"} : IDE développé par JetBrains
+- [Arduino IDE](https://www.arduino.cc/en/Main/Software){:target="_blank"} : IDE développé par Arduino
+- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html){:target="_blank"} : IDE développé par STMicroelectronics
 
 Bien que CubeIDE offre une expérience clé en main (compilation, téléversement, debug) :
 - CLion est plus personnalisable et plus performant
@@ -20,11 +20,11 @@ Bien que CubeIDE offre une expérience clé en main (compilation, téléversemen
 
 ### Arduino IDE
 
-L'IDE Arduino est gratuit est téléchargeable [ici](https://www.arduino.cc/en/software) pour toutes les plateformes.
+L'IDE Arduino est gratuit est téléchargeable [ici](https://www.arduino.cc/en/software){:target="_blank"} pour toutes les plateformes.
 Ce tutoriel s'appuie sur la V2 du logiciel mais les étapes sont identiques à la V1.
 
 D'abord, il faut installer le Boards Manager STM32 :
-- Aller dans `File > Preferences` et spécifier [ce lien](https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json) (Image 1)
+- Aller dans `File > Preferences` et spécifier [ce lien](https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json){:target="_blank"} (Image 1)
 - Aller dans `Tools > Board > Boards Manager` et installer `STM32 MCU based boards` (Image 2)
 
 ![Ajout Boards Manager](/images/IDEs/AIDE%20BM1.webp){:.inline-img}
@@ -36,7 +36,7 @@ Maintenant, on sélectionne notre carte :
 
 ### CLion
 
-[CLion](https://www.jetbrains.com/clion/download/) est normalement payant mais il est gratuit pour les [étudiants](https://www.jetbrains.com/shop/eform/students).
+[CLion](https://www.jetbrains.com/clion/download/) est normalement payant mais il est gratuit pour les [étudiants](https://www.jetbrains.com/shop/eform/students){:target="_blank"}.
 
 Une fois l'IDE installé, il faut installer quelques librairies :
 ```bash
@@ -59,11 +59,11 @@ Deux options pour créer un projet CLion :
 - Ouvrir un projet STM32 existant, la configuration se fait automatiquement
 - Créer un nouveau projet (`File > New Project > STM32CubeMX`)
 
-La sélection et la configuration de la carte (`.ioc`) se fait avec [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) et se passe de la même manière que pour STM32CubeIDE (cf. section `STM32CubeIDE`).
+La sélection et la configuration de la carte (`.ioc`) se fait avec [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html){:target="_blank"} et se passe de la même manière que pour STM32CubeIDE (cf. section `STM32CubeIDE`).
 
 ### STM32CubeIDE
 
-[STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) est l'IDE officiel de STMicroelectronics.
+[STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html){:target="_blank"} est l'IDE officiel de STMicroelectronics.
 Il est gratuit mais nécessite un compte STM ou de fournir un nom, prénom et adresse mail.
 
 Pour créer un nouveau projet :
@@ -76,5 +76,5 @@ Il est aussi possible d'ouvrir un projet existant :
 - Aller dans `File > Open Projects from File System...`
 - Sélectionner le dossier du projet puis `Finish`
 
-Avec CubeIDE, la confuguration de la carte est directement intégrée dans l'IDE, mais passe quand même par [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) :
+Avec CubeIDE, la confuguration de la carte est directement intégrée dans l'IDE, mais passe quand même par [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html){:target="_blank"} :
 ![Configuration de la carte](/images/IDEs/CubeMX.webp)

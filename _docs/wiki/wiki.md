@@ -5,12 +5,12 @@ category: Wiki
 category_order: 6
 ---
 
-Ce wiki utilise [Jekyll](https://jekyllrb.com/) et [Github Pages](https://pages.github.com/) :
-- La configuration de l'hébergement se fait [ici](https://github.com/RobotechNancy/robotechnancy.github.io/settings/pages)
-- Toutes les pages sont rendues côté serveur avec [Liquid](https://shopify.github.io/liquid/)
-- Chaque page est correspond à un fichier Markdown dans le dossier [`_docs`](https://github.com/RobotechNancy/robotechnancy.github.io/tree/master/_docs)
-- Le site est reconstruit automatiquement à chaque commit sur la branche [`master`](https://github.com/RobotechNancy/robotechnancy.github.io)
-- La base commune à chaque page est contenue dans le fichier [`_layouts/default.html`](https://github.com/RobotechNancy/robotechnancy.github.io/blob/master/_layouts/default.html)
+Ce wiki utilise [Jekyll](https://jekyllrb.com/){:target="_blank"} et [Github Pages](https://pages.github.com/){:target="_blank"} :
+- La configuration de l'hébergement se fait [ici](https://github.com/RobotechNancy/robotechnancy.github.io/settings/pages){:target="_blank"}
+- Toutes les pages sont rendues côté serveur avec [Liquid](https://shopify.github.io/liquid/){:target="_blank"}
+- Chaque page est correspond à un fichier Markdown dans le dossier [`_docs`](https://github.com/RobotechNancy/robotechnancy.github.io/tree/master/_docs){:target="_blank"}
+- Le site est reconstruit automatiquement à chaque commit sur la branche [`master`](https://github.com/RobotechNancy/robotechnancy.github.io){:target="_blank"}
+- La base commune à chaque page est contenue dans le fichier [`_layouts/default.html`](https://github.com/RobotechNancy/robotechnancy.github.io/blob/master/_layouts/default.html){:target="_blank"}
 
 ### Ajouter une page
 

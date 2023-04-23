@@ -17,4 +17,4 @@ Le wiki couvre les sujets suivants :
 - Le gestionnaire de graphe pour la stratégie
 - La gestion de ce wiki  
 
-> Ce wiki est une version modifiée de la template [Edition](https://github.com/CloudCannon/edition-jekyll-template)
+> Ce wiki est une version modifiée de la template [Edition](https://github.com/CloudCannon/edition-jekyll-template){:target="_blank"}

@@ -15,8 +15,8 @@ sudo dnf install cmake make gcc gcc-c++
 ```
 
 Quant à l'IDE, plusieurs options sont disponibles :
-- [CLion](https://www.jetbrains.com/clion/), payant mais gratuit pour les étudiants
-- [Visual Studio Code](https://code.visualstudio.com/), gratuit et multi-plateformes
+- [CLion](https://www.jetbrains.com/clion/){:target="_blank"}, payant mais gratuit pour les étudiants
+- [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}, gratuit et multi-plateformes
 - N'importe quel éditeur de texte (nano, vim, emacs, etc.) et un terminal
 
 ### Création d'un software
