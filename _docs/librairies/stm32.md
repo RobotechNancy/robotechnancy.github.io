@@ -25,7 +25,7 @@ Ce tutoriel s'appuie sur la V2 du logiciel mais les étapes sont identiques à l
 
 D'abord, il faut installer le Boards Manager STM32 :
 - Aller dans `File > Preferences` et spécifiez [ce lien](https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json) (Image 1)
-- Aller dans `Tools > Board > Boards Manager` et installez`STM32 MCU based boards` (Image 2)
+- Aller dans `Tools > Board > Boards Manager` et installez `STM32 MCU based boards` (Image 2)
 
 ![Ajout Boards Manager](/images/IDEs/AIDE%20BM1.webp){:.inline-img}
 ![Installation Boards Manager STM32](/images/IDEs/AIDE%20BM2.webp){:.inline-img}
