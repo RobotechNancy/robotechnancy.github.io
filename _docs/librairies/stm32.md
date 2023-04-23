@@ -36,7 +36,7 @@ Maintenant, on sélectionne notre carte :
 
 ### CLion
 
-[CLion](https://www.jetbrains.com/clion/download/) est normalement payant mais il est gratuit pour les [étudiants](https://www.jetbrains.com/shop/eform/students){:target="_blank"}.
+[CLion](https://www.jetbrains.com/clion/download/){:target="_blank"} est normalement payant mais il est gratuit pour les [étudiants](https://www.jetbrains.com/shop/eform/students){:target="_blank"}.
 
 Une fois l'IDE installé, il faut installer quelques librairies :
 ```bash
