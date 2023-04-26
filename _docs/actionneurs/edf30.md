@@ -19,7 +19,7 @@ On obtient un signal d'environ 100Hz avec des cycles divisés en 4096 comptes.
 
 <br>
 
-## Utilisation de la librairie
+### Utilisation de la librairie
 
 La librairie est configurable avec les paramètres suivants :
 - `EDF30_PWM_MAX ...` : Nombre de comptes maximum du timer
