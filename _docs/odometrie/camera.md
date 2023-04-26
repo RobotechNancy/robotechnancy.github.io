@@ -24,10 +24,13 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
   git clone https://github.com/opencv/opencv.git
   mkdir opencv/build && cd opencv/build && mkdir modules
 
-  sudo apt install git-svn # ou sudo dnf install svn
+  sudo apt-get install subversion
+  sudo apt-get install libapache2-mod-svn 
+  # ou sudo dnf install svn
   svn export https://github.com/opencv/opencv_contrib/trunk/modules/aruco
   mv aruco modules
-
+  
+  sudo apt install cmake
   cmake -DOPENCV_EXTRA_MODULES_PATH=./opencv_contrib/modules ..
   sudo make install -j$(nproc)
   ```
