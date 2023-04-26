@@ -32,9 +32,25 @@ int main(void) {
 }
 ```
 
-Pour envoyer un message :
+Pour envoyer un message, il faut utiliser la fonction suivante :
 ```c
 int send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t data[], uint data_len, bool is_rep, uint rep_len, uint msg_id)
 ```
 
-Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes){:target="_blank"}.
+La librairie STM32 utilise le fichier [`can_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"} de la librairie Raspberry.
+Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
+- Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
+- Ajouter le chemin `/usr/local/include` dans `Include paths (-l)` puis `Apply and Close` :
+![STM32CubeIDE linker](/images/IDEs/CubeIDE%20linker.webp)
+
+Il devient alors possible de gérer les messages reçus avec dans la fonction suivante :
+```c
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+    // ...
+
+    switch (msg.fct_code) {
+        VOTRE_CODE_FCT:
+            // ...
+            break;
+    }
+```

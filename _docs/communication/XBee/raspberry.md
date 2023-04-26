@@ -52,11 +52,11 @@ int main() {
     int status = xbee.openSerialConnection();
 
     if (status != XB_SER_E_SUCCESS) {
-        std::cout << "Error while opening serial connection : " << status << std::endl;
+        cout << "Erreur à l'établissement de la connection série : " << status << endl;
         return status;
     }
 
-    thread listenThread(&XBee::waitForATrame, &xbee);
+    // ...
 }
 ```
 
@@ -78,18 +78,9 @@ Le module est configuré de la manière suivante :
 
 ### Utilisation
 
-Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33){:target="_blank"} et se gèrent dans la fonction [`XBee::processFctCode`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L448){:target="_blank"}{:target="_blank"} :
+Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33){:target="_blank"} et se gèrent avec la méthode `XBee::subscribe` :
 ```cpp
-switch (fct_code) {
-    case XB_FCT_X:
-        // ...
-    break;
-    case XB_FCT_Y:
-        // ...
-    break;
-    default :
-        // Code inconnu
-}
+xbee.subscribe(XBEE_FCT_CODE, callback);
 ```
 
 Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L494){:target="_blank"} :

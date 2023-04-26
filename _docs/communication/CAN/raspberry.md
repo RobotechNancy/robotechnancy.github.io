@@ -40,15 +40,14 @@ Pour commencer à écouter et envoyer des messages sur le bus CAN, il faut d'abo
 
 int main() {
     Can can;
-    int status = can.init(CAN_ADDR_RASPBERRY_E);
-
-    if(status < 0){
-      can.logger << "Erreur dans l'initialisation du CAN (n°" << dec << status << ")" << mendl;
+    int err = can.init(CAN_ADDR_RASPBERRY_E);
+    
+    if(err < 0){
+      can.logger << "Erreur dans l'initialisation du CAN (n°" << dec << err << ")" << mendl;
       return err;
     }
 
-    // Démarrer la gestion des messages reçus
-    can.start_listen();
+    // ...
 }
 ```
 
@@ -68,7 +67,17 @@ Pour envoyer un message, il faut utiliser la méthode `Can::send` :
 int Can::send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t *data, uint8_t data_len, bool is_rep, uint8_t rep_len, uint8_t msg_id)
 ```
 
-Pour gérer la réception des messages, se referrer à cette [section](/communication/CAN/codes){:target="_blank"}.
+Pour gérer la réception d'un [code fonction](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"}, il faut utiliser la méthode `Can::subscribe` :
+```cpp
+// Plus d'infos sur les lambdas : https://www.geeksforgeeks.org/lambda-expression-in-c/
+can.subscribe(VOTRE_CODE_FONCTION, [](const can_mess_t& message) {
+    // Ce code est appelé à chaque réception d'un message portant VOTRE_CODE_FONCTION
+    std::cout << "J'ai reçu un message portant " << VOTRE_CODE_FONCTION << std::endl;
+});
+```
+
+{:.warning}
+> Il faut déclarer tous les `can.subscribe(..)` avant d'appeler `can.start_listen()` sinon les messages ne seront pas traités.
 
 ### Bus CAN virtuel
 
