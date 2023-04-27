@@ -31,7 +31,7 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
   mv aruco modules
   
   sudo apt install cmake
-  cmake -DOPENCV_EXTRA_MODULES_PATH=./opencv_contrib/modules ..
+  cmake -DOPENCV_EXTRA_MODULES_PATH=./modules ..
   sudo make install -j$(nproc)
   ```
 
