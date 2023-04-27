@@ -13,7 +13,7 @@ Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe
 
 Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
 - Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication){:target="_blank"}
-- Lancer la commande `./lib_manager install Logs CAN`
+- Lancer la commande `./lib_manager install Logs CAN/Raspberry`
 
 Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
 ```cmake
