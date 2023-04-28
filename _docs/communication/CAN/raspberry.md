@@ -15,7 +15,7 @@ Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
 - Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager install Logs CAN/Raspberry`
 
-Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
+Ensuite, il faut ajouter la librairie dans le fichier [`CMakeLists.txt` du projet](/librairies/raspberry/#création-dun-software){:target="_blank"} :
 ```cmake
 # Cette section à modifier selon votre projet
 project(my_project)
@@ -53,31 +53,39 @@ int main() {
 
 Pour envoyer un message, il faut utiliser la méthode `Can::send` :
 ```cpp
-/*!
- * @brief  Envoyer un message sur le bus CAN
- * @param  addr L'adresse du récepteur
- * @param  fct_code Le code fonction
- * @param  data Les données à envoyer
- * @param  data_len La taille des données
- * @param  is_rep Si le message est une réponse
- * @param  rep_len Le nombre de réponses attendues
- * @param  msg_id L'identifiant du message
- * @return 0 ou un code d'erreur
- */
-int Can::send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t *data, uint8_t data_len, bool is_rep, uint8_t rep_len, uint8_t msg_id)
+uint8_t data[1] = {0x10};
+
+// CAN_ADDR_BROADCAST    : adresse de destination
+// FCT_ACCUSER_RECPETION : code fonction
+// data                  : données à envoyer
+// 1                     : taille des données
+// false                 : Si le message est divisé en plusieurs paquets
+// 0                     : Si le message est divisé, le nombre de paquets
+// 0                     : Identifiant du message
+can.send(CAN_ADDR_BROADCAST, FCT_ACCUSER_RECPETION, data, 1, false, 0, 0);
 ```
 
 Pour gérer la réception d'un [code fonction](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"}, il faut utiliser la méthode `Can::subscribe` :
 ```cpp
-// Plus d'infos sur les lambdas : https://www.geeksforgeeks.org/lambda-expression-in-c/
+// Lier une fonction à un code fonction
+void my_function(const can_mess_t& message) {
+    // ..
+}
+
+can.subscribe(VOTRE_CODE_FONCTION, my_function);
+
+
+// Lier un lambda à un code fonctino
 can.subscribe(VOTRE_CODE_FONCTION, [](const can_mess_t& message) {
-    // Ce code est appelé à chaque réception d'un message portant VOTRE_CODE_FONCTION
-    std::cout << "J'ai reçu un message portant " << VOTRE_CODE_FONCTION << std::endl;
+    // ..
 });
 ```
 
 {:.warning}
 > Il faut déclarer tous les `can.subscribe(..)` avant d'appeler `can.start_listen()` sinon les messages ne seront pas traités.
+
+> **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `can_mess_t` et ne retourne rien.
+> Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
 
 ### Bus CAN virtuel
 
