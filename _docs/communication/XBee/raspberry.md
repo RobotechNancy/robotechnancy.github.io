@@ -83,7 +83,7 @@ Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://
 xbee.subscribe(XBEE_FCT_CODE, callback);
 ```
 
-Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L494){:target="_blank"} :
+Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L454){:target="_blank"} :
 ```cpp
 /*!
  *  @brief  Envoyer une trame structurée via UART au XBee
