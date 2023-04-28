@@ -45,7 +45,7 @@ target_link_libraries(${PROJECT_NAME} ${LOGS_LIBRARIES} ${XBEE_LIBRARIES})
 
 Le module XBee s'initialise de la manière suivante :
 ```cpp
-#include "include/xbee.h"
+#include "robotech/xbee.h"
 
 int main() {
     XBee xbee;
