@@ -93,5 +93,5 @@ Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https:
  *  @return 200 Succès
  *  @return -205 La taille des données est trop grande
  */
-int XBee::sendFrame(uint8_t dest, uint8_t fct_code, const char *data, int data_len)
+int XBee::sendFrame(uint8_t dest, uint8_t fct_code, const vector<int>& data, int data_len)
 ```
