@@ -24,7 +24,7 @@ Pour utiliser la librairie dans un projet, il faut d’abord l’installer :
 - Cloner le [dépôt](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager Logs Xbee`
 
-Ensuite, il faut ajouter la librairie dans le fichier `CMakeLists.txt` du projet :
+Ensuite, il faut ajouter la librairie dans le fichier [`CMakeLists.txt` du projet](/librairies/raspberry/#création-dun-software){:target="_blank"} :
 ```cmake
 # Cette section à modifier selon votre projet
 project(my_project)
@@ -48,7 +48,9 @@ Le module XBee s'initialise de la manière suivante :
 #include "robotech/xbee.h"
 
 int main() {
-    XBee xbee;
+    // On initialise le module XBee en spécifiant le port série et l'adresse du module
+    XBee xbee("/dev/ttyS0", XB_ADR_ROBOT_1);
+
     int status = xbee.openSerialConnection();
 
     if (status != XB_SER_E_SUCCESS) {
@@ -59,6 +61,9 @@ int main() {
     // ...
 }
 ```
+
+> **Note :** Le port série `/dev/ttyS0` est le port UART du Raspberry Pi.
+> Il est possible que le port soit différent sur votre ordinateur (`/dev/ttyUSB0` par exemple).
 
 Le module est configuré de la manière suivante :
 
@@ -80,18 +85,34 @@ Le module est configuré de la manière suivante :
 
 Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33){:target="_blank"} et se gèrent avec la méthode `XBee::subscribe` :
 ```cpp
-xbee.subscribe(XBEE_FCT_CODE, callback);
+// Lier une fonction à un code fonction
+void my_function(const frame_t& frame) {
+    // ...
+}
+
+xbee.subscribe(XB_FCT_CODE, my_function);
+
+
+// Lier une fonction lambda à un code fonction
+xbee.subscribe(XB_FCT_CODE, [](const frame_t& frame) {
+    // ...
+});
 ```
+
+{:.warning}
+> Il faut déclarer tous les `xbee.subscribe(..)` avant de démarrer le thread d'écoute.
+
+> **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `frame_t` et ne retourne rien.
+> Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
 
 Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L454){:target="_blank"} :
 ```cpp
-/*!
- *  @brief  Envoyer une trame structurée via UART au XBee
- *  @param  dest L'adresse du destinataire du message
- *  @param  fct_code Le code de la fonction concernée par le message
- *  @param  data Les valeurs des paramètres demandées par le code fonction
- *  @return 200 Succès
- *  @return -205 La taille des données est trop grande
- */
-int XBee::sendFrame(uint8_t dest, uint8_t fct_code, const vector<int>& data, int data_len)
+std::vector<uint8_t> data = {1, 2, 3};
+
+xbee.sendFrame(
+    XB_ADR_ROBOT_1, // Destinataire
+    XB_FCT_CODE,    // Code fonction
+    data,           // Données
+    3               // Nombre de données
+)
 ```
