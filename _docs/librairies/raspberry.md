@@ -61,8 +61,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 1)
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...")
 
 # Inclure les sous-dossiers de votre projet (ici, "include" et "src")
-target_include_directories(${PROJECT_NAME} PRIVATE include)
-target_include_directories(${PROJECT_NAME} PRIVATE src)
+target_include_directories(${PROJECT_NAME} PRIVATE include src)
 
 include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME}
