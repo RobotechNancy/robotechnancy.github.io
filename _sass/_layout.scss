@@ -1,8 +1,3 @@
-input::-ms-clear,
-input::-ms-reveal {
-	display: none !important;
-}
-
 body {
 	height: auto;
 	overflow-x: hidden;
@@ -11,8 +6,7 @@ body {
 	&.nav-open {
 		overflow: hidden;
 
-		nav,
-		header > form {
+		nav, header > form {
 			display: block;
 		}
 
@@ -25,17 +19,6 @@ body {
 		background-color: var(--content-background-color);
 	}
 
-	&::before {
-		content: "";
-		background-color: var(--content-background-color);
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-	}
-
 	@media (min-width: $mobile-break) {
 		padding: 0 0 0 $nav-width;
 
@@ -43,46 +26,12 @@ body {
 			overflow: auto;
 		}
 
-		&::after,
-		&::before {
-			content: "";
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			z-index: -1;
-		}
-
-		&::after {
-			left: 0;
-			width: $nav-width;
-			background-color: var(--nav-background-color);
-		}
-
-		#search-input,
-		&::after {
+		#search-input {
 			box-shadow: inset -10px 0 10px -10px var(--box-shadow-color);
 		}
-
-		&::before {
-			left: $nav-width;
-			right: 0;
-			background-color: var(--content-background-color);
-		}
 	}
 }
 
-.main {
-	margin-top: $space + $nav-header-height;
-
-	img {
-		display: block;
-		margin: .5em auto 1em auto;
-	}
-
-	@media (min-width: $mobile-break) {
-		margin-top: 0;
-	}
-}
 
 header {
 	$emblem-size: 35px;
@@ -93,8 +42,8 @@ header {
 	top: 0;
 	left: 0;
 	right: 0;
-	overflow-x: hidden;
 	z-index: 1;
+	overflow-x: hidden;
 
 	color: var(--content-color);
 	background-color: var(--nav-background-color);
@@ -187,10 +136,11 @@ header {
 	}
 
 	@media (min-width: $mobile-break) {
-		background-color: transparent;
 		width: $nav-width;
+		height: 100vh;
 		right: auto;
 		bottom: auto;
+		box-shadow: inset -10px 0 10px -10px var(--box-shadow-color);
 
 		.open-nav {
 			display: none;
@@ -202,73 +152,6 @@ header {
 	}
 }
 
-
-.content {
-	position: relative;
-	background-color: var(--content-background-color);
-	color: var(--content-color);
-
-	h3 {
-		margin-top: 60px;
-		position: relative;
-		cursor: pointer;
-
-		&:hover::before {
-			content: '﹟';
-			position: absolute;
-			left: -25px;
-			bottom: 3px;
-			color: #888;
-		}
-	}
-
-	p {
-		margin-bottom: .5em;
-	}
-}
-
-.content,
-.page-header {
-	max-width: $content-max-width;
-	padding: 0 ($space + 5) $space;
-	margin: $space auto 0 auto;
-}
-
-.page-header {
-	h2,
-	h3 {
-		color: var(--content-color);
-		margin: 0;
-		line-height: 1.2;
-		letter-spacing: -1px;
-	}
-
-	h2 {
-		font-size: 2rem;
-		margin-left: -1px;
-		color: #888;
-		letter-spacing: 0;
-	}
-
-	h3 {
-		font-size: 4rem;
-		margin-left: -4px;
-	}
-
-	@media (min-width: $mobile-break) {
-		h2 {
-			font-size: 2.65rem;
-		}
-
-		h3 {
-			font-size: 5.4rem;
-		}
-	}
-
-	@media (min-width: $full-width-break) {
-		margin-top: 55px;
-	}
-}
 
 nav,
 header > form {
@@ -324,29 +207,89 @@ nav > ul {
 	}
 }
 
-h3 + .warning {
-	margin-top: 1.75em;
+
+.main {
+	margin-top: $space + $nav-header-height;
+
+	img {
+		display: block;
+		margin: .5em auto 1em auto;
+	}
+
+	@media (min-width: $mobile-break) {
+		margin-top: 0;
+	}
 }
 
 
-h4 code {
-	background: var(--nav-background-color);
-	color: var(--content-color);
-	background-color: transparent;
-	font-weight: 700;
-	padding: 0;
-	font-size: 1.1em;
-	line-height: 1;
-}
-
-h4 svg {
-	vertical-align: middle;
-	margin-right: 6px;
+.content {
 	position: relative;
-	top: -2px;
-	fill: #2E2E2E;
-	height: 23px;
+	background-color: var(--content-background-color);
+	color: var(--content-color);
+
+	h3 {
+		margin-top: 60px;
+		position: relative;
+		cursor: pointer;
+
+		&:hover::before {
+			content: '﹟';
+			position: absolute;
+			left: -25px;
+			bottom: 3px;
+			color: #888;
+		}
+	}
+
+	p {
+		margin-bottom: .5em;
+	}
 }
+
+
+.content,
+.page-header {
+	max-width: $content-max-width;
+	padding: 0 ($space + 5) $space;
+	margin: $space auto 0 auto;
+}
+
+.page-header {
+	h2,
+	h3 {
+		color: var(--content-color);
+		margin: 0;
+		line-height: 1.2;
+		letter-spacing: -1px;
+	}
+
+	h2 {
+		font-size: 2rem;
+		margin-left: -1px;
+		color: #888;
+		letter-spacing: 0;
+	}
+
+	h3 {
+		font-size: 4rem;
+		margin-left: -4px;
+	}
+
+	@media (min-width: $mobile-break) {
+		h2 {
+			font-size: 2.65rem;
+		}
+
+		h3 {
+			font-size: 5.4rem;
+		}
+	}
+
+	@media (min-width: $full-width-break) {
+		margin-top: 55px;
+	}
+}
+
 
 #search-results {
 	margin: 0;
@@ -394,6 +337,7 @@ h4 svg {
 	}
 }
 
+
 blockquote {
 	border-left: 5px solid var(--brand-colour);
 	padding: 10px 15px;
@@ -414,6 +358,7 @@ blockquote {
 		margin-right: 0;
 	}
 }
+
 
 img {
 	max-width: 100%;
