@@ -32,7 +32,7 @@
 	.ld { color: var(--content-color)} /* Literal.Date */
 	.m { color: var(--string-color)} /* Literal.Number */
 	.s { color: var(--string-color)} /* Literal.String */
-	.na { color: #8CF0E8} /* Name.Attribute */
+	.na { color: var(--name-attr-color)} /* Name.Attribute */
 	.nb { color: var(--content-color)} /* Name.Builtin */
 	.nc { color: var(--content-color)} /* Name.Class */
 	.no { color: #ffa0a0} /* Name.Constant */
