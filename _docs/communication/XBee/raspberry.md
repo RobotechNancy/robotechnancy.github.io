@@ -22,23 +22,22 @@ Un problème de communication peut avoir plusieures causes :
 
 Pour utiliser la librairie dans un projet, il faut d’abord l’installer :
 - Cloner le [dépôt](https://github.com/RobotechNancy/Communication){:target="_blank"}
-- Lancer la commande `./lib_manager Logs Xbee`
+- Lancer la commande `./lib_manager Logs XBee`
 
 Ensuite, il faut ajouter la librairie dans le fichier [`CMakeLists.txt` du projet](/librairies/raspberry/#création-dun-software){:target="_blank"} :
 ```cmake
 # Cette section à modifier selon votre projet
 project(my_project)
 set(CMAKE_CXX_STANDARD 20)
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.16)
 
-# La librairie CAN nécessite aussi la librairie Logs
+# Ajout des dépendances avec pkg-config
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(LOGS REQUIRED Logs)
-pkg_check_modules(XBEE REQUIRED Xbee)
+pkg_check_modules(XBEE REQUIRED XBee)
 
 # Ajouter tous les fichiers source dans "add_executable"
 add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} ${LOGS_LIBRARIES} ${XBEE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${XBEE_LIBRARIES})
 ```
 
 ### Initialisation

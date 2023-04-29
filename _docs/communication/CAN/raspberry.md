@@ -20,16 +20,15 @@ Ensuite, il faut ajouter la librairie dans le fichier [`CMakeLists.txt` du proje
 # Cette section à modifier selon votre projet
 project(my_project)
 set(CMAKE_CXX_STANDARD 20)
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.16)
 
-# La librairie CAN nécessite aussi la librairie Logs
+# Ajout des dépendances avec pkg-config
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(LOGS REQUIRED Logs)
 pkg_check_modules(CAN REQUIRED CAN)
 
 # Ajouter tous les fichiers source dans "add_executable"
 add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} ${LOGS_LIBRARIES} ${CAN_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${CAN_LIBRARIES})
 ```
 
 ### Utilisation
