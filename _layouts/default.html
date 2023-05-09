@@ -14,14 +14,16 @@
 		<meta property="og:description" content="{{ site.description }}">
 		<meta data-react-helmet="true" name="theme-color" content="#3583d6" />
 
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+		<link rel="preload" href="{{ site.baseurl }}/css/main.css" as="style">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+
+		<link rel="preload" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap" as="style">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/images/icons/apple-touch-icon.webp">
 		<link rel="icon" type="image/webp" href="{{ site.baseurl }}/images/icons/touch-icon.webp" sizes="192x192">
 		<link rel="icon" type="image/webp" href="{{ site.baseurl }}/images/icons/favicon.webp">
 
-		<link rel="preload" href="{{ site.baseurl }}/css/main.css" as="style">
-		<link rel="preload" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap" as="style">
 	</head>
 
 	<body>
@@ -31,7 +33,7 @@
 					<img src="{{ site.baseurl }}/images/icons/emblem.svg" width="40" height="40" alt="{{ site.title }} logo">
 					<span>{{ site.title }}</span>
 				</a>
-				<button type="button" class="open-nav" id="open-nav"></button>
+				<button type="button" class="open-nav" id="open-nav" aria-label="Ouvrir la navigation"></button>
 			</h1>
 
 			<form action="{{ site.baseurl }}/search" method="get">
