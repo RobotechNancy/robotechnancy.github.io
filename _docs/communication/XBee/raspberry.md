@@ -99,7 +99,7 @@ xbee.subscribe(XB_FCT_CODE, [](const frame_t& frame) {
 ```
 
 {:.warning}
-> Il faut déclarer tous les `xbee.subscribe(..)` avant de démarrer le thread d'écoute.
+> Il faut déclarer tous les `xbee.subscribe(..)` avant d'appeler `xbee.start_listen()`
 
 > **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `frame_t` et ne retourne rien.
 > Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
