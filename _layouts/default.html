@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title>{{ site.title }} - {{ page.title }}</title>
@@ -14,11 +14,14 @@
 		<meta property="og:description" content="{{ site.description }}">
 		<meta data-react-helmet="true" name="theme-color" content="#3583d6" />
 
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/images/icons/apple-touch-icon.webp">
 		<link rel="icon" type="image/webp" href="{{ site.baseurl }}/images/icons/touch-icon.webp" sizes="192x192">
 		<link rel="icon" type="image/webp" href="{{ site.baseurl }}/images/icons/favicon.webp">
+
+		<link rel="preload" href="{{ site.baseurl }}/css/main.css" as="style">
+		<link rel="preload" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap" as="style">
 	</head>
 
 	<body>
@@ -97,26 +100,22 @@
 				});
 			});
 
-			let active = document.getElementById("active");
-
 			function changeActive(newActive) {
+				let active = document.getElementById("active");
 				newActive = newActive.parentNode;
 
 				if (active == newActive) {
-					newActive.removeAttribute("id");
-					active = null;
+					active.removeAttribute("id");
 					return;
 				}
 
 				if (active == null) {
 					newActive.id = "active";
-					active = newActive;
 					return;
 				}
 
 				active.removeAttribute("id");
 				newActive.id = "active";
-				active = newActive;
 			}
 
 			function onKeyDown(event, element) {
@@ -125,9 +124,6 @@
 					changeActive(element);
 				}
 			}
-		</script>
-		<script type="text/javascript" id="MathJax-script" async
-			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 		</script>
 	</body>
 </html>
