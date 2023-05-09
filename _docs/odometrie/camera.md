@@ -42,13 +42,13 @@ Pour avoir une meilleure détection, il est nécessaire de déterminer plusieurs
 
   ```bash
   # Longueurs en pixels
-  ./aruco board <markersX> <markersY> <markerLength> <markerSeparation>
+  ./aruco board <markersX> <markersY> <markerLenght> <markerSeparation>
   ```
 - Lancer le script de calibration
   
   ```bash
   # Longueurs en cm
-  ./aruco calib <markersX> <markersY> <markerLength> <markerSeparation>
+  ./aruco calib <detectorParamsPath> <markersX> <markersY> <markerLenght> <markerSeparation>
   ```
 - Capturer une image avec la caméra en appuyant sur `c`
 - Une fois plusieurs points de vue capturés, appuyer sur `ECHAP`
@@ -59,7 +59,7 @@ Si tout s'est bien passé, un fichier `camera_params.yml` a été créé contena
 
 Pour lancer il suffit d'exécuter la commande :
 ```bash
-./aruco <markerLen> <port XBee> <chemin camera_params.yml>
+./aruco <detectorParamsPath> <cameraParamsPath> <markerLength> <XBeePort>
 ```
 
 Pour plus de détails, voir le code source de la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tree/master/camera_aruco){:target="_blank"}
