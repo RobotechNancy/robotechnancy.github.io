@@ -113,10 +113,10 @@ cansend vcan0 0x110#1122334455667788
 Pour utiliser le bus CAN réel, il faut d'abord connecter le Raspberry Pi au shield :
 ![Circuit](/images/diagrams/CAN%20Raspberry.webp)
 
-Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/firmware/config.txt` :
+Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/config.txt` (à la fin) :
 ```
-dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
-# 12000000 dépend du quartz utilisé (souvent 12000000 ou 8000000)
+# S'assurer que l'interface SPI est activée (dtparam=spi=on)    
+dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25,spimaxfrequency=2000000
 ```
 
 Enfin, il faut démarrer le bus CAN :
