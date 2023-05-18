@@ -104,14 +104,10 @@ xbee.subscribe(XB_FCT_CODE, [](const frame_t& frame) {
 > **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `frame_t` et ne retourne rien.
 > Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
 
-Pour envoyer un message, il faut utiliser la fonction [`XBee::sendFrame`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/src/xbee.cpp#L454){:target="_blank"} :
+Pour attendre une réponse à une demande, il faut utiliter la fonction `XBee::wait_for_response` :
 ```cpp
-std::vector<uint8_t> data = {1, 2, 3};
+std::vector<uint8_t> data = {1};
+xbee.sendFrame(XB_ADR_ROBOT_1, XB_FCT_GET_POS, data, 1);
 
-xbee.sendFrame(
-    XB_ADR_ROBOT_1, // Destinataire
-    XB_FCT_CODE,    // Code fonction
-    data,           // Données
-    3               // Nombre de données
-)
+xbee_frame_t frame = xbee.wait_for_response(XB_FCT_GET_POS, 5000); // 5 secondes d'attente max
 ```

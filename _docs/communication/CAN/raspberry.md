@@ -86,6 +86,20 @@ can.subscribe(VOTRE_CODE_FONCTION, [](const can_mess_t& message) {
 > **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `can_mess_t` et ne retourne rien.
 > Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
 
+Si vous attendez une réponse à un message, il faut utiliser la méthode `Can::wait_for_response` :
+```cpp
+can.send(CAN_ADDR_ODOMETRIE, FCT_GET_OPTIQUE, nullptr, 0, false, 1, 0);
+
+// Attente de 5 secondes max
+can_mess_t response = can.wait_for_response(FCT_TEST_COMM, 5000);
+
+if (response.fct_code == 0) {
+    // Aucune réponse reçue
+} else {
+    // Réponse reçue
+}
+```
+
 ### Bus CAN virtuel
 
 Le package `can-utils` peut être utilisé pour créer un bus CAN virtuel et tester votre code :
