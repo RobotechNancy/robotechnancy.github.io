@@ -26,22 +26,22 @@ On envoie à la suite les trames pour chaque LED selon le schéma suivant :
 
 `Pinout & Configuration` :
 `Timers` :
-	`TIM1` :
+	- `TIM1` :
 	Choisir un channel, sélectionner `internal clock` en `Clock source`
-`Parameter Settings`
-	Prescaler		0
-	Counter Mode	Up
-	Counter Period	95
-	Internal Cloc...	No Division
-	Repetition Co...	0
-	auto-reload p...	Disable
+`Parameter Settings` :
+	- Prescaler		0
+	- Counter Mode	Up
+	- Counter Period	95
+	- Internal Cloc...	No Division
+	- Repetition Co...	0
+	- auto-reload p...	Disable
 	
 `DMA Settings` :
-	Direction :	Memory to Peripheral
-	Priority :	Very High
+	- Direction :	Memory to Peripheral
+	- Priority :	Very High
 `Increment Address` :
-	Peripheral : □
-	Memory : 	 ☑
+	- Peripheral : □
+	- Memory : 	 ☑
 `Data Width` :
-	Peripheral : Word
-	Memory : 	 Word
+	- Peripheral : Word
+	- Memory : 	 Word
