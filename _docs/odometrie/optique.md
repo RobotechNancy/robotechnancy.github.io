@@ -41,9 +41,11 @@ Choisir un channel, sélectionner `internal clock` en `Clock source`
 `DMA Settings` :
 * Direction :	Memory to Peripheral
 * Priority :	Very High
+
 `Increment Address` :
 * Peripheral : □
 * Memory : 	 ☑
+
 `Data Width` :
 * Peripheral : Word
 * Memory : 	 Word
