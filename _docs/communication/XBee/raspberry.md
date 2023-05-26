@@ -18,6 +18,20 @@ Un problème de communication peut avoir plusieures causes :
 - Un mauvais branchement ou module défectueux
 - Les modules sont configurés différemment ou ne sont pas du même type
 
+Les trames envoyées sont de la forme suivante :
+
+| Champ                | Taille (octets) | Description                       |
+|----------------------|-----------------|-----------------------------------|
+| startDelimiter       | 1               | Début de trame, toujours 0x7E     |
+| length               | 1               | Nombre d'octets de la trame       |
+| emitterAddress       | 1               | Adresse de l'émetteur de la trame |
+| receiverAddress      | 1               | Adresse du destinataire           |
+| frameID              | 1               | Identifiant de la trame           |
+| functionCode         | 1               | Code fonction                     |
+| data                 | 0 à 247         | Données                           |
+| checksum             | 2               | CRC16 de la trame                 |
+
+
 ### Installation de la librairie
 
 Pour utiliser la librairie dans un projet, il faut d’abord l’installer :
@@ -48,12 +62,10 @@ Le module XBee s'initialise de la manière suivante :
 
 int main() {
     // On initialise le module XBee en spécifiant le port série et l'adresse du module
-    XBee xbee("/dev/ttyS0", XB_ADR_ROBOT_1);
-
-    int status = xbee.openSerialConnection();
+    XBee xbee(XB_ADDR_ROBOT_1);
+    int status = xbee.openSerialConnection("/dev/ttyS0");
 
     if (status != XB_SER_E_SUCCESS) {
-        cout << "Erreur à l'établissement de la connection série : " << status << endl;
         return status;
     }
 
@@ -82,32 +94,28 @@ Le module est configuré de la manière suivante :
 
 ### Utilisation
 
-Les codes fonctions se trouvent dans le fichier [`include/xbee_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/Xbee/include/xbee_vars.h#L33){:target="_blank"} et se gèrent avec la méthode `XBee::subscribe` :
+Les codes fonctions se trouvent dans le fichier [`include/define_xbee.h`](https://github.com/RobotechNancy/Communication/blob/master/XBee/include/define_xbee.h#L29){:target="_blank"} et se gèrent avec la méthode `XBee::bind` :
 ```cpp
 // Lier une fonction à un code fonction
 void my_function(const frame_t& frame) {
     // ...
 }
 
-xbee.subscribe(XB_FCT_CODE, my_function);
-
-
-// Lier une fonction lambda à un code fonction
-xbee.subscribe(XB_FCT_CODE, [](const frame_t& frame) {
-    // ...
-});
+xbee.bind(XB_FCT_CODE, my_function);
 ```
 
 {:.warning}
-> Il faut déclarer tous les `xbee.subscribe(..)` avant d'appeler `xbee.start_listen()`
-
-> **Note :** Le type `message_callback` correspond au type d'une fonction qui prend en paramètre un `frame_t` et ne retourne rien.
-> Cela permet de passer une fonction ou un [lambda](https://www.geeksforgeeks.org/lambda-expression-in-c/){:target="_blank"} en paramètre.
+> Il faut déclarer tous les `xbee.bind(..)` avant d'appeler `xbee.startListening()`
 
 Pour attendre une réponse à une demande, il faut utiliter la fonction `XBee::wait_for_response` :
 ```cpp
-std::vector<uint8_t> data = {1};
-xbee.sendFrame(XB_ADR_ROBOT_1, XB_FCT_GET_POS, data, 1);
+uint8_t data[1] = {0x01}
+xbee.sendFrame(XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, data, 1);
 
-xbee_frame_t frame = xbee.wait_for_response(XB_FCT_GET_POS, 5000); // 5 secondes d'attente max
+xbee_frame_t frame;
+
+// 1ère trame envoyée, 5 secondes d'attente max
+if (xbee.waitFor(frame, 1, 5000) < 0) {
+    // Gérer l'erreur
+};
 ```
