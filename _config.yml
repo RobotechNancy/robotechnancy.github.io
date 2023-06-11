@@ -19,7 +19,7 @@ exclude:
   - LICENCE
 
 include:
-  - _includes
+  - website
 
 collections:
   docs:
