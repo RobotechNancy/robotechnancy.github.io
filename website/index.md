@@ -6,7 +6,7 @@ permalink: /
 Bienvenue sur le wiki de Robotech, ici se trouvent des ressources pour le développement embarqué.
 Actuellement, le projet est en **phase de développement**. Il est donc possible que certaines informations soient obsolètes.
 
-> Si il manque des informations, n'hésitez pas à contacter **MrSpaar#9229** sur Discord.
+> Si il manque des informations, n'hésitez pas à contacter **@mrspaar** sur Discord.
 > Vous pouvez aussi éditer le [code source](https://github.com/RobotechNancy/Wiki){:target="_blank"} du wiki.
 
 Le wiki couvre les sujets suivants :

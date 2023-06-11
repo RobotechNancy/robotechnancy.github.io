@@ -42,4 +42,4 @@ Le projet se structure de la façon suivante :
 - `scripts` : Dossier contenant les scripts JS
 - `images` : Dossier contenant les images
 - `_docs` : Dossier contenant les pages du wiki
-- `_includes` : Dossier contenant les pages hors wiki (accueil, recherche, etc.)
+- `website` : Dossier contenant les pages hors wiki (accueil, recherche, etc.)
