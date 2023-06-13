@@ -9,9 +9,6 @@ description: Bienvenue sur le wiki de Robotech, ici se trouvent des ressources p
 # -----
 # Build
 
-plugins:
-  - jekyll-feed
-
 exclude:
   - Gemfile
   - Gemfile.lock
