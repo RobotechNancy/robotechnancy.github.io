@@ -7,29 +7,11 @@ subcategory: CAN
 subcategory_order: 1
 ---
 
-Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe){:target="_blank"} avec un Raspberry Pi.
-
-### Installation
-
 Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
 - Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager install Logs CAN/Raspberry`
 
-Ensuite, il faut ajouter la librairie dans le fichier [`CMakeLists.txt` du projet](/librairies/raspberry/#création-dun-software){:target="_blank"} :
-```cmake
-# Cette section à modifier selon votre projet
-project(my_project)
-set(CMAKE_CXX_STANDARD 20)
-cmake_minimum_required(VERSION 3.16)
-
-# Ajout des dépendances avec pkg-config
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(CAN REQUIRED CAN)
-
-# Ajouter tous les fichiers source dans "add_executable"
-add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} ${CAN_LIBRARIES})
-```
+Ensuite, il suffit de lier la librairie à votre projet grâce à CMake, la démarche est expliquée [ici](/embarque/raspberry/#lier-une-librairie-à-un-projet).
 
 ### Utilisation
 
@@ -100,7 +82,7 @@ sudo ip link add dev vcan0 type vcan
 sudo ip link set up vcan0
 
 # Ecouter le bus CAN
-candump vcan0
+candump vcan0 -t
 ```
 
 Pour envoyer un message sur le bus CAN virtuel, il faut utiliser la commande `cansend` :
@@ -112,9 +94,9 @@ cansend vcan0 123#DEADBEEF
 ### Bus CAN réel
 
 Pour utiliser le bus CAN réel, il faut d'abord connecter le Raspberry Pi au shield :
-![Circuit](/images/diagrams/CAN%20Raspberry.webp)
+![Circuit](/images/diagrams/CAN%20Raspberry.webp){:loading="lazy"}
 
-Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/config.txt` (à la fin) :
+Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/config.txt` :
 ```
 # S'assurer que l'interface SPI est activée (dtparam=spi=on)    
 dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25,spimaxfrequency=2000000
