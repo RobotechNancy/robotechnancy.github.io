@@ -98,6 +98,7 @@
 				item.addEventListener("click", event => {
 					navigator.clipboard.writeText(window.location.href + "#" + item.id);
 					item.scrollIntoView({ behavior: "smooth" });
+					history.replaceState(null, null, "#" + item.id);
 				});
 			});
 
