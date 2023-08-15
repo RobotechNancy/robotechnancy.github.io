@@ -6,7 +6,7 @@ category_order: 4
 ---
 
 Les turbines EDF30 et les servos-moteurs sont contrôlées par [PWM](/actionneurs/pwm){:target="_blank"} avec une [librairie custom](https://github.com/RobotechNancy/Actionneurs/tree/master/EDF30){:target="_blank"} :
-![EDF30](/images/diagrams/EDF30.webp)
+![EDF30](/images/diagrams/EDF30.webp){:loading="lazy"}
 
 Paramétrage de la clock sur STM32CubeMX :
 - Clock utilisée : TIM1 (APB2)
