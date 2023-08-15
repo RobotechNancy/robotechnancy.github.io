@@ -1,11 +1,11 @@
 ---
-title: Développement Raspberry
-order: 3
-category: Librairies
+title: Raspberry
+order: 1
+category: Programmation embarquée
 category_order: 1
 ---
 
-Pour faciliter le développement sur Raspberry, on peut utiliser `cmake` :
+Pour faciliter le développement sur Raspberry, il est nécessaire d'installer la toolchain :
 ```bash
 # Debian, Ubuntu, ...
 sudo apt install cmake make gcc g++
@@ -27,22 +27,19 @@ project(my_project)                   # Nom du projet
 set(CMAKE_CXX_STANDARD 20)            # Version de C++
 cmake_minimum_required(VERSION 3.24)  # Version de cmake
 
-find_package(PkgConfig REQUIRED)            # Utilitaire pour trouver des librairies
-pkg_check_modules(MY_LIB REQUIRED LibName)  # Trouver une librairie "LibName"
-
 add_executable(my_project main.cpp)                     # Créer un exécutable
 target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
 ```
 
-Pour compiler le projet, il suffit d'exécuter les commandes suivantes :
+Pour compiler et exécuter le code du projet, il suffit d'exécuter les commandes suivantes :
 ```bash
 mkdir build && cd build
 cmake ..
 make
+
+# Un exécutable "my_project" sera créé
+./my_project
 ```
-
-Un exécutable `my_project` sera créé dans le dossier `build`.
-
 
 ### Création d'une librairie
 
@@ -72,7 +69,7 @@ configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
 ```
 
-Pour que la libairie soit trouvée par `pkg-config`, il faut créer un fichier `LibName.pc.in` :
+Pour que la libairie soit trouvée par `pkg-config`, il faut créer un fichier `LibName.pc.in` (aucune modification à faire) :
 ```cmake
 prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=@CMAKE_INSTALL_PREFIX@
@@ -95,8 +92,19 @@ cmake ..
 sudo make install
 ```
 
-La librairie sera alors disponible pour tous les projets utilisant `pkg-config`.
-Par exemple, si notre librairie contient un header publique `libName.h`, on pourra l'inclure dans un projet avec :
+### Lier une librairie à un projet
+
+Pour lier une librairie à un projet, il suffit de modifier le fichier `CMakeLists.txt`, par exemple :
+```cmake
+# Avant "add_executable"
+find_package(PkgConfig REQUIRED)            # Utilitaire pour trouver des librairies
+pkg_check_modules(MY_LIB REQUIRED LibName)  # Trouver une librairie "LibName"
+
+# Après "add_executable"
+target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
+```
+
+Pour utiliser la librairie dans le code, il suffit d'inclure le header :
 ```c
 #include <robotech/LibName.h>
 
@@ -104,5 +112,3 @@ int main() {
     // ...
 }
 ```
-
-> **Note :** Il faut que la librairie soit bien liée au projet (cf. [Création d'un software](#création-dun-software)).

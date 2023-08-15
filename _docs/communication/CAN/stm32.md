@@ -7,19 +7,25 @@ subcategory: CAN
 subcategory_order: 1
 ---
 
-Cette section explique comment utiliser le [bus CAN](/communication/CAN/principe){:target="_blank"} avec une STM32.
+D'abord, il faut activer `CAN1` (ou `CAN`) dans l'onglet `Connectivity` de votre `ioc`.
 
-### Configuration
+{:.warning}
+> Il faut tout cocher dans `NVIC Settings` pour activer les interruptions.
 
-D'abord, il faut activer `CAN1` (ou `CAN`) dans l'onglet `Connectivity` de votre `ioc`. Pour obtenir le baudrate voulu, trois réglages sont modifiables :
-- Prescaler ($$t_{PCLK}$$)
-- Time Quanta in Bit Segment 1 ($$t_{BS1}$$)
-- Time Quanta in Bit Segment 2 ($$t_{BS2}$$)
+Pour obtenir le baudrate voulu, trois réglages sont modifiables :
+- Prescaler (t<sub>PCLK</sub>)
+- Time Quanta in Bit Segment 1 (t<sub>BS1</sub>)
+- Time Quanta in Bit Segment 2 (t<sub>BS2</sub>)
 
 Le calcul du baudrate et les différents paramètres sont expliqués ci-dessous :
-![CAN timing](/images/diagrams/CAN%20Timing.webp)
+![CAN timing](/images/diagrams/CAN%20Timing.webp){:loading="lazy"}
 
-Enfin, il faut tout cocher dans `NVIC Settings` pour activer les interruptions.
+Puis, il faut importer les fichiers `can.c` et `can.h` respectivement dans les dossiers `Core/Src` et `Core/Inc` de votre projet. Vous pouvez aussi cloner le projet STM32 du [repo Github](https://github.com/RobotechNancy/Communication/tree/master/CAN/L432){:target="_blank"} où se trouvent `can.c` et `can.h`.
+
+Enfin, les fichiers utilisent le header [`can_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"} de la librairie Raspberry.
+Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
+- Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
+- Ajouter le chemin `/usr/local/include` dans `Include paths (-l)` puis `Apply and Close`
 
 ### Utilisation
 
@@ -37,12 +43,6 @@ Pour envoyer un message, il faut utiliser la fonction suivante :
 int send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t data[], uint data_len, bool is_rep, uint rep_len, uint msg_id)
 ```
 
-La librairie STM32 utilise le fichier [`can_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"} de la librairie Raspberry.
-Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
-- Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
-- Ajouter le chemin `/usr/local/include` dans `Include paths (-l)` puis `Apply and Close` :
-![STM32CubeIDE linker](/images/IDEs/CubeIDE%20linker.webp)
-
 Il devient alors possible de gérer les messages reçus avec dans la fonction suivante :
 ```c
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
@@ -54,7 +54,3 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
             break;
     }
 ```
-
-<script type="text/javascript" id="MathJax-script" async
-	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
