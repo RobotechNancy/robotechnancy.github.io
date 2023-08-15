@@ -6,7 +6,7 @@ category_order: 3
 ---
 
 Des tags ArUCO sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, deux modules sont placés sur des balises :
-![Terrain de jeu](/images/diagrams/Playground.webp)
+![Terrain de jeu](/images/diagrams/Playground.webp){:loading="lazy"}
 
 Chaque balise est montée d'un module contenant :
 - Une caméra
