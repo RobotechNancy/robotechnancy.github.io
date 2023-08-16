@@ -12,8 +12,8 @@ Jusque là, seules des [L432KC](https://os.mbed.com/platforms/ST-Nucleo-L432KC/)
 ![L432KC](/images/components/L432KC.webp){: loading="lazy"}
 
 Quelques options sont disponibles pour faciliter le développement :
-- [STM32CubeIDE](../cubeIDE) : IDE développé par STMicroelectronics
-- [CLion](../clion) : IDE développé par JetBrains (gratuit pour les étudiants)
+- [STM32CubeIDE](../cubeIDE){:target="_blank"} : IDE développé par STMicroelectronics
+- [CLion](../clion){:target="_blank"} : IDE développé par JetBrains (gratuit pour les étudiants)
 - [Arduino](https://github.com/stm32duino/Arduino_Core_STM32#readme){:target="_blank"} : non couvert ici
 
 CubeIDE intègre directement tous les outils nécessaires au développement STM32 mais personnellement, je préfère CLion (plus simple et spécialisé dans le C/C++).
