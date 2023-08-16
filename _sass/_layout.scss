@@ -228,16 +228,19 @@ nav > ul {
 	color: var(--content-color);
 
 	h3 {
-		margin-top: 60px;
+		margin-top: 40px;
 		position: relative;
-		cursor: pointer;
 
-		&:hover::before {
-			content: '﹟';
-			position: absolute;
-			left: -25px;
-			bottom: 3px;
-			color: #888;
+		&:not(.no-anchor) {
+			cursor: pointer;
+
+			&:hover::before {
+				content: '﹟';
+				position: absolute;
+				left: -25px;
+				bottom: 3px;
+				color: #888;
+			}
 		}
 	}
 

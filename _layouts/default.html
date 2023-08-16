@@ -82,7 +82,7 @@
 						{{ site.title }}
 					{% endif %}
 				</h2>
-				<h3>{{ page.title }}</h3>
+				<h3 class="no-anchor">{{ page.title }}</h3>
 			</div>
 			<article class="content">
 				{{ content }}
@@ -95,6 +95,8 @@
 			});
 
 			document.querySelectorAll("h3").forEach(item => {
+				if (item.classList.contains("no-anchor")) return;
+
 				item.addEventListener("click", event => {
 					navigator.clipboard.writeText(window.location.href + "#" + item.id);
 					item.scrollIntoView({ behavior: "smooth" });
