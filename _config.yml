@@ -10,17 +10,16 @@ timezone: Europe/Paris
 # -----
 # Build
 
+plugins:
+  - jekyll-redirect-from
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
   - LICENCE
-
 include:
   - website
-
-plugins:
-  - jekyll-redirect-from
 
 
 collections:
