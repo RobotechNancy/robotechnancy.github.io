@@ -1,7 +1,7 @@
 ---
 title: STM32
 order: 2
-category: Programmation embarquée
+category: Outils
 category_order: 1
 ---
 
@@ -17,3 +17,5 @@ Quelques options sont disponibles pour faciliter le développement :
 - [Arduino](https://github.com/stm32duino/Arduino_Core_STM32#readme){:target="_blank"} : non couvert ici
 
 CubeIDE intègre directement tous les outils nécessaires au développement STM32 mais personnellement, je préfère CLion (plus simple et spécialisé dans le C/C++).
+
+[//]: # (TODO: Section sur CubeMX)

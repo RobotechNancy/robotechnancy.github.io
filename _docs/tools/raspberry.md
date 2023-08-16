@@ -1,7 +1,7 @@
 ---
 title: Raspberry
 order: 1
-category: Programmation embarquée
+category: Outils
 category_order: 1
 ---
 
