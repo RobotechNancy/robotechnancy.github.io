@@ -1,7 +1,7 @@
 ---
 title: CubeIDE
 order: 3
-category: Programmation embarquée
+category: Outils
 category_order: 1
 ---
 

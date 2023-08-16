@@ -1,7 +1,7 @@
 ---
 title: CLion
 order: 4
-category: Programmation embarquée
+category: Outils
 category_order: 1
 ---
 
