@@ -11,7 +11,7 @@ Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
 - Cloner le dépôt [Communication](https://github.com/RobotechNancy/Communication){:target="_blank"}
 - Lancer la commande `./lib_manager install Logs CAN/Raspberry`
 
-Ensuite, il suffit de lier la librairie à votre projet grâce à CMake, la démarche est expliquée [ici](/embarque/raspberry/#lier-une-librairie-à-un-projet).
+> Si la librairie est nécessaire dans un nouveau projet, il faudra alors la [lier avec CMake](/tools/raspberry/#lier-une-librairie-à-un-projet){: target="_blank"}.
 
 ### Utilisation
 
@@ -23,7 +23,7 @@ int main() {
     Can can;
     
     if(can.init(CAN_ADDR_RASPBERRY) < 0){
-      return 1;
+        return 1;
     }
 
     // ...
@@ -85,7 +85,7 @@ sudo ip link set up vcan0
 candump vcan0 -t
 ```
 
-Pour envoyer un message sur le bus CAN virtuel, il faut utiliser la commande `cansend` :
+Pour envoyer un message sur le bus CAN virtuel, il y a la commande `cansend` :
 ```bash
 # Format : cansend <interface> <id>#<data>
 cansend vcan0 123#DEADBEEF
