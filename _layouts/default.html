@@ -90,17 +90,14 @@
 		</section>
 
 		<script>
-			document.getElementById("open-nav").addEventListener("click", function () {
-				document.body.classList.toggle("nav-open");
-			});
-
 			document.querySelectorAll("h3").forEach(item => {
-				if (item.classList.contains("no-anchor")) return;
+				if (item.classList.contains("no-anchor"))
+					return;
 
 				item.addEventListener("click", event => {
-					navigator.clipboard.writeText(window.location.href + "#" + item.id);
-					item.scrollIntoView({ behavior: "smooth" });
-					history.replaceState(null, null, "#" + item.id);
+					event.preventDefault();
+					history.pushState(null, null, "#" + event.target.id);
+					navigator.clipboard.writeText(window.location.href);
 				});
 			});
 
