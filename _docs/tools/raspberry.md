@@ -31,7 +31,7 @@ add_executable(my_project main.cpp)                     # Créer un exécutable
 target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
 ```
 
-Pour compiler et exécuter le code du projet, il suffit d'exécuter les commandes suivantes :
+Pour compiler et exécuter le code du projet, il suffit d'exécuter ces commandes :
 ```bash
 mkdir build && cd build
 cmake ..

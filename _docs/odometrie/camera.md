@@ -37,7 +37,7 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
 
 ### Calibration
 
-Pour avoir une meilleure détection, il est nécessaire de déterminer plusieurs paramètres :
+Pour avoir une meilleure détection, il est nécessaire de calibrer la caméra :
 - Définir les paramètres de la librairie dans `data/lib_params.yml`
 - Générer une grille ArUCO avec `./ArUCO board`
 - Lancer le script de calibration avec `./ArUCO calibrate`
@@ -49,4 +49,14 @@ Si tout s'est bien passé, un fichier `data/camera_params.yml` a été créé co
 ### Utilisation
 
 Pour lancer il suffit d'exécuter `./ArUCO estimate`, les paramètres sont repris de `data/camera_params.yml` et `data/lib_params.yml`.
-Pour plus de détails, voir le code source de la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tree/master/camera_aruco){:target="_blank"}
+Pour l'instant, la librairie n'écoute qu'un seul code fonction :
+```cpp
+xbee.subscribe(XB_FCT_GET_ARUCO_POS, [&estimation, &xbee](const xbee_frame_t & frame) {
+    estimation.update();
+    estimation.send(xbee, frame.adr_emetteur);
+});
+```
+
+{:.warning}
+> Il est possible d'ajouter jusqu'à 255 codes fonction.
+> Au-delà de cette limite, il est nécessaire de modifier la trame applicative de la [librairie XBee](https://github.com/RobotechNancy/Communcation/XBee).
