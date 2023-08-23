@@ -21,6 +21,7 @@ $full-width-break: $nav-width + ($space * 4) + $content-max-width;
 @import "layout";
 
 html {
+    scroll-behavior: smooth;
     --brand-colour: #3583d6;
     --nav-header-background-color: #3583d6;
 
