@@ -1,8 +1,9 @@
 ---
-title: CLion
-order: 3
 category: Outils
 category_order: 1
+
+title: CLion
+order: 3
 ---
 
 [CLion](https://www.jetbrains.com/clion/download/){:target="_blank"} est normalement payant mais il est gratuit pour les [étudiants](https://www.jetbrains.com/shop/eform/students){:target="_blank"}.

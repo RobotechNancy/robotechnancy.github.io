@@ -1,8 +1,9 @@
 ---
-title: PWM sur STM32
-order: 1
 category: Actionneurs
 category_order: 4
+
+title: PWM sur STM32
+order: 1
 ---
 
 Le PWM (Pulse Width Modulation) consiste à moduler la largeur d'une impulsion pour contrôler la puissance moyenne délivrée à un composant.

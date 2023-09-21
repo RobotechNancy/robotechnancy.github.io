@@ -1,10 +1,12 @@
 ---
-title: Raspberry
-order: 2
 category: Communication
 category_order: 2
+
 subcategory: XBee
 subcategory_order: 3
+
+title: Raspberry
+order: 2
 ---
 
 Les modules XBee se connectent de la manière suivante :

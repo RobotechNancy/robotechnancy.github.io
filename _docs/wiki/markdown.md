@@ -1,8 +1,9 @@
 ---
-title: Markdown
-order: 4
 category: Wiki
 category_order: 6
+
+title: Markdown
+order: 4
 ---
 
 Les articles sont écrits en [Markdown](https://www.markdownguide.org/){:target="_blank"} mais il existe quelques astuces pour contourner ses limitations.

@@ -1,8 +1,9 @@
 ---
-title: Gestionnaire de graphe
-order: 1
 category: Stratégie
 category_order: 5
+
+title: Gestionnaire de graphe
+order: 1
 ---
 
 Pour la stratégie, un [gestionnaire de graphe](https://github.com/RobotechNancy/Strategie){:target="_blank"} est utilisé pour représenter les différents noeuds et les liens entre eux :
