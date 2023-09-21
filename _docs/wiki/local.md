@@ -35,11 +35,8 @@ Le projet se structure de la façon suivante :
 
 - `_config.yml` : Fichier de configuration du site
 - `Gemfile` : Fichier de configuration de Bundler
-- `_plugins` : Dossier contenant les [plugins Jekyll](https://github.com/planetjekyll/awesome-jekyll-plugins){:target="_blank"}
 - `_layouts` : Dossier contenant les [templates Liquid](https://shopify.github.io/liquid/){:target="_blank"}
-- `_sass` : Dossier contenant des fichiers catégorisés de styles
-- `css` : Dossier contenant le fichier CSS principal
+- `_docs` : Dossier contenant les pages du wiki
+- `css` : Dossier contenant les fichiers SCSS
 - `scripts` : Dossier contenant les scripts JS
 - `images` : Dossier contenant les images
-- `_docs` : Dossier contenant les pages du wiki
-- `website` : Dossier contenant les pages hors wiki (accueil, recherche, etc.)

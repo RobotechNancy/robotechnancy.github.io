@@ -9,6 +9,7 @@ subcategory_order: 3
 
 Les modules XBee se connectent de la manière suivante :
 
+{: style="text-align: center" }
 ![Connexion XBee](/images/diagrams/XBee.webp){:.inline-img loading="lazy"}
 ![Pins XBee](/images/diagrams/XBee%20Pins.webp){:.inline-img loading="lazy"}
 
