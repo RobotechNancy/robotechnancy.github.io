@@ -1,8 +1,9 @@
 ---
-title: Github Pages
-order: 1
 category: Wiki
 category_order: 6
+
+title: Github Pages
+order: 1
 ---
 
 Ce wiki utilise [Jekyll](https://jekyllrb.com/){:target="_blank"} pour générer les pages et est hébergé sur [Github Pages](https://pages.github.com/){:target="_blank"} :

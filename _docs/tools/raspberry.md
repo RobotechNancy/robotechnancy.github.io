@@ -1,8 +1,9 @@
 ---
-title: Raspberry
-order: 1
 category: Outils
 category_order: 1
+
+title: Raspberry
+order: 1
 ---
 
 Les Raspberry Pi sont les ordinateurs miniatures que nos robots utilisent pour coordiner toutes les cartes :

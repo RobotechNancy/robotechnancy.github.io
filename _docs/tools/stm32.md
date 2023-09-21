@@ -1,8 +1,9 @@
 ---
-title: STM32
-order: 2
 category: Outils
 category_order: 1
+
+title: STM32
+order: 2
 ---
 
 Pour contrôler la base roulante, les actionneurs et les différents capteurs, des cartes STM32 sont utilisées.

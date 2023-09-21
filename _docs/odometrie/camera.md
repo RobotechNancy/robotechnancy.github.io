@@ -1,8 +1,9 @@
 ---
-title: Caméra ArUCO
-order: 1
 category: Odométrie
 category_order: 3
+
+title: Caméra ArUCO
+order: 1
 ---
 
 Des tags ArUCO sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, deux modules sont placés sur des balises :

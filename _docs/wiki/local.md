@@ -1,8 +1,9 @@
 ---
-title: Développement en local
-order: 2
 category: Wiki
 category_order: 6
+
+title: Développement en local
+order: 2
 ---
 
 Pour développer le site en local, il faut installer plusieurs outils :

@@ -1,8 +1,9 @@
 ---
-title: Ajouter des pages
-order: 3
 category: Wiki
 category_order: 6
+
+title: Ajouter des pages
+order: 3
 ---
 
 Pour ajouter une page, il suffit de créer un fichier Markdown avec la base suivante dans un dossier corresponddant à sa catégorie :

@@ -1,10 +1,12 @@
 ---
-title: STM32
-order: 1
 category: Communication
 category_order: 2
+
 subcategory: CAN
 subcategory_order: 1
+
+title: STM32
+order: 1
 ---
 
 D'abord, il faut activer `CAN1` (ou `CAN`) dans l'onglet `Connectivity` de votre `ioc`.
@@ -25,7 +27,10 @@ Puis, il faut importer les fichiers `can.c` et `can.h` respectivement dans les d
 Enfin, les fichiers utilisent le header [`can_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"} de la librairie Raspberry.
 Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
 - Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
-- Ajouter le chemin `/usr/local/include` dans `Include paths (-l)` puis `Apply and Close`
+- Ajouter le chemin où se trouve le fichier `can_vars.h` dans `Include paths (-l)` puis `Apply and Close`
+
+Si vous avez toujours des erreurs de compilation, vous pouvez copier coller le fichier dans le dossier `Core/Inc` de votre projet.
+(Attention à bien le garder à jour avec la librairie Raspberry).
 
 ### Utilisation
 
