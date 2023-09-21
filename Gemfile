@@ -6,5 +6,4 @@ group :jekyll_plugins do
   gem 'faraday-retry', '2.1.0'
   gem 'github-pages', '228'
   gem 'jekyll-redirect-from'
-  gem 'jekyll-turbolinks'
 end
