@@ -17,10 +17,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - LICENCE
 include:
-  - website
+  - _layouts
 
+sass:
+  style: compressed
+  sass_dir: css
 
 collections:
   docs:
@@ -41,6 +43,7 @@ defaults:
     values:
       seo:
         type: Article
+      exclude: "false"
       _comments:
         category: Group navigation links with this field
         order: Used to sort links in the navigation

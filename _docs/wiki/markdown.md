@@ -35,6 +35,13 @@ Il est aussi préférable de charger les images uniquement lorsqu'elles sont vis
 ![Image 2](/chemin/vers/image2.png){:.inline-img loading="lazy"}
 ```
 
+Enfin, si vous voulez centrer les images sur une même ligne :
+```md
+{: style="text-align: center" }
+![Image 1](/chemin/vers/image1.png){:.inline-img loading="lazy"}
+![Image 2](/chemin/vers/image2.png){:.inline-img loading="lazy"}
+```
+
 ### Liens
 
 Pour ouvrir un lien dans un nouvel onglet, il suffit d'ajouter `{:target="_blank"}` :

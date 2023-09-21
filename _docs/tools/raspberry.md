@@ -5,7 +5,22 @@ category: Outils
 category_order: 1
 ---
 
-Pour faciliter le développement sur Raspberry, il est nécessaire d'installer la toolchain :
+Les Raspberry Pi sont les ordinateurs miniatures que nos robots utilisent pour coordiner toutes les cartes :
+
+{: style="text-align: center" }
+![Pins GPIO](/images/diagrams/GPIO.webp){:.inline-img loading="lazy"}
+![Formats RPI](/images/diagrams/RPI.webp){:.inline-img loading="lazy"}
+
+Quant au développement, les programmes sont écrits en C++ et il est possible de faire du prototypage en Python.
+En terme d'IDE, il y a au choix :
+- [CLion](https://www.jetbrains.com/clion/){:target="_blank"}, complet et  payant mais gratuit pour les étudiants
+- [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}, gratuit mais nécessite configuration
+- N'importe quel éditeur de texte (nano, vim, emacs, etc.) et un terminal
+
+### Création d'un programme en C++
+
+Pour compiler un projet, il faut d'abord installer la toolchain.
+Ici [CMake](https://cmake.org/) est utilisé pour gérer plus facilement la configuration des projets :
 ```bash
 # Debian, Ubuntu, ...
 sudo apt install cmake make gcc g++
@@ -14,30 +29,23 @@ sudo apt install cmake make gcc g++
 sudo dnf install cmake make gcc gcc-c++
 ```
 
-Quant à l'IDE, plusieurs options sont disponibles :
-- [CLion](https://www.jetbrains.com/clion/){:target="_blank"}, payant mais gratuit pour les étudiants
-- [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}, gratuit et multi-plateformes
-- N'importe quel éditeur de texte (nano, vim, emacs, etc.) et un terminal
-
-### Création d'un software
-
-Il suffit de créer un fichier `CMakelists.txt` à la racine du projet :
+Pour créer un projet, il suffit de créer un fichier `CMakeLists.txt` à sa racine :
 ```cmake
-project(my_project)                   # Nom du projet
-set(CMAKE_CXX_STANDARD 20)            # Version de C++
-cmake_minimum_required(VERSION 3.24)  # Version de cmake
+project(my_project)                       # Nom du projet
+set(CMAKE_CXX_STANDARD 20)                # Version de C++ (11, 14, 17, 20, 23)
+cmake_minimum_required(VERSION 3.24)      # Version de cmake
 
-add_executable(my_project main.cpp)                     # Créer un exécutable
-target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
+add_executable(${PROJECT_NAME} main.cpp)  # Créer un exécutable du même nom que le projet
 ```
+
+{:.warning}
+>  **Attention :** Il faut mettre tous les fichiers `.cpp` du projet après `${PROJECT_NAME}`.
 
 Pour compiler et exécuter le code du projet, il suffit d'exécuter ces commandes :
 ```bash
 mkdir build && cd build
 cmake ..
 make
-
-# Un exécutable "my_project" sera créé
 ./my_project
 ```
 
@@ -49,17 +57,16 @@ set(CMAKE_CXX_STANDARD 20)
 cmake_minimum_required(VERSION 3.16)
 project(LibName VERSION 0.1 DESCRIPTION "Description de la librairie") # Nom de la librairie (ici, "LibName")
 
-add_library(${PROJECT_NAME} ...) # Inclure tous les fichiers sources
+add_library(${PROJECT_NAME} ...) # Inclure tous les fichiers source
 
-set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 1)
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...") # Inclure tous les headers publics séparés par des ";"
 
-# Inclure tous les headers publics séparés par des ";"
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...")
-
-# Inclure les sous-dossiers de votre projet (ici, "include" et "src")
+# Inclure les sous-dossiers de votre projet (ex: "include" et "src")
 target_include_directories(${PROJECT_NAME} PRIVATE include src)
 
+# Configuration d'où et quoi est installé
 include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/robotech
@@ -69,7 +76,7 @@ configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
 ```
 
-Pour que la libairie soit trouvée par `pkg-config`, il faut créer un fichier `LibName.pc.in` (aucune modification à faire) :
+Pour que la libairie soit facilement trouvable par un autre projet, il faut créer un fichier `LibName.pc.in` (aucune modification à faire) :
 ```cmake
 prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=@CMAKE_INSTALL_PREFIX@

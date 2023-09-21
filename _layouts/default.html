@@ -43,7 +43,9 @@
 			<nav>
 				<ul>
 					{% assign grouped = site.docs | sort: 'category_order' | group_by: 'category' %}
+
 					{% for group in grouped %}
+					{% if group.name == "" %} {% continue %} {% endif %}
 
 					<li class="nav-item top-level" {% if group.name == page.category %}id="active"{% endif %}>
 						<span class="nav-cat" onclick="changeActive(this)" onkeydown="onKeyDown(event, this)" tabindex="0">{{ group.name }}</span>

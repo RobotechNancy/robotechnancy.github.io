@@ -1,6 +1,7 @@
 ---
 title: Accueil
 permalink: /
+category: ""
 ---
 
 Bienvenue sur le wiki de Robotech, ici se trouvent des ressources pour le développement embarqué.
