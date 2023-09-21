@@ -1,63 +1,54 @@
 ---
 title: PWM sur STM32
-order: 3
+order: 1
 category: Actionneurs
 category_order: 4
 ---
 
-Les turbines EDF30 et les servos-moteurs sont contrôlées par [PWM](/actionneurs/pwm){:target="_blank"} avec une [librairie custom](https://github.com/RobotechNancy/Actionneurs/tree/master/EDF30){:target="_blank"} :
-![EDF30](/images/diagrams/EDF30.webp){:loading="lazy"}
+Le PWM (Pulse Width Modulation) consiste à moduler la largeur d'une impulsion pour contrôler la puissance moyenne délivrée à un composant.
+C'est un signal carré dont le rapport cyclique (temps haut / temps total) est variable :
+![PWM](/images/diagrams/PWM.webp)
 
-Paramétrage de la clock sur STM32CubeMX :
-- Clock utilisée : TIM1 (APB2)
-- Channels : CH1N, CH2 et CH3 (PA7, PA9, PA10)
-- Fréquence : 4MHz
-- Prescaler : 16
-- Counter Period : 4096
+Deux paramètres sont à prendre en compte :
+- La fréquence du signal : elle est fixe et dépend du composant (ex : 50Hz pour un servo-moteur analogique)
+- Le temps haut du signal : il est variable et fixe le rapport pour chaque cycle
 
-On obtient un signal d'environ 50Hz avec des cycles divisés en 4096 comptes. 
+### Paramétrage de la carte
 
-### Utilisation de la librairie
+Avant de régler le timer, il faut configurer la clock que va utiliser le timer (menu `Clock Configuration`).
+Ici, on utilise le timer `TIM1` qui est sur le bus `APB2`, qui a une fréquence de 4MHz :
+![Prescaler clock](/images/Clock%20Config.webp){:loading="lazy"}
 
-La librairie est configurable avec les paramètres suivants :
-- `PWM_MAX ...` : Nombre de comptes maximum
+Ensuite, on peut régler le timer TIM1 qu'on utilisera pour générer le signal PWM.
+Ici, l'objectif était d'avoir trois signaux, d'où le mode PWM sur 3 channels :
+![TIM1](/images/Timer%20Config.webp){:loading="lazy"}
 
-La librairie contient les fonctions suivantes :
+Il est aussi nécessaire de calculer la valeur du prescaler à partir de la clock (4MHz), 
+du compteur utilisé (4096) et de la fréquence voulue (50Hz) : `4MHz ÷ (4096*50Hz) - 1 = 18`.
+
+### Génération du signal
+
+Pour commencer la génération du signal, il faut utiliser la fonction `HAL_TIM_PWM_Start` :
 ```c
-/*!
- *  @brief Démarrer le timer pour générer le PWM sur un channel
- *  @param i2c Généralement &htim1 (structure d'STM du timer configuré)
- *  @param channel Channel du timer (TIM_CHANNEL_1, TIM_CHANNEL_2 ou TIM_CHANNEL_3)
- *  @return Code d'erreur
- */
-int PWM_start(TIM_HandleTypeDef *timer, uint32_t channel);
-
-
-/*!
- *  @brief Arrêter le timer qui génère le PWM sur un channel
- *  @param i2c Généralement &htim1 (structure d'STM du timer configuré)
- *  @param channel Channel du timer (TIM_CHANNEL_1, TIM_CHANNEL_2 ou TIM_CHANNEL_3)
- *  @return Code d'erreur
- */
-int PWM_stop(TIM_HandleTypeDef *timer, uint32_t channel);
-
-
-/*!
- *  @brief Définir directement le cycle de travail du PWM
- *  @param timer Généralement &htim1 (structure d'STM du timer configuré)
- *  @param channel Channel du timer (TIM_CHANNEL_1, TIM_CHANNEL_2 ou TIM_CHANNEL_3)
- *  @param count Valeur du compteur (0 à EDF30_PWM_MAX)
- *  @return Code d'erreur
- */
-int PWM_set_count(TIM_HandleTypeDef *timer, uint32_t channel, uint16_t count);
-
-
-/*!
- *  @brief Définir le cycle de travail du PWM en pourcentage
- *  @param timer Généralement &htim1 (structure d'STM du timer configuré)
- *  @param channel Channel du timer (TIM_CHANNEL_1, TIM_CHANNEL_2 ou TIM_CHANNEL_3)
- *  @param duty_cycle Cycle de travail (0 à 1)
- *  @return Code d'erreur
- */
-int PWM_set_cycle(TIM_HandleTypeDef *timer, uint32_t channel, float duty_cycle);
+// htim1 et TIM_CHANNEL_X sont automatiquement générés par CubeMX
+HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 ```
+
+Maintenant que le signal est généré, il est possible de modifier le compte de chaque channel :
+```c
+htim1.Instance->CCR1 = 205; // Channel 1
+htim1.Instance->CCR2 = 410; // Channel 2
+htim1.Instance->CCR3 = 615; // Channel 3
+```
+
+Enfin, pour arrêter la génération du signal, il faut utiliser la fonction `HAL_TIM_PWM_Stop` :
+```c
+HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_1);
+HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
+HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
+```
+
+> Cet article s'appuie sur une [librairie custom](https://github.com/RobotechNancy/Actionneurs/blob/master/PWM){:target="_blank"} 
+utilisée pour contrôler des servos-moteurs analogiques et des turbines.
