@@ -24,25 +24,23 @@ html {
     --brand-colour: #3583d6;
     --nav-header-background-color: #3583d6;
 
-    @media (prefers-color-scheme: light) {
-        --body-background-color: #fff;
-        --content-background-color: #fff;
-        --nav-background-color: #f5f5f5;
+    --body-background-color: #fff;
+    --content-background-color: #fff;
+    --nav-background-color: #f5f5f5;
 
-        --code-background-color: #f1e9e9;
-        --header-color: #f14343;
-        --string-color: #bb7d51;
-        --comment-color: #817676;
-        --variable-color: #108dac;
-        --keyword-color: #0c728b;
-        --keyword-type-color: #9b9430;
-        --bash-cmd-color: #0866aa;
-        --name-attr-color: #0c728b;
+    --code-background-color: #f1e9e9;
+    --header-color: #f14343;
+    --string-color: #bb7d51;
+    --comment-color: #817676;
+    --variable-color: #108dac;
+    --keyword-color: #0c728b;
+    --keyword-type-color: #9b9430;
+    --bash-cmd-color: #0866aa;
+    --name-attr-color: #0c728b;
 
-        --content-color: #222;
-        --table-border-color: #ddd;
-        --box-shadow-color: rgba(0, 0, 0, 0.1);
-    }
+    --content-color: #222;
+    --table-border-color: #ddd;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
 
     @media (prefers-color-scheme: dark) {
         --body-background-color: #222;
