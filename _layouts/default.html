@@ -11,7 +11,11 @@
 		<meta property="og:url" content="{{ site.url }}">
 		<meta property="og:site_name" content="{{ site.title }}">
 		<meta property="og:image" content="{{ site.baseurl }}/images/icons/siteicon.webp">
-		<meta property="og:title" content="{{ page.title }}">
+		{{ % if page.subcategory % }}
+			<meta property="og:title" content="{{ page.category }}/{{ page.subcategory }}/{{ page.title }}">
+		{{ % else % }}
+			<meta property="og:title" content="{{ page.category }}/{{ page.title }}">
+		{{ % endif % }}
 		<meta property="og:description" content="{{ site.description }}">
 		<meta data-react-helmet="true" name="theme-color" content="#3583d6" />
 
