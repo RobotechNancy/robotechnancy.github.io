@@ -36,7 +36,7 @@
 					<img src="{{ site.baseurl }}/images/icons/emblem.svg" width="40" height="40" alt="{{ site.title }} logo">
 					<span>{{ site.title }}</span>
 				</a>
-				<button type="button" class="open-nav" id="open-nav" aria-label="Ouvrir la navigation"></button>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="openNav()"></button>
 			</h1>
 
 			<form action="{{ site.baseurl }}/search" method="get">
@@ -130,6 +130,10 @@
 					event.preventDefault();
 					changeActive(element);
 				}
+			}
+
+			function openNav() {
+				document.body.classList.toggle("nav-open");
 			}
 		</script>
 	</body>
