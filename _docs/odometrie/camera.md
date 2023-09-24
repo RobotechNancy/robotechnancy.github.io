@@ -17,7 +17,7 @@ Chaque balise est montée d'un module contenant :
 
 ### Installation
 
-Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tree/master/camera_aruco), il faut installer :
+Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tree/master/ArUCO), il faut installer :
 - La librairie custom [XBee](/communication/XBee/raspberry/#installation-de-la-librairie){:target="_blank"}
 - La librairie OpenCV avec OpenCV contrib :
 
