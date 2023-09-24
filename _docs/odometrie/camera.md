@@ -6,7 +6,7 @@ title: Caméra ArUCO
 order: 1
 ---
 
-Des tags ArUCO sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, deux modules sont placés sur des balises :
+Des tags ArUCO (en rouge) sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, des modules sont placés sur des balises (en bleu) :
 ![Terrain de jeu](/images/diagrams/Playground.webp){:loading="lazy"}
 
 Chaque balise est montée d'un module contenant :
@@ -39,25 +39,20 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
 ### Calibration
 
 Pour avoir une meilleure détection, il est nécessaire de calibrer la caméra :
-- Définir les paramètres de la librairie dans `data/lib_params.yml`
+![Grille ArUCO](/images/diagrams/ArUCO%20Board.webp){:loading="lazy" .left-img}
+- Définir les paramètres dans `data/config.yml`
 - Générer une grille ArUCO avec `./ArUCO board`
-- Lancer le script de calibration avec `./ArUCO calibrate`
-- Capturer une image avec la caméra en appuyant sur `c`
-- Une fois plusieurs points de vue capturés, appuyer sur `ECHAP`
+- Démarrer la calibration avec `./ArUCO calibrate`
+- Prendre plusieurs point de vue avec `c`
+- Calculer les paramètres en appuyant `ECHAP`
 
 Si tout s'est bien passé, un fichier `data/camera_params.yml` a été créé contenant les paramètres de la caméra (matrice de projection, distorsion, etc...).
 
 ### Utilisation
 
-Pour lancer il suffit d'exécuter `./ArUCO estimate`, les paramètres sont repris de `data/camera_params.yml` et `data/lib_params.yml`.
-Pour l'instant, la librairie n'écoute qu'un seul code fonction :
-```cpp
-xbee.subscribe(XB_FCT_GET_ARUCO_POS, [&estimation, &xbee](const xbee_frame_t & frame) {
-    estimation.update();
-    estimation.send(xbee, frame.adr_emetteur);
-});
-```
+Pour lancer il suffit d'exécuter `./ArUCO estimate`, les paramètres sont repris de `data/camera_params.yml` et `data/config.yml`.
+Toutes les positions sont données par rapport à un tag de référence (`ref_marker_id`) :
 
-{:.warning}
-> Il est possible d'ajouter jusqu'à 255 codes fonction.
-> Au-delà de cette limite, il est nécessaire de modifier la trame applicative de la [librairie XBee](https://github.com/RobotechNancy/Communcation/XBee).
+{: style="text-align: center" }
+![ArUCO Estimation](/images/diagrams/ArUCO%20Estimation.webp){:loading="lazy" .inline-img}
+![ArUCO AR](/images/ArUCO%20AR.webp){:loading="lazy" .inline-img}
