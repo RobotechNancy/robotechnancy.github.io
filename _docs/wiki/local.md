@@ -34,10 +34,10 @@ Une fois le site prêt, une fenêtre de navigateur s'ouvre automatiquement à l'
 Par défaut, tous les fichiers commençant par un `_` sont ignorés par Jekyll.
 Le projet se structure de la façon suivante :
 
-- `_config.yml` : Fichier de configuration du site
-- `Gemfile` : Fichier de configuration de Bundler
 - `_layouts` : Dossier contenant les [templates Liquid](https://shopify.github.io/liquid/){:target="_blank"}
 - `_docs` : Dossier contenant les pages du wiki
+- `images` : Dossier contenant les images
 - `css` : Dossier contenant les fichiers SCSS
 - `scripts` : Dossier contenant les scripts JS
-- `images` : Dossier contenant les images
+- `_config.yml` : Fichier de configuration du site
+- `Gemfile` : Fichier de configuration de Bundler
