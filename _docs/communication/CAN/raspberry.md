@@ -18,7 +18,7 @@ Pour utiliser la librairie dans un projet, il faut d'abord l'installer :
 ### Bus CAN réel
 
 Pour utiliser le bus CAN réel, il faut d'abord connecter la Raspberry Pi au shield :
-![Circuit](/images/diagrams/CAN%20Raspberry.webp){:loading="lazy"}
+![Circuit](/images/components/CAN%20Raspberry.webp){:loading="lazy"}
 
 Ensuite, il faut ajouter la configuration du bus CAN dans `/boot/config.txt` :
 ```
