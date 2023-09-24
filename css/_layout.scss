@@ -200,6 +200,11 @@ nav > ul {
 	&.mid-level > span {
 		font-weight: 600;
 		padding-left: $space * 2;
+
+		&:hover {
+			cursor: default;
+			color: var(--content-color);
+		}
 	}
 
 	&.sub-level > a {
