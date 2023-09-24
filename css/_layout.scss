@@ -378,4 +378,13 @@ img {
 		display: inline-block;
 		margin: 0 0.5em 0.5em 0;
 	}
+
+	&.left-img {
+		float: left;
+		margin: 10px 30px 0 0;
+
+		@media screen and (max-width: $mobile-break) {
+			display: none;
+		}
+	}
 }
