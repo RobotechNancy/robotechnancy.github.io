@@ -9,8 +9,8 @@ order: 1
 Les Raspberry Pi sont les ordinateurs miniatures que nos robots utilisent pour coordiner toutes les cartes :
 
 {: style="text-align: center" }
-![Pins GPIO](/images/diagrams/GPIO.webp){:.inline-img loading="lazy"}
-![Formats RPI](/images/diagrams/RPI.webp){:.inline-img loading="lazy"}
+![Pins GPIO](/images/tools/GPIO.webp){:.inline-img loading="lazy"}
+![Formats RPI](/images/tools/RPI.webp){:.inline-img loading="lazy"}
 
 Quant au développement, les programmes sont écrits en C++ et il est possible de faire du prototypage en Python.
 En terme d'IDE, il y a au choix :

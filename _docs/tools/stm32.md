@@ -10,7 +10,7 @@ Pour contrôler la base roulante, les actionneurs et les différents capteurs, d
 Ce sont des microcontrôleurs sans OS et programmables en C/C++.
 
 Jusque là, seules des [L432KC](https://os.mbed.com/platforms/ST-Nucleo-L432KC/){:target="_blank"} ont été utilisées :
-![L432KC](/images/components/L432KC.webp){: loading="lazy"}
+![L432KC](/images/tools/L432KC.webp){: loading="lazy"}
 
 Quelques options sont disponibles pour faciliter le développement :
 - [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html){:target="_blank"} : IDE développé par STMicroelectronics
@@ -22,11 +22,11 @@ CubeIDE intègre directement tous les outils nécessaires au développement STM3
 ### Création d'un projet CubeIDE
 
 La création d'un projet passe par `ST-MCU-Finder` (`File` → `New` → `STM32 Project`) :
-![Création d'un nouveau projet](/images/IDEs/CubeIDE%20BS.webp){:loading="lazy"}
+![Création d'un nouveau projet](/images/tools/board_selection.webp){:loading="lazy"}
 
 ### Configuration d'une carte
 
 Il suffit d'ouvrir le fichier `.ioc` et [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html){:target="_blank"} s'ouvrira :
-![Configuration de la carte](/images/IDEs/CubeMX.webp){:loading="lazy"}
+![Configuration de la carte](/images/tools/CubeMX.webp){:loading="lazy"}
 
 Les L432KC offrent de nombreuses fonctionnalités, leur configuration sera détaillée dans un autre article.

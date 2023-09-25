@@ -12,8 +12,8 @@ order: 2
 Les modules XBee se connectent de la manière suivante :
 
 {: style="text-align: center" }
-![Connexion XBee](/images/diagrams/XBee.webp){:.inline-img loading="lazy"}
-![Pins XBee](/images/components/XBee%20Pins.webp){:.inline-img loading="lazy"}
+![Connexion XBee](/images/XBee/schema.webp){:.inline-img loading="lazy"}
+![Pins XBee](/images/XBee/pins.webp){:.inline-img loading="lazy"}
 
 Un problème de communication peut avoir plusieures causes :
 - Une sous-tension (tension nominale : 3.3V)

@@ -8,7 +8,7 @@ order: 1
 
 Le PWM (Pulse Width Modulation) consiste à moduler la largeur d'une impulsion pour contrôler la puissance moyenne délivrée à un composant.
 C'est un signal carré dont le rapport cyclique (temps haut / temps total) est variable :
-![PWM](/images/diagrams/PWM.webp)
+![PWM](/images/pwm/signals.webp)
 
 Deux paramètres sont à prendre en compte :
 - La fréquence du signal : elle est fixe et dépend du composant (ex : 50Hz pour un servo-moteur analogique)
@@ -18,11 +18,11 @@ Deux paramètres sont à prendre en compte :
 
 Avant de régler le timer, il faut configurer la clock que va utiliser le timer (menu `Clock Configuration`).
 Ici, on utilise le timer `TIM1` qui est sur le bus `APB2`, qui a une fréquence de 4MHz :
-![Prescaler clock](/images/Clock%20Config.webp){:loading="lazy"}
+![Prescaler clock](/images/pwm/clock_config.webp){:loading="lazy"}
 
 Ensuite, on peut régler le timer TIM1 qu'on utilisera pour générer le signal PWM.
 Ici, l'objectif était d'avoir trois signaux, d'où le mode PWM sur 3 channels :
-![TIM1](/images/Timer%20Config.webp){:loading="lazy"}
+![TIM1](/images/pwm/timer_config.webp){:loading="lazy"}
 
 Il est aussi nécessaire de calculer la valeur du prescaler à partir de la clock (4MHz), 
 du compteur utilisé (4096) et de la fréquence voulue (50Hz) : `4MHz ÷ (4096*50Hz) - 1 = 18`.

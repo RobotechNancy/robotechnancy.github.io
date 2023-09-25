@@ -10,7 +10,7 @@ order: 3
 ---
 
 Sur les micro-controlleurs compatibles, l'I2C s'active sur CubeMX, où les pins à utiliser sont indiqués après activation :
-![STM32 I2C](/images/STM32%20I2C.webp){: loading="lazy" }
+![STM32 I2C](/images/I2C/STM32.webp){: loading="lazy" }
 
 {: .warning }
 > **Attention :** Il faut faire attention au timeout.

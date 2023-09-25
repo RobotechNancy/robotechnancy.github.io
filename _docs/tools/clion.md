@@ -42,6 +42,6 @@ C'est un fichier utilisé par OpenOCD pour envoyer du code sur la carte correspo
 Ici, on utilise des cartes `L432KC` donc il faut sélectionner `stm32l4discovery.cfg`.
 
 Voila à quoi ressemble un projet CLion (avec l'ioc ouvert à droite) :
-![Projet CLion](/images/IDEs/CLion.webp){: loading="lazy"}
+![Projet CLion](/images/tools/CLion.webp){: loading="lazy"}
 
 La configuration de la carte utilise, comme pour CubeIDE, l'interface de [CubeMX](../stm32#configuration-dune-carte){:target="_blank"}.

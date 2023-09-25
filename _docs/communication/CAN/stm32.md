@@ -20,7 +20,7 @@ Pour obtenir le baudrate voulu, trois réglages sont modifiables :
 - Time Quanta in Bit Segment 2 (t<sub>BS2</sub>)
 
 Le calcul du baudrate et les différents paramètres sont expliqués ci-dessous :
-![CAN timing](/images/diagrams/CAN%20Timing.webp){:loading="lazy"}
+![CAN timing](/images/CAN/timing.webp){:loading="lazy"}
 
 Puis, il faut importer les fichiers `can.c` et `can.h` respectivement dans les dossiers `Core/Src` et `Core/Inc` de votre projet. Vous pouvez aussi cloner le projet STM32 du [repo Github](https://github.com/RobotechNancy/Communication/tree/master/CAN/L432){:target="_blank"} où se trouvent `can.c` et `can.h`.
 
