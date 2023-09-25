@@ -9,7 +9,7 @@ title: Principe
 order: 1
 ---
 
-Le bus CAN (Control Area Network) est un moyen de communication en temps réel avec un haut niveau de fiabilité.
+Un bus CAN (Control Area Network) est un moyen de communication en temps réel avec un haut niveau de fiabilité.
 C'est un bus orienté message composé de deux fils (CAN-H et CAN-L) qui permettent de faire communiquer plusieurs nœuds entre eux :
 ![CAN](/images/diagrams/CAN.webp){: loading="lazy" }
 
