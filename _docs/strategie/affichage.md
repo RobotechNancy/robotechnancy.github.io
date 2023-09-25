@@ -7,7 +7,7 @@ order: 2
 ---
 
 Par manque de temps, l'[écran tactile](https://github.com/RobotechNancy/Ecrans){:target="_blank"} a été remplacé par un écran LCD 2x16 :
-![Ecran LCD](/images/components/LCD.webp){: loading="lazy"}
+![Ecran LCD](/images/strategy/LCD.webp){: loading="lazy"}
 
 > **Note :** L'objectif est de pleinement utiliser l'écran tactile pour afficher plus d'informations et facilement intéragir avec le robot.
 

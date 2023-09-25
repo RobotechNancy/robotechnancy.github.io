@@ -7,19 +7,19 @@ order: 2
 ---
 
 Un capteur optique est placé sous le robot
-![PMW3901](/images/components/PMW3901.webp){:loading="lazy"}
+![PMW3901](/images/optic_sensor/PMW3901.webp){:loading="lazy"}
 Il permet de mesurer le déplacement du robot par rapport au sol. Il s'agit d'une caméra à basse résolution et haute fréquence qui compare des images successives du sol.
 
 ### Utilisation 
 
 Pour fonctionner correctement, le capteur optique doit se situer à minimum 9cm du sol, et avoir un éclairage adapté.
 Il est pour cela accompagné d'un anneau de LEDs WS2812
-![WS2812](/images/components/LED%20Ring.webp){:loading="lazy"}
+![WS2812](/images/optic_sensor/LED.webp){:loading="lazy"}
 ce sont des LED commandables individuellement en 24 bits (1 octet par composante RGB).
 
 On envoie à la suite les trames pour chaque LED selon le schéma suivant :
 
-![Commande WS2812](/images/diagrams/Commande%20WS2812.webp){:loading="lazy"}
+![Commande WS2812](/images/optic_sensor/command.webp){:loading="lazy"}
 
 ### Configuration STM
 

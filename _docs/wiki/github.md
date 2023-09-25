@@ -8,7 +8,7 @@ order: 1
 
 Ce wiki utilise [Jekyll](https://jekyllrb.com/){:target="_blank"} pour générer les pages et est hébergé sur [Github Pages](https://pages.github.com/){:target="_blank"} :
 
-![Github Pages](/images/Github%20Pages.webp){:loading="lazy"}
+![Github Pages](/images/wiki/github_pages.webp){:loading="lazy"}
 
 Sur cette [page](https://github.com/RobotechNancy/robotechnancy.github.io/settings/pages){:target="_blank"}, il est possible de choisir :
 - La brance de déploiement du site (ici `master`)

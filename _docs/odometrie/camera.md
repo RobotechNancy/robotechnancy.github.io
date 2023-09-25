@@ -7,7 +7,7 @@ order: 1
 ---
 
 Des tags ArUCO (en rouge) sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, des modules sont placés sur des balises (en bleu) :
-![Terrain de jeu](/images/diagrams/Playground.webp){:loading="lazy"}
+![Terrain de jeu](/images/aruco/playground.webp){:loading="lazy"}
 
 Chaque balise est montée d'un module contenant :
 - Une caméra
@@ -39,7 +39,7 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
 ### Calibration
 
 Pour avoir une meilleure détection, il est nécessaire de calibrer la caméra :
-![Grille ArUCO](/images/diagrams/ArUCO%20Board.webp){:loading="lazy" .left-img}
+![Grille ArUCO](/images/aruco/board.webp){:loading="lazy" .left-img}
 - Définir les paramètres dans `data/config.yml`
 - Générer une grille ArUCO avec `./ArUCO board`
 - Démarrer la calibration avec `./ArUCO calibrate`
@@ -54,5 +54,5 @@ Pour lancer il suffit d'exécuter `./ArUCO estimate`, les paramètres sont repri
 Toutes les positions sont données par rapport à un tag de référence (`ref_marker_id`) :
 
 {: style="text-align: center" }
-![ArUCO Estimation](/images/diagrams/ArUCO%20Estimation.webp){:loading="lazy" .inline-img}
-![ArUCO AR](/images/ArUCO%20AR.webp){:loading="lazy" .inline-img}
+![ArUCO Estimation](/images/aruco/estimation.webp){:loading="lazy" .inline-img}
+![ArUCO AR](/images/aruco/AR.webp){:loading="lazy" .inline-img}
