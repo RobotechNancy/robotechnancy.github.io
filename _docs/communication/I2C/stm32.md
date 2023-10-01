@@ -13,8 +13,7 @@ Sur les micro-controlleurs compatibles, l'I2C s'active sur CubeMX, où les pins 
 ![STM32 I2C](/images/I2C/STM32.webp){: loading="lazy" }
 
 {: .warning }
-> **Attention :** Il faut faire attention au timeout.
-En effet, si il est trop court, la séquence envoyée ou reçue sera incomplète.
+> Il faut faire attention au timeout. En effet, si il est trop court, la séquence envoyée ou reçue sera incomplète.
 
 ### Lecture et écriture
 
@@ -41,5 +40,4 @@ HAL_I2C_Master_Receive(&hi2c1, 21, (uint8_t *) RX_buffer, 1, HAL_MAX_DELAY);
 /* USER CODE END 2 */
 ```
 
-> **Note :** pour le mode esclave, l'utilisation des interruptions ou le DMA (Direct Memory Access),
-se référer au [wiki ST](https://wiki.st.com/stm32mcu/wiki/Getting_started_with_I2C){:target="_blank"}.
+> Pour le mode esclave, l'utilisation des interruptions ou le DMA (Direct Memory Access), se référer au [wiki ST](https://wiki.st.com/stm32mcu/wiki/Getting_started_with_I2C){:target="_blank"}.

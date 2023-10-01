@@ -13,7 +13,7 @@ Un bus I2C est un moyen de communication, souvent utilisé pour connecter des co
 C'est un bus avec une architecture maître-esclave mais il est possible d'avoir plusieurs maîtres et plusieurs esclaves sur le même bus :
 ![I2C](/images/I2C/schema.webp){: loading="lazy"}
 
-> **Note :** le choix du baudrate est plus limité que pour un bus CAN (100kHz, 400kHz ou 3,4MHz), le plus souvent 100kHz.
+> Le choix du baudrate est plus limité que pour un bus CAN (100kHz, 400kHz ou 3,4MHz), le plus souvent 100kHz.
 
 ### Lecture et écriture
 

@@ -13,7 +13,7 @@ Un bus CAN (Control Area Network) est un moyen de communication en temps réel a
 C'est un bus orienté message composé de deux fils (CAN-H et CAN-L) qui permettent de faire communiquer plusieurs nœuds entre eux :
 ![CAN](/images/CAN/schema.webp){: loading="lazy" }
 
-> **Note :** Pour avoir une architecture modulaire et réactive, tous les noeuds sont connectés en configuration `High Speed`
+> Pour avoir une architecture modulaire et réactive, tous les noeuds sont connectés en configuration `High Speed`
 (jusqu'à 1 Mbit/s au lieu de 125 kbit/s)
 
 ### Transmission

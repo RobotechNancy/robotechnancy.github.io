@@ -20,7 +20,7 @@ bundle install           # Installer les dépendances du site
 ```
 
 {:.warning}
-> **Attention :** Il ne faut surtout pas utiliser `sudo` pour installer les dépendances du site, sinon il y aura des problèmes de permissions.
+> Il ne faut surtout pas utiliser `sudo` pour installer les dépendances du site, sinon il y aura des problèmes de permissions.
 
 Pour lancer le site en local, il suffit alors de lancer cette commande :
 ```bash

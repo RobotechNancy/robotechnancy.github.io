@@ -51,5 +51,5 @@ HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_2);
 HAL_TIM_PWM_Stop(&htim1, TIM_CHANNEL_3);
 ```
 
-> **Note :** Cet article s'appuie sur une [librairie custom](https://github.com/RobotechNancy/Actionneurs/blob/master/PWM){:target="_blank"} 
+> Cet article s'appuie sur une [librairie custom](https://github.com/RobotechNancy/Actionneurs/blob/master/PWM){:target="_blank"} 
 utilisée pour contrôler des servos-moteurs analogiques et des turbines.

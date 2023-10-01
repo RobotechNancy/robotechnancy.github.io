@@ -9,7 +9,7 @@ order: 2
 Par manque de temps, l'[écran tactile](https://github.com/RobotechNancy/Ecrans){:target="_blank"} a été remplacé par un écran LCD 2x16 :
 ![Ecran LCD](/images/strategy/LCD.webp){: loading="lazy"}
 
-> **Note :** L'objectif est de pleinement utiliser l'écran tactile pour afficher plus d'informations et facilement intéragir avec le robot.
+> L'objectif est de pleinement utiliser l'écran tactile pour afficher plus d'informations et facilement intéragir avec le robot.
 
 ### Librairie LCD
 
@@ -30,5 +30,5 @@ Pour faciliter l'écriture sur l'écran, trois fonctions sont disponibles :
 - `lcd.clear()` : effacer l'écran
 - `lcd.setCursor(0, 0)` : déplacer le curseur à la position (0, 0)
 
-> **Note :** il peut y avoir une différence entre la commande envoyée et le texte affiché,
+> Il peut y avoir une différence entre la commande envoyée et le texte affiché,
 cela peut venir à un délai trop court entre deux commandes.
