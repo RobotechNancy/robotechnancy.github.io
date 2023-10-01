@@ -354,12 +354,26 @@ blockquote {
 	margin-right: -10px;
 	background-color: var(--nav-background-color);
 
+	p::before {
+		content: '🛈 Note ';
+		display: block;
+		margin: -5px 0;
+		font-weight: bold;
+		font-size: 1.05em;
+		color: var(--brand-colour);
+	}
+
 	p:last-child {
 		margin-bottom: 0;
 	}
 
 	&.warning {
 		border-color: #cd5c5c;
+
+		p::before {
+			content: '⚠ Attention ';
+			color: #cd5c5c;
+		}
 	}
 
 	@media (max-width: $full-width-break) {

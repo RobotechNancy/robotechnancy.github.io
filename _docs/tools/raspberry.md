@@ -40,7 +40,7 @@ add_executable(${PROJECT_NAME} main.cpp)  # Créer un exécutable du même nom q
 ```
 
 {:.warning}
->  **Attention :** Il faut mettre tous les fichiers `.cpp` du projet après `${PROJECT_NAME}`.
+> Il faut mettre tous les fichiers `.cpp` du projet après `${PROJECT_NAME}`.
 
 Pour compiler et exécuter le code du projet, il suffit d'exécuter ces commandes :
 ```bash

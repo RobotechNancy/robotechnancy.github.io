@@ -21,8 +21,7 @@ Un problème de communication peut avoir plusieures causes :
 - Un mauvais branchement ou module défectueux
 - Les modules sont configurés différemment ou ne sont pas du même type
 
-> Les modules XBee doivent être paramtrés de la même manière :
-> pas de parité, baudrate à 9600, databits à 8 et stopbit à 1.
+> Les modules XBee doivent être paramtrés de la même manière : pas de parité, baudrate à 9600, databits à 8 et stopbit à 1.
 
 Les trames envoyées sont de la forme suivante :
 
@@ -65,8 +64,7 @@ int main() {
 }
 ```
 
-> **Note :** Le port série `/dev/ttyS0` est le port UART du Raspberry Pi.
-> Il est possible que le port soit différent sur votre ordinateur (`/dev/ttyUSB0` par exemple).
+> Le port série `/dev/ttyS0` est le port UART du Raspberry Pi. Il est possible que le port soit différent sur votre ordinateur (`/dev/ttyUSB0` par exemple).
 
 Le module est configuré de la manière suivante :
 

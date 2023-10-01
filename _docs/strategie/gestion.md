@@ -7,7 +7,7 @@ order: 1
 ---
 
 {: .warning}
-> **Attention :** toute cette partie a été développée en urgence pendant la compétition.
+> Toute cette partie a été développée en urgence pendant la compétition.
 Le code source n'est pas documenté et son approche mérite d'être revue.
 
 Pour facilement changer les paramètre et la stratégie, deux fichiers ont été créés :
@@ -95,7 +95,6 @@ void Interpreter::action_3(std::vector<std::string> &args) {
     // ...
 }
 ```
-> **Note :** pour récupérer une caractéristique de `data/config.txt`, il suffit d'utiliser `parser.get<type>("nom_de_la_variable")`
 
 ### Démarrer la stratégie
 
