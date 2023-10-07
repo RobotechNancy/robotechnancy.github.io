@@ -99,13 +99,14 @@ xbee.bind(XB_FCT_CODE, my_function);
 
 Pour attendre une réponse à une demande, il faut utiliter la fonction `XBee::wait_for_response` :
 ```cpp
-uint8_t data[1] = {0x01}
-xbee.sendFrame(XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, data, 1);
+xbee_frame_t response;
+std::vector<uint8_t> data = {0x01};
 
-xbee_frame_t frame;
+int status = xbee.sendFrame(response, XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, data);
 
-// 1ère trame envoyée, 5 secondes d'attente max
-if (xbee.waitFor(frame, 1, 5000) < 0) {
-    // Gérer l'erreur
-};
+if (status < 0) {
+    // Aucune réponse reçue à temps
+} else {
+    // Réponse reçue et contenue dans response
+}
 ```

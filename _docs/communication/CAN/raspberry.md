@@ -98,16 +98,3 @@ can.bind(FCT_ACCUSER_RECEPTION, my_function);
 
 {:.warning}
 > Il faut déclarer tous les `can.bind(..)` avant d'appeler `can.startListening()` sinon les messages ne seront pas traités.
-
-Si vous attendez une réponse à un message, il faut utiliser la méthode `Can::waitFor` :
-```cpp
-can_mess_t response;
-can.send(CAN_ADDR_ODOMETRIE, FCT_GET_OPTIQUE, nullptr, 0, 1, false);
-
-// messageID = 1 et 5 secondes d'attente max
-if (can.waitFor(response, 1, 5000) < 0) {
-    // Le message n'a pas été reçu
-} else {
-    // Le message a été reçu
-}
-```
