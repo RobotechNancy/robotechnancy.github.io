@@ -36,10 +36,3 @@ defaults:
       path: ""
     values:
       layout: default
-  -
-    scope:
-      path: ""
-      type: "docs"
-    values:
-      seo:
-        type: Article

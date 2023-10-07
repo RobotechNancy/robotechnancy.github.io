@@ -192,9 +192,6 @@ GEM
       jekyll-seo-tag (~> 2.0)
     jekyll-titles-from-headings (0.5.3)
       jekyll (>= 3.3, < 5.0)
-    jekyll-turbolinks (0.0.4)
-      jekyll (>= 3.8, < 4.1)
-      turbolinks-source (~> 5)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     jemoji (0.12.0)
@@ -246,7 +243,6 @@ GEM
       unf (~> 0.1.4)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
-    turbolinks-source (5.2.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
@@ -265,7 +261,6 @@ DEPENDENCIES
   github-pages (= 228)
   jekyll (= 3.9.3)
   jekyll-redirect-from
-  jekyll-turbolinks
   webrick (= 1.8.1)
 
 BUNDLED WITH
