@@ -64,32 +64,31 @@ Pour commencer à écouter et envoyer des messages sur le bus CAN, il faut d'abo
 #include <robotech/can.h>
 
 int main() {
-    Can can;
-    
-    if(can.init(CAN_ADDR_RASPBERRY) < 0)
-        return 1;
+    CAN can;
 
-    // ...
+    if(can.init(CAN_ADDR_RASPBERRY) < 0)
+        return 1; // Erreur d'initialisation
+
+    // Initialisation réussie
 }
 ```
 
 Pour envoyer un message, il faut utiliser la méthode `Can::send` :
 ```cpp
-uint8_t data[1] = {0x10};
+std::vector<uint8_t> data = {0x10};
 
 // CAN_ADDR_BROADCAST    : Adresse de destination
 // FCT_ACCUSER_RECPETION : Code fonction
 // data                  : Données à envoyer
-// 1                     : Taille des données
 // 0                     : Identifiant du message
 // false                 : Si une réponse est attendue
-can.send(CAN_ADDR_BROADCAST, FCT_ACCUSER_RECPETION, data, 1, 0, false);
+can.send(CAN_ADDR_RASPBERRY, FCT_ACCUSER_RECPETION, data, 0, false);
 ```
 
 Pour gérer la réception d'un [code fonction](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/define_can.h#L61){:target="_blank"}, il faut utiliser la méthode `Can::bind` :
 ```cpp
 // Lier une fonction à un code fonction
-void my_function(const can_mess_t& message) {
+void my_function(const can_frame_t &message) {
     // ..
 }
 
@@ -98,3 +97,22 @@ can.bind(FCT_ACCUSER_RECEPTION, my_function);
 
 {:.warning}
 > Il faut déclarer tous les `can.bind(..)` avant d'appeler `can.startListening()` sinon les messages ne seront pas traités.
+
+Pour recevoir une réponse, il suffit d'ajouter un timeout à la méthode `Can::send` :
+```cpp
+// data est déclaré implicitement, 5 secondes de timeout
+can_result_t res = can.send(CAN_ADDR_RASPBERRY, FCT_ACCUSER_RECPETION, {0x10}, 0, true, 5);
+
+// Il est aussi possible d'utiliser des if
+switch (res.status) {
+    case CAN_OK:
+        std::cout << "Réponse reçue, code fonction : " << res.frame.functionCode << std::endl;
+    break;
+    case CAN_TIMEOUT:
+        std::cout << "Aucune réponse reçue à temps" << std::endl;
+    break;
+    case CAN_ERROR:
+        std::cout << "Erreur lors de l'envoi du message" << std::endl;
+    break;
+}
+```
