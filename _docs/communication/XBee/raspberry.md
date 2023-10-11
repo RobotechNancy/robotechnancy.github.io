@@ -97,16 +97,20 @@ xbee.bind(XB_FCT_CODE, my_function);
 {:.warning}
 > Il faut déclarer tous les `xbee.bind(..)` avant d'appeler `xbee.startListening()`
 
-Pour attendre une réponse à une demande, il faut utiliter la fonction `XBee::wait_for_response` :
+Pour attendre une réponse à une demande, il suffit d'ajouter un timeout à la méthode `XBee::sendFrame` :
 ```cpp
-xbee_frame_t response;
-std::vector<uint8_t> data = {0x01};
+// Data est déclaré implicitement, 5 secondes de timeout
+xbee_result_t res = xbee.sendFrame(XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, {0x01}, 5);
 
-int status = xbee.sendFrame(response, XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, data);
-
-if (status < 0) {
-    // Aucune réponse reçue à temps
-} else {
-    // Réponse reçue et contenue dans response
+switch (res.status) {
+    case XB_E_FRAME_DATA_LENGTH:
+        // Vous avez dépassé la taille maximale des données
+    break;
+    case XB_E_FRAME_TIMEOUT:
+        // Le timeout est dépassé
+    break;
+    case XB_E_SUCCESS:
+        // Une trame a été reçue, récupérable dans res.frame
+    break;
 }
 ```
