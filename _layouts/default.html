@@ -11,11 +11,7 @@
 		<meta property="og:url" content="{{ site.url }}">
 		<meta property="og:site_name" content="{{ site.title }}">
 		<meta property="og:image" content="{{ site.baseurl }}/images/icons/logo.webp">
-		{{ % if page.subcategory % }}
-			<meta property="og:title" content="{{ page.category }} {{ page.subcategory }} - {{ page.title }}">
-		{{ % else % }}
-			<meta property="og:title" content="{{ page.category }} - {{ page.title }}">
-		{{ % endif % }}
+		<meta property="og:title" content="{% if page.category %}{{ page.category }} {{ page.subcategory }} - {% endif %}{{ page.title }}">
 		<meta property="og:description" content="{{ site.description }}">
 		<meta data-react-helmet="true" name="theme-color" content="#3583d6" />
 
@@ -50,8 +46,8 @@
 					{% for group in grouped %}
 					{% if group.name == "" %} {% continue %} {% endif %}
 
-					<li class="nav-item top-level" {% if group.name == page.category %}id="active"{% endif %}>
-						<span class="nav-cat" onclick="changeActive(this)" onkeydown="onKeyDown(event, this)" tabindex="0">{{ group.name }}</span>
+					<li class="nav-item top-level {% if group.name == page.category %}active{% endif %}">
+						<span class="nav-cat" onclick="changeActive()" onkeydown="onKeyDown()" tabindex="0">{{ group.name }}</span>
 
 						{% assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' %}
 						{% for subcategory in subcategories %}
@@ -79,12 +75,10 @@
 		<section class="main">
 			<div class="page-header">
 				<h2>
-					{% if page.category and page.subcategory %}
-						{{ page.category }}/{{ page.subcategory }}
-					{% elsif page.category %}
-						{{ page.category }}
+					{% if page.subcategory %}
+						{{ page.category }} {{ page.subcategory }}
 					{% else %}
-						{{ site.title }}
+						{{ page.category | default: site.title }}
 					{% endif %}
 				</h2>
 				<h3 class="no-anchor">{{ page.title }}</h3>
@@ -106,33 +100,21 @@
 				});
 			});
 
-			function changeActive(newActive) {
-				let active = document.getElementById("active");
-				newActive = newActive.parentNode;
-
-				if (active == newActive) {
-					active.removeAttribute("id");
-					return;
-				}
-
-				if (active == null) {
-					newActive.id = "active";
-					return;
-				}
-
-				active.removeAttribute("id");
-				newActive.id = "active";
-			}
-
-			function onKeyDown(event, element) {
-				if (event.key === "Enter") {
-					event.preventDefault();
-					changeActive(element);
-				}
-			}
-
 			function openNav() {
 				document.body.classList.toggle("nav-open");
+			}
+
+			function changeActive() {
+				let active = document.querySelector(".active");
+				active?.classList.toggle("active");
+
+				if (event.target.parentNode !== active)
+					event.target.parentNode.classList.toggle("active");
+			}
+
+			function onKeyDown() {
+				if (event.key === "Enter")
+					changeActive(event.target);
 			}
 		</script>
 	</body>

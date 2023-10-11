@@ -55,9 +55,6 @@ header {
 
 	li {
 		.nav-cat {
-			user-select: none;
-			-webkit-user-select: none;
-			-moz-user-select: none;
 			position: relative;
 			margin-left: 12px;
 
@@ -71,13 +68,9 @@ header {
 			}
 		}
 
-		&#active > .nav-cat::before {
-			content: '▼';
-		}
-
-		&:not(#active) > ul {
-			display: none;
-		}
+		ul { display: none; }
+		&.active > ul { display: block; }
+		&.active > .nav-cat::before { content: '▼'; }
 	}
 
 	h1 {
