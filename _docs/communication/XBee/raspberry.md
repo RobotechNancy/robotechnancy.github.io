@@ -87,7 +87,7 @@ Le module est configuré de la manière suivante :
 Les codes fonctions se trouvent dans le fichier [`include/define_xbee.h`](https://github.com/RobotechNancy/Communication/blob/master/XBee/include/define_xbee.h#L29){:target="_blank"} et se gèrent avec la méthode `XBee::bind` :
 ```cpp
 // Lier une fonction à un code fonction
-void my_function(const frame_t& frame) {
+void my_function(XBee &xbee, const frame_t& frame) {
     // ...
 }
 

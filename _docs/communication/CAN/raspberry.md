@@ -88,7 +88,7 @@ can.send(CAN_ADDR_RASPBERRY, FCT_ACCUSER_RECPETION, data, 0, false);
 Pour gérer la réception d'un [code fonction](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/define_can.h#L61){:target="_blank"}, il faut utiliser la méthode `Can::bind` :
 ```cpp
 // Lier une fonction à un code fonction
-void my_function(const can_frame_t &message) {
+void my_function(CAN &can, const can_frame_t &message) {
     // ..
 }
 
