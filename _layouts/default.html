@@ -41,33 +41,30 @@
 
 			<nav>
 				<ul>
-					{% assign grouped = site.docs | sort: 'category_order' | group_by: 'category' %}
-
-					{% for group in grouped %}
-					{% if group.name == "" %} {% continue %} {% endif %}
-
+					{%- assign grouped = site.docs | sort: 'category_order' | group_by: 'category' %}
+					{%- for group in grouped %} {% if group.name != '' %}
 					<li class="nav-item top-level {% if group.name == page.category %}active{% endif %}">
 						<span class="nav-cat" onclick="changeActive()" onkeydown="onKeyDown()" tabindex="0">{{ group.name }}</span>
 
-						{% assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' %}
+						{%- assign subcategories = site.docs | where: 'category', group.name | sort: 'subcategory_order' | group_by: 'subcategory' -%}
 						{% for subcategory in subcategories %}
-							<ul>
-								{% if subcategory.name != "" %}
-								<li class="nav-item mid-level">
-									<span>{{ subcategory.name }}</span>
-								</li>
-								{% endif %}
+						<ul>
+							{% if subcategory.name != "" -%}
+							<li class="nav-item mid-level">
+								<span>{{ subcategory.name }}</span>
+							</li>
+							{%- endif %}
 
-								{% assign items = subcategory.items | sort: 'order' %}
-								{% for item in items %}
-								<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}">
-									<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
-								</li>
-								{% endfor %}
-							</ul>
-						{% endfor %}
+							{%- assign items = subcategory.items | sort: 'order' -%}
+							{% for item in items -%}
+							<li class="nav-item {% if subcategory.name != '' %}sub-level{% endif %}">
+								<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+							</li>
+							{%- endfor %}
+						</ul>
+						{%- endfor %}
 					</li>
-					{% endfor %}
+					{%- endif %}{% endfor %}
 				</ul>
 			</nav>
 		</header>
@@ -75,11 +72,11 @@
 		<section class="main">
 			<div class="page-header">
 				<h2>
-					{% if page.subcategory %}
+					{%- if page.subcategory -%}
 						{{ page.category }} {{ page.subcategory }}
-					{% else %}
+					{%- else -%}
 						{{ page.category | default: site.title }}
-					{% endif %}
+					{%- endif -%}
 				</h2>
 				<h3 class="no-anchor">{{ page.title }}</h3>
 			</div>
