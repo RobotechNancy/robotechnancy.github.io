@@ -22,19 +22,22 @@ Pour utiliser la [librairie ArUCO](https://github.com/RobotechNancy/Odometrie/tr
 - La librairie OpenCV avec OpenCV contrib :
 
   ```bash
+  # svn (subversion) permet de ne télécharger que les modules opencv nécessaires
+  sudo apt install subversion libapache2-mod-svn cmake
+
   git clone https://github.com/opencv/opencv.git
   mkdir opencv/build && cd opencv/build && mkdir modules
 
-  sudo apt-get install subversion
-  sudo apt-get install libapache2-mod-svn 
-  # ou sudo dnf install svn
   svn export https://github.com/opencv/opencv_contrib/trunk/modules/aruco
   mv aruco modules
   
-  sudo apt install cmake
   cmake -DOPENCV_EXTRA_MODULES_PATH=./modules ..
   sudo make install -j$(nproc)
   ```
+
+{: .warning }
+> Le processus d'installation peut prendre plusieures heures sur une Raspberry Pi.
+> Il est aussi possible de cross-compiler OpenCV (non testé).
 
 ### Calibration
 
