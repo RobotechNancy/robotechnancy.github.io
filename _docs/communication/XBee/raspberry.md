@@ -94,8 +94,16 @@ void my_function(XBee &xbee, const frame_t& frame) {
 xbee.bind(XB_FCT_CODE, my_function);
 ```
 
-{:.warning}
-> Il faut déclarer tous les `xbee.bind(..)` avant d'appeler `xbee.startListening()`
+Une fois toutes les fonctions liées, il faut démarrer l'écoute du bus CAN :
+```cpp
+xbee.bind(...);
+xbee.bind(...);
+
+xbee.startListening(); // L'écoute ne bloque pas le main
+```
+
+> Pour éviter que le programme se termine instantanément, il est possible d'utiliser un `while(true)`
+> ou `std::this_thread::sleep_for(std::chrono::seconds(...));`
 
 Pour attendre une réponse à une demande, il suffit d'ajouter un timeout à la méthode `XBee::sendFrame` :
 ```cpp
