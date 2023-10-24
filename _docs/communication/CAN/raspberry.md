@@ -95,8 +95,16 @@ void my_function(CAN &can, const can_frame_t &message) {
 can.bind(FCT_ACCUSER_RECEPTION, my_function);
 ```
 
-{:.warning}
-> Il faut déclarer tous les `can.bind(..)` avant d'appeler `can.startListening()` sinon les messages ne seront pas traités.
+Une fois toutes les fonctions liées, il faut démarrer l'écoute du bus CAN :
+```cpp
+can.bind(...);
+can.bind(...);
+
+can.startListening(); // L'écoute ne bloque pas le main
+```
+
+> Pour éviter que le programme se termine instantanément, il est possible d'utiliser un `while(true)`
+> ou `std::this_thread::sleep_for(std::chrono::seconds(...));`
 
 Pour recevoir une réponse, il suffit d'ajouter un timeout à la méthode `Can::send` :
 ```cpp
