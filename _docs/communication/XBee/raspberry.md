@@ -54,7 +54,7 @@ Le module XBee s'initialise de la manière suivante :
 int main() {
     // On initialise le module XBee en spécifiant le port série et l'adresse du module
     XBee xbee(XB_ADDR_ROBOT_1);
-    int status = xbee.openSerialConnection("/dev/ttyS0");
+    int status = xbee.open("/dev/ttyS0");
 
     if (status != XB_SER_E_SUCCESS) {
         return status;
@@ -108,7 +108,7 @@ xbee.startListening(); // L'écoute ne bloque pas le main
 Pour attendre une réponse à une demande, il suffit d'ajouter un timeout à la méthode `XBee::sendFrame` :
 ```cpp
 // Data est déclaré implicitement, 5 secondes de timeout
-xbee_result_t res = xbee.sendFrame(XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, {0x01}, 5);
+xbee_result_t res = xbee.send(XB_ADDR_CAMERA_01, XB_FCT_TEST_ALIVE, {0x01}, 5);
 
 switch (res.status) {
     case XB_E_FRAME_DATA_LENGTH:
