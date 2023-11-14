@@ -54,15 +54,16 @@ make
 
 Créer une librairie nécessite un `CMakeLists.txt` un peu plus complexe :
 ```cmake
+# Même base que pour un projet
 set(CMAKE_CXX_STANDARD 20)
 cmake_minimum_required(VERSION 3.16)
 project(LibName VERSION 0.1 DESCRIPTION "Description de la librairie") # Nom de la librairie (ici, "LibName")
 
-add_library(${PROJECT_NAME} ...) # Inclure tous les fichiers source
+# Inclure tous les fichiers source
+add_library(${PROJECT_NAME} ...)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION 1)
-set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...") # Inclure tous les headers publics séparés par des ";"
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION}) # Version de la librairie
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "...")        # Inclure tous les headers publics séparés par des ";"
 
 # Inclure les sous-dossiers de votre projet (ex: "include" et "src")
 target_include_directories(${PROJECT_NAME} PRIVATE include src)
@@ -73,24 +74,18 @@ install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/robotech
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/robotech)
 
-configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
+# Création automatique d'un fichier "LibNameConfig.cmake" à partir de "Config.cmake.in"
+configure_file(Config.cmake.in ${PROJECT_NAME}Config.cmake @ONLY)
+install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}Config.cmake DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
 ```
 
-Pour que la libairie soit facilement trouvable par un autre projet, il faut créer un fichier `LibName.pc.in` (aucune modification à faire) :
+Pour que la libairie soit facilement trouvable par un autre projet, il faut créer un fichier `Config.cmake.in` (aucune modification à faire) :
 ```cmake
-prefix=@CMAKE_INSTALL_PREFIX@
-exec_prefix=@CMAKE_INSTALL_PREFIX@
-libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
-includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+set(@PROJECT_NAME@_FOUND TRUE)
+set(@PROJECT_NAME@_VERSION @PROJECT_VERSION@)
 
-Name: @PROJECT_NAME@
-Description: @PROJECT_DESCRIPTION@
-Version: @PROJECT_VERSION@
-
-Requires:
-Libs: -L${libdir} -l@PROJECT_NAME@
-Cflags: -I${includedir}
+set(@PROJECT_NAME@_INCLUDE_DIRS "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@/robotech")
+set(@PROJECT_NAME@_LIBRARIES "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_LIBDIR@/lib@PROJECT_NAME@.a")
 ```
 
 Maintenant, pour installer la librairie, il suffit d'exécuter les commandes suivantes :
@@ -105,11 +100,10 @@ sudo make install
 Pour lier une librairie à un projet, il suffit de modifier le fichier `CMakeLists.txt`, par exemple :
 ```cmake
 # Avant "add_executable"
-find_package(PkgConfig REQUIRED)            # Utilitaire pour trouver des librairies
-pkg_check_modules(MY_LIB REQUIRED LibName)  # Trouver une librairie "LibName"
+find_package(LibName REQUIRED) # Trouver la librairie "LibName"
 
 # Après "add_executable"
-target_link_libraries(my_project ${MY_LIB_LIBRARIES})   # Lier "LibName" à l'exécutable
+target_link_libraries(my_project ${LibName_LIBRARIES}) # Lier "LibName" à l'exécutable
 ```
 
 Pour utiliser la librairie dans le code, il suffit d'inclure le header :
