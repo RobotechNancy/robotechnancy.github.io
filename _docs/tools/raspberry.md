@@ -32,9 +32,9 @@ sudo dnf install cmake make gcc gcc-c++
 
 Pour créer un projet, il suffit de créer un fichier `CMakeLists.txt` à sa racine :
 ```cmake
-project(my_project)                       # Nom du projet
-set(CMAKE_CXX_STANDARD 20)                # Version de C++ (11, 14, 17, 20, 23)
 cmake_minimum_required(VERSION 3.24)      # Version de cmake
+set(CMAKE_CXX_STANDARD 20)                # Version de C++ (11, 14, 17, 20, 23)
+project(my_project)                       # Nom du projet
 
 add_executable(${PROJECT_NAME} main.cpp)  # Créer un exécutable du même nom que le projet
 ```
