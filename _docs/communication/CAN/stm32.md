@@ -45,7 +45,7 @@ int main(void) {
 
 Pour envoyer un message, il faut utiliser la fonction suivante :
 ```c
-int send(CAN_ADDR addr, CAN_FCT_CODE fct_code, uint8_t data[], uint data_len, bool is_rep, uint rep_len, uint msg_id)
+int send(CAN_HandleTypeDef *hcan, can_address_t address, function_code_t functionCode , uint8_t data[], uint8_t length, uint8_t messageID, bool isResponse);
 ```
 
 Il devient alors possible de gérer les messages reçus avec dans la fonction suivante :
@@ -53,9 +53,10 @@ Il devient alors possible de gérer les messages reçus avec dans la fonction su
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
     // ...
 
-    switch (msg.fct_code) {
-        VOTRE_CODE_FCT:
-            // ...
+    switch (msg.functionCode) {
+        case FCT_ACCUSER_RECPETION:
+            send(hcan, msg.senderAddress, FCT_ACCUSER_RECPETION, msg.data, 1, msg.messageID, true);
+        default:
             break;
     }
 ```
