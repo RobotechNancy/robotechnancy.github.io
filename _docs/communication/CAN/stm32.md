@@ -45,7 +45,7 @@ int main(void) {
 
 Pour envoyer un message, il faut utiliser la fonction suivante :
 ```c
-int send(CAN_HandleTypeDef *hcan, can_address_t address, function_code_t functionCode , uint8_t data[], uint8_t length, uint8_t messageID, bool isResponse);
+int send(CAN_HandleTypeDef *hcan, can_address_t address, can_code_t functionCode , uint8_t data[], uint8_t length, uint8_t messageID, bool isResponse);
 ```
 
 Il devient alors possible de gérer les messages reçus avec dans la fonction suivante :
