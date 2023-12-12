@@ -24,10 +24,10 @@ Le calcul du baudrate et les différents paramètres sont expliqués ci-dessous 
 
 Puis, il faut importer les fichiers `can.c` et `can.h` respectivement dans les dossiers `Core/Src` et `Core/Inc` de votre projet. Vous pouvez aussi cloner le projet STM32 du [repo Github](https://github.com/RobotechNancy/Communication/tree/master/CAN/L432){:target="_blank"} où se trouvent `can.c` et `can.h`.
 
-Enfin, les fichiers utilisent le header [`can_vars.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/can_vars.h#L72){:target="_blank"} de la librairie Raspberry.
+Enfin, les fichiers utilisent le header [`can_define.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/define_can.h){:target="_blank"} de la librairie Raspberry.
 Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
 - Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
-- Ajouter le chemin où se trouve le fichier `can_vars.h` dans `Include paths (-l)` puis `Apply and Close`
+- Ajouter le chemin où se trouve le fichier `define_can.h` dans `Include paths (-l)` puis `Apply and Close`
 
 Si vous avez toujours des erreurs de compilation, vous pouvez copier coller le fichier dans le dossier `Core/Inc` de votre projet.
 (Attention à bien le garder à jour avec la librairie Raspberry).
