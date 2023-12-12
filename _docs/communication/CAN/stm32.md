@@ -26,7 +26,7 @@ Puis, il faut importer les fichiers `can.c` et `can.h` respectivement dans les d
 
 Enfin, les fichiers utilisent le header [`can_define.h`](https://github.com/RobotechNancy/Communication/blob/master/CAN/Raspberry/include/define_can.h){:target="_blank"} de la librairie Raspberry.
 Avec STM32CubeIDE, il faut modifier le linker (en cas d'erreur de compilation) :
-- Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Linker > Include Paths`
+    - Aller dans `Project > Properties > C/C++ Build > Settings > MCU GCC Compiler > Include Paths`
 - Ajouter le chemin où se trouve le fichier `define_can.h` dans `Include paths (-l)` puis `Apply and Close`
 
 Si vous avez toujours des erreurs de compilation, vous pouvez copier coller le fichier dans le dossier `Core/Inc` de votre projet.
