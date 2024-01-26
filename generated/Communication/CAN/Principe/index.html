@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - Principe</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Principe de fonctionnement du bus CAN">
+
+		<link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css">
+		<link rel="apple-touch-icon" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://127.0.0.1:8000/">
+					<img src="http://127.0.0.1:8000/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					
+    
+
+    <a href="http://127.0.0.1:8000/Cartes/">Cartes utilisées</a>
+    
+
+    <a href="http://127.0.0.1:8000/Wiki/">Modifier ce wiki</a>
+    
+
+    <details>
+        <summary>CMake</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CMake/Installation/">Installer CMake</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Executable/">Créer un exécutable</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Lier/">Lier des librairies</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Librairie/">Créer une librairie</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>STM32</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/STM32/Installation/">Installation</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/Projet/">Créer un projet</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/CubeMX/">Configurer une carte</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Communication</summary>
+        <div>
+            
+    <details>
+        <summary>XBee</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Librairie/">Utiliser la librairie</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Initialisation/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>CAN</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Raspberry/">Librairie Raspberry</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/STM32/">Librairie STM32</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Librairie/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Communication/CAN/Principe</h2>
+				<h3 class="no-anchor">Principe</h3>
+			</div>
+			<article class="content">
+				<p>Un bus CAN (Control Area Network) est un moyen de communication en temps réel avec un haut niveau de fiabilité.
+C'est un bus orienté message composé de deux fils (CAN-H et CAN-L) qui permettent de faire communiquer plusieurs nœuds entre eux :
+<img alt="Schéma CAN" loading="lazy" src="http://127.0.0.1:8000/static/images/CAN/schema.webp" /></p>
+<blockquote>
+<p>Pour avoir une architecture modulaire et réactive, tous les noeuds sont connectés en configuration <code>High Speed</code>
+(jusqu'à 1 Mbit/s au lieu de 125 kbit/s)</p>
+</blockquote>
+<h3>Transmission</h3>
+<p>La communication sur le bus CAN s'appuie sur le principe de la diffusion (broadcast).
+Chaque nœud écoute le bus et décide de quoi faire avec les messages reçus.</p>
+<p>Pour éviter les collisions, la méthode CSMA CD/AMP est utilisée.
+Elle permet de déterminer quel message est prioritaire en fonction de son identifiant (ID) et de sa priorité (plus la valeur est basse, plus le message est prioritaire).</p>
+<p>Les messages sont transmis sur le bus sont codés avec la méthode NRZ (pas de retour à zéro après chaque bit) :
+<img alt="NRZ" loading="lazy" src="http://127.0.0.1:8000/static/images/CAN/NRZ.webp" /></p>
+<p>Cette méthode présente un défaut majeur : les longues séquences de bits sont difficiles à décoder.
+C'est pourquoi, tous les 5 bits, un bit de contrôle est ajouté (Bit Stuffing) :
+<img alt="NRZS" loading="lazy" src="http://127.0.0.1:8000/static/images/CAN/NRZS.webp" /></p>
+<h3>Protocoles</h3>
+<p>Deux protocoles sont souvent utilisés : <code>CAN 2.0a</code> (en haut) et <code>CAN 2.0b</code> (en bas) :
+<img alt="Protocoles" loading="lazy" src="http://127.0.0.1:8000/static/images/CAN/protocols.webp" /></p>
+<p>Il est possible d'utiliser les champs <code>Identifier</code> et <code>Extended Identifier</code> pour créer une trame applicative :
+C'est une trame qui contient des meta-données sur le message et qui sert aux noeuds à savoir quoi faire avec le message.</p>
+<p>Il est important de comprendre :</p>
+<ul>
+<li>Il n'y a pas de notion d'adresse à proprement parler, les noeuds ne font qu'appliquer des filtres sur les messages reçus</li>
+<li>Les champs d'identification et le champ de données sont deux choses différentes</li>
+</ul>
+			</article>
+		</section>
+
+		<script src="http://127.0.0.1:8000/static/script.js"></script>
+	</body>
+</html>

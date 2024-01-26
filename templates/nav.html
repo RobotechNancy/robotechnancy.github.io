@@ -1,0 +1,13 @@
+{% for uri, page in tree.items() | sort(attribute='1.meta.order') recursive -%}
+    {% if page.meta.hidden == "true" %}
+    {% elif page.children %}
+    <details>
+        <summary>{{ page.meta.title }}</summary>
+        <div>
+            {{ loop(page.children.items() | sort(attribute='1.meta.order')) }}
+        </div>
+    </details>
+    {% else %}
+    <a href="/{{ uri }}{% if uri %}/{% endif %}">{{ page.meta.title }}</a>
+    {% endif %}
+{% endfor -%}

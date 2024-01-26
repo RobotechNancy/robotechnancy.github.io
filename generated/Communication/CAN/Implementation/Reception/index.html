@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - Réception de données</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Implémentation de la réception de données">
+
+		<link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css">
+		<link rel="apple-touch-icon" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://127.0.0.1:8000/">
+					<img src="http://127.0.0.1:8000/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					
+    
+
+    <a href="http://127.0.0.1:8000/Cartes/">Cartes utilisées</a>
+    
+
+    <a href="http://127.0.0.1:8000/Wiki/">Modifier ce wiki</a>
+    
+
+    <details>
+        <summary>CMake</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CMake/Installation/">Installer CMake</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Executable/">Créer un exécutable</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Lier/">Lier des librairies</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Librairie/">Créer une librairie</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>STM32</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/STM32/Installation/">Installation</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/Projet/">Créer un projet</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/CubeMX/">Configurer une carte</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Communication</summary>
+        <div>
+            
+    <details>
+        <summary>XBee</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Librairie/">Utiliser la librairie</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Initialisation/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>CAN</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Raspberry/">Librairie Raspberry</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/STM32/">Librairie STM32</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Librairie/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Communication/CAN/Implementation/Reception</h2>
+				<h3 class="no-anchor">Réception de données</h3>
+			</div>
+			<article class="content">
+				<h3>Côté STM32</h3>
+<p>Pour récupérer les données reçues et la formater en <code>can_frame_t</code>, on utilise <code>CAN_RECEIVE</code> :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="c1">// Champ de données</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">RxData</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="c1">// Structure de la trame</span>
+<span class="n">CAN_RxHeaderTypeDef</span><span class="w"> </span><span class="n">RxHeader</span><span class="p">;</span>
+
+<span class="c1">// Récupérer la trame, Rx = buffer de réception</span>
+<span class="n">HAL_CAN_GetRxMessage</span><span class="p">(</span><span class="n">hcan</span><span class="p">,</span><span class="w"> </span><span class="n">CAN_RX_FIFO0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RxHeader</span><span class="p">,</span><span class="w"> </span><span class="n">RxData</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Pour récupérer les différents champs contenu dans l'identifiant étendu, on applique des masques et des décalages, par exemple, pour récupérer l'adresse du destinataire :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="n">can_frame_t</span><span class="w"> </span><span class="n">frame</span><span class="p">;</span>
+<span class="n">frame</span><span class="p">.</span><span class="n">receiverAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">RxHeader</span><span class="p">.</span><span class="n">ExtId</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">CAN_MASK_RECEIVER_ADDR</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">CAN_OFFSET_RECEIVER_ADDR</span><span class="p">;</span>
+</code></pre></div>
+
+<h3>Côté Raspberry</h3>
+<p>Pour récupérer les données de manière non bloquante, on utilise un thread séparé :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="n">isListening</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="n">listenerThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">CAN</span><span class="o">::</span><span class="n">listen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Ici <code>isListening</code> est atomique, c'est-à-dire que si plusieurs threads tentent de le modifier en même temps, il n'y aura pas de problème.
+Similairement, <code>listenerThread</code> est un pointeur intelligent qui se détruira automatiquement à la fin du programme.</p>
+<p>Pour savoir si des données sont disponibles, on fait du polling :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="c1">// On est intéressé que par l&#39;événement POLLIN</span>
+<span class="c1">// qui indique que des données sont disponibles</span>
+<span class="n">pollfd</span><span class="w"> </span><span class="n">fd</span><span class="p">{</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">POLLIN</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">isListening</span><span class="p">.</span><span class="n">load</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">poll</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// timeout, aucune donnée disponible</span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// erreur</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Données disponibles</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Dès que des données sont disponibles, on les récupère :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="n">can_frame</span><span class="w"> </span><span class="n">buffer</span><span class="p">{};</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">::</span><span class="n">read</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">can_frame</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Erreur lors de la lecture</span>
+<span class="p">}</span>
+
+<span class="c1">// Puis même formatage que sur STM32 (seul la structure qui contient les données change)</span>
+</code></pre></div>
+
+<p>Si la trame est une réponse <code>frame.isResponse</code>, on la stocke dans un tableau ce qui permet de débloquer la fonction qui attend cette réponse :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">isResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="w">    </span><span class="n">responses</span><span class="p">[</span><span class="n">frame</span><span class="p">.</span><span class="n">messageID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Ici on utilise un mutex et <code>std::lock_guard</code> pour éviter que deux threads tentent de modifier <code>responses</code> en même temps.
+<code>std::lock_guard</code> est un pointeur intelligent qui bloque le mutex à sa création et le débloque à sa destruction.</p>
+<p>Si la trame n'est pas une réponse, on cherche si son code fonction a un callback associé :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">callbacks</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">functionCode</span><span class="p">);</span>
+
+<span class="c1">// callback.first = code fonction</span>
+<span class="c1">// callback.second = fonction associée</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">callback</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">callbacks</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">callback</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Et si aucune fonction n'est associée, on l'ignore simplement.</p>
+			</article>
+		</section>
+
+		<script src="http://127.0.0.1:8000/static/script.js"></script>
+	</body>
+</html>

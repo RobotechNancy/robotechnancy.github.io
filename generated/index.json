@@ -1,0 +1,8 @@
+{
+    "hidden": "true",
+    "title": "Accueil",
+    "description": "Wiki de Robotech Nancy qui contient des ressources pour le d\u00e9veloppement embarqu\u00e9",
+    "order": "0",
+    "uri": "",
+    "page_content": "<p>Bienvenue sur le wiki de Robotech, ici se trouvent des ressources pour le d\u00e9veloppement embarqu\u00e9.\nActuellement, le projet est en <strong>phase de d\u00e9veloppement</strong>. Il est donc possible que certaines informations soient obsol\u00e8tes.</p>\n<blockquote>\n<p>Si il manque des informations, n'h\u00e9sitez pas \u00e0 contacter <strong>@mrspaar</strong> sur Discord.\nVous pouvez aussi \u00e9diter le <a href=\"https://github.com/RobotechNancy/Wiki\">code source</a> du wiki.</p>\n</blockquote>\n<p>Le wiki couvre les sujets suivants :</p>\n<ul>\n<li>D\u00e9veloppement STM32 et Raspberry</li>\n<li>M\u00e9thodes de communication (CAN, I2C, ...)</li>\n<li>Fonctionnement des diff\u00e9rents composants</li>\n<li>Utilisation des diff\u00e9rentes librairies custom</li>\n<li>Comment modifier ce wiki</li>\n</ul>\n<blockquote>\n<p>Ce wiki est inspir\u00e9 de la template <a href=\"https://github.com/CloudCannon/edition-jekyll-template\">Edition</a></p>\n</blockquote>"
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - {{ meta.title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="{{ meta.description }}">
+
+		<link rel="stylesheet" href="/static/style.css">
+		<link rel="apple-touch-icon" href="/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="/">
+					<img src="/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					{{ nav }}
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>{% if uri %}{{ uri }}{% else %}Wiki Robotech Nancy{% endif %}</h2>
+				<h3 class="no-anchor">{{ meta.title }}</h3>
+			</div>
+			<article class="content">
+				{{ page_content }}
+			</article>
+		</section>
+
+		<script src="/static/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - Installer CMake</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Comment installer la toolchain CMake">
+
+		<link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css">
+		<link rel="apple-touch-icon" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://127.0.0.1:8000/">
+					<img src="http://127.0.0.1:8000/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					
+    
+
+    <a href="http://127.0.0.1:8000/Cartes/">Cartes utilisées</a>
+    
+
+    <a href="http://127.0.0.1:8000/Wiki/">Modifier ce wiki</a>
+    
+
+    <details>
+        <summary>Build avec CMake</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CMake/Installation/">Installer CMake</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Executable/">Créer un exécutable</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Lier/">Lier des librairies</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Librairie/">Créer une librairie</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Projets STM32</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/STM32/Installation/">Installation</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/Projet/">Créer un projet</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/CubeMX/">Configurer une carte</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Bus CAN</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CAN/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Raspberry/">Librairie Raspberry</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/STM32/">Librairie STM32</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Librairie/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Modules XBee</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/XBee/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Librairie/">Utiliser la librairie</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Initialisation/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Odométrie</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Odometrie/ArUCO/">Marqueurs ArUCO</a>
+    
+
+    <a href="http://127.0.0.1:8000/Odometrie/Optique/">Capteur optique</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Signaux PWM</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/PWM/STM32/">STM32</a>
+    
+
+    <details>
+        <summary>PCA9685</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/PWM/PCA9685/Librairie/">Utiliser la librairie</a>
+    
+
+    <a href="http://127.0.0.1:8000/PWM/PCA9685/Implementation/">Implémentation</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>CMake/Installation</h2>
+				<h3 class="no-anchor">Installer CMake</h3>
+			</div>
+			<article class="content">
+				<p>CMake permet de facilement créer, compiler et installer des projets avec des dépendances.</p>
+<h3>Sous Linux</h3>
+<ul>
+<li>Basé sur Debian : <code>sudo apt install cmake make g++</code></li>
+<li>Basé sur RedHat : <code>sudo dnf install cmake make gcc-c++</code></li>
+<li>Basé sur Arch : <code>sudo pacman -S cmake make gcc</code></li>
+</ul>
+<h3>Sous macOS</h3>
+<p>Installer CMake est très simple avec <a href="https://brew.sh/">Homebrew</a> :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="c1"># Installer Homebrew</span>
+/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Installer CMake</span>
+brew<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>make<span class="w"> </span>gcc
+</code></pre></div>
+
+<h3>Sous Windows</h3>
+<ul>
+<li>Télécharger et installer <a href="https://cmake.org/download/">CMake</a></li>
+<li>Télécharger et installer <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW</a></li>
+<li>Ajouter le chemin vers MinGW dans <code>PATH</code> (par exemple <code>C:\MinGW\bin</code>)</li>
+<li>Ajouter le chemin vers CMake dans <code>PATH</code> (par exemple <code>C:\Program Files\CMake\bin</code>)</li>
+<li>Redémarrer le PC</li>
+</ul>
+<p>Alternativement, il est possible d'utiliser un IDE avec des outils intégrés ou des extensions :</p>
+<ul>
+<li><a href="https://learn.microsoft.com/fr-fr/cpp/build/cmake-projects-in-visual-studio?view=msvc-170">Visual Studio</a> (payant, directement intégré)</li>
+<li><a href="https://code.visualstudio.com/docs/cpp/introvideos-cpp">Visual Studio Code</a> (gratuit, installer + extension à installer)</li>
+<li><a href="https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html">CLion</a> (payant, directement intégré)</li>
+</ul>
+			</article>
+		</section>
+
+		<script src="http://127.0.0.1:8000/static/script.js"></script>
+	</body>
+</html>

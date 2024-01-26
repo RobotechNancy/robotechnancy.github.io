@@ -1,0 +1,27 @@
+table {
+	width: 100%;
+	table-layout: auto;
+	overflow: scroll;
+	margin-bottom: .75em;
+}
+
+tr {
+	border: 1px solid #ddd;
+
+	@media (prefers-color-scheme: dark) {
+		border-color: #444;
+	}
+}
+
+tr:nth-child(even) {
+	background: var(--alt-background);
+}
+
+td, th {
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	padding-bottom: 4px;
+}
