@@ -1,8 +1,0 @@
-{
-    "hidden": "false",
-    "title": "Installation",
-    "description": "Comment installer les outils de d\u00e9veloppement pour STM32",
-    "order": "1",
-    "uri": "STM32/Installation",
-    "page_content": "<p>La mani\u00e8re la plus facile de d\u00e9velopper pour STM32 est d'<a href=\"https://www.st.com/en/development-tools/stm32cubeide.html#get-software\">installer STM32CubeIDE</a> qui offre :</p>\n<ul>\n<li>Un IDE bas\u00e9 sur Eclipse</li>\n<li>Des outils de compilation, de debug et de flash avec <a href=\"https://www.st.com/en/development-tools/st-link-v2.html\">ST-LINK</a></li>\n<li>De la g\u00e9n\u00e9ration de code avec <a href=\"https://www.st.com/en/development-tools/stm32cubemx.html#get-software\">STM32CubeMX</a></li>\n</ul>\n<blockquote>\n<p class=\"quote quote-TIP\">Si vous utilisez <code>flatpak</code> sur Linux : <code>flatpak install flathub com.st.STM32CubeIDE</code>\n(ne n\u00e9cessite pas de donner son email, nom et pr\u00e9nom)</p>\n</blockquote>\n<p>Une l'installeur t\u00e9l\u00e9charg\u00e9, il suffit de l'ex\u00e9cuter et de suivre les instructions.\nSur Linux, il est possible que l'installeur ne soit pas ex\u00e9cutable, il faut alors le rendre ex\u00e9cutable avec <code>chmod +x fichier_installeur</code>. </p>\n<p><img alt=\"STM32CubeIDE\" src=\"http://127.0.0.1:8000/static/images/STM32/cubeide.webp\" /></p>"
-}
