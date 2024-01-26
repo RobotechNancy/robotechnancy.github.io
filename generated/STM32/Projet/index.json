@@ -1,8 +1,0 @@
-{
-    "hidden": "false",
-    "title": "Cr\u00e9er un projet",
-    "description": "Comment cr\u00e9er un projet avec STM32CubeIDE",
-    "order": "2",
-    "uri": "STM32/Projet",
-    "page_content": "<p>Il y a plusieurs options pour cr\u00e9er un nouveau projet :</p>\n<ul>\n<li>Si aucun projet n'est ouvert, appuyer sur <code>Create a new STM32 project</code> dans la fen\u00eatre <code>Project Explorer</code> (\u00e0 gauche).</li>\n<li>Si un projet est ouvert, cliquer sur <code>File</code> puis <code>New</code> puis <code>STM32 Project</code> (en haut).</li>\n</ul>\n<p>Dans les deux cas, une fen\u00eatre s'ouvre pour choisir le microcontr\u00f4leur (des t\u00e9l\u00e9chargements peuvent se lancer automatiquement).\nPour trouver le bon microcontr\u00f4leur, un champ de recherche est disponible en haut \u00e0 droite (<code>Commercial Part Number</code>) :\n<img alt=\"S\u00e9lecteur de microcontr\u00f4leur\" src=\"http://127.0.0.1:8000/static/images/STM32/board_selector.webp\" /></p>\n<p>Une fois le microcontr\u00f4leur s\u00e9lectionn\u00e9 (ici une L432KC), appuyer sur <code>Next</code> en bas \u00e0 droite, il faut maintenant choisir les param\u00e8tres du projet.\nA Robotech Nancy, les projets sont des projets STM32Cube en C pour des microcontr\u00f4leurs NUCLEO-L432KC :\n<img alt=\"Nouveau projet\" src=\"http://127.0.0.1:8000/static/images/STM32/stm32_project.webp\" /></p>"
-}

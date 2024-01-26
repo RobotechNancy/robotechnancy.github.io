@@ -1,8 +1,0 @@
-{
-    "hidden": "false",
-    "title": "Envoi de donn\u00e9es",
-    "description": "Impl\u00e9mentation de l'envoi de donn\u00e9es",
-    "order": "4",
-    "uri": "XBee/Implementation/Envoi",
-    "page_content": "<p>L'envoi de donn\u00e9es utilise le mode API des modules XBee o\u00f9 chaque octet est renvoy\u00e9 tel quel:</p>\n<div class=\"codehilite\"><pre tabindex='0'><span></span><code><span class=\"n\">xbee</span><span class=\"p\">.</span><span class=\"n\">send</span><span class=\"p\">(</span><span class=\"n\">XB_ADDR_ROBOT_01</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">XB_FCT_TEST_ALIVE</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"p\">{</span><span class=\"mh\">0x01</span><span class=\"p\">});</span>\n</code></pre></div>\n\n<p>Il est possible d'envoyer jusqu'\u00e0 243 octets de donn\u00e9es, la fonction retourne un code d'erreur le cas ech\u00e9ant.</p>\n<p>L'identifiant attribu\u00e9 \u00e0 chaque trame est automatiquement incr\u00e9ment\u00e9 \u00e0 chaque envoi.\nCet identifiant est utilis\u00e9 pour d\u00e9tecter les r\u00e9ponses \u00e0 une trame envoy\u00e9e.</p>"
-}
