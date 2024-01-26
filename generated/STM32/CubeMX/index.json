@@ -1,0 +1,8 @@
+{
+    "hidden": "false",
+    "title": "Configurer une carte",
+    "description": "Comment configurer une carte avec CubeMX",
+    "order": "3",
+    "uri": "STM32/CubeMX",
+    "page_content": "<p>Pour configurer une carte avec CubeMX, il suffit d'ouvrir le fichier <code>.ioc</code> :\n<img alt=\"CubeMX\" src=\"http://127.0.0.1:8000/static/images/STM32/cubemx.webp\" /></p>\n<p>Chaque sauvegarde du fichier g\u00e9n\u00e8re le code n\u00e9cessaire \u00e0 la bonne configuration de la carte (retrouvable dans <code>Core/Src/main.c</code> et <code>Core/Inc/main.h</code>).</p>\n<p>Cette g\u00e9n\u00e9ration peut \u00e9craser votre code s'il n'est pas entre des sections sp\u00e9cifiques.\nCes sections commencent pas <code>/* USER CODE BEGIN */</code> et finissent par <code>/* USER CODE END */</code>.</p>\n<p>CubeMX permet de configurer :</p>\n<ul>\n<li>Les horloges (<code>Clock Configuration</code>)</li>\n<li>Les timers (g\u00e9n\u00e9ration de PWM par exemple)</li>\n<li>Les connectivit\u00e9s (UART, SPI, I2C, CAN, USB, ...)</li>\n<li>Les fonctionnalit\u00e9s (interrupts, DMA, ...)</li>\n</ul>"
+}

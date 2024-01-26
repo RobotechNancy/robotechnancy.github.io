@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - Principe</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Principe de fonctionnement des modules XBee">
+
+		<link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css">
+		<link rel="apple-touch-icon" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://127.0.0.1:8000/">
+					<img src="http://127.0.0.1:8000/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					
+    
+
+    <a href="http://127.0.0.1:8000/Cartes/">Cartes utilisées</a>
+    
+
+    <a href="http://127.0.0.1:8000/Wiki/">Modifier ce wiki</a>
+    
+
+    <details>
+        <summary>CMake</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CMake/Installation/">Installer CMake</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Executable/">Créer un exécutable</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Lier/">Lier des librairies</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Librairie/">Créer une librairie</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>STM32</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/STM32/Installation/">Installation</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/Projet/">Créer un projet</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/CubeMX/">Configurer une carte</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Communication</summary>
+        <div>
+            
+    <details>
+        <summary>XBee</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Librairie/">Utiliser la librairie</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Initialisation/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/XBee/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>CAN</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Raspberry/">Librairie Raspberry</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/STM32/">Librairie STM32</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Librairie/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/Communication/CAN/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Communication/XBee/Principe</h2>
+				<h3 class="no-anchor">Principe</h3>
+			</div>
+			<article class="content">
+				<p>Ces modules permettent une communication fiable et sécurisée, même dans un environnement bruyant
+Les modules XBee permettent la communication sans fil entre de multiples appareils.</p>
+<p>Ici, les modules utilisés sont des <a href="https://www.digi.com/resources/documentation/digidocs/pdfs/90000982.pdf">XBee S1 Pro</a> (alimentés en 3.3V) :
+<img alt="XBee S1 Pro" loading="lazy" src="http://127.0.0.1:8000/static/images/XBee/S1_pro.webp" /></p>
+<p>Les modules communiquent en <a href="https://fr.wikipedia.org/wiki/UART">UART</a> avec leur microcontrôleur respectif et suivant le protocole <a href="https://fr.wikipedia.org/wiki/IEEE_802.15.4">IEEE 802.15.4</a> (2.4GHz) entre eux :
+<img alt="XBee et Raspberry Pi" loading="lazy" src="http://127.0.0.1:8000/static/images/XBee/schema.webp" /></p>
+<h3>Configuration</h3>
+<p>Les modules ne peuvent communiquer qu'avec d'autres modules du même type et configurés de la même manière.
+De plus, il n'y a que deux manières de communiquer : point à point et point à multipoint :
+<img alt="IEEE 802.15.4" loading="lazy" src="http://127.0.0.1:8000/static/images/XBee/protocol.webp" /></p>
+<p>Pour configurer les adresses des modules, il faut envoyer des commandes AT :</p>
+<table tabindex='0'>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Valeur</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATMY</td>
+<td><code>0xXXXX</code></td>
+<td>Adresse du module</td>
+</tr>
+<tr>
+<td>ATDL</td>
+<td><code>0xFFFF</code></td>
+<td>À qui envoyer les données (partie basse)</td>
+</tr>
+<tr>
+<td>ATDH</td>
+<td><code>0x0000</code></td>
+<td>À qui envoyer les données (partie haute)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Il est possible d'utiliser <a href="https://www.digi.com/products/embedded-systems/digi-xbee/digi-xbee-tools/xctu">XCTU</a> pour configurer les modules
+et essayer d'envoyer des commandes.</p>
+</blockquote>
+<p>Avec le protocole <code>IEEE 802.15.4</code>, il n'est pas possible pour un module de communiquer avec plusieurs groupes différents.
+Pour contourner cette limitation, on configure les modules en broadcast (<code>0xFFFF</code> et <code>0x0000</code>) et on filtre les trames nous-même.</p>
+<p>Pour éviter d'envoyer des trames à n'importe quel module, on utilise quatres paramètres supplémentaires :</p>
+<table tabindex='0'>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Valeur</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATID</td>
+<td><code>0xXXXX</code></td>
+<td>Identifiant du réseau</td>
+</tr>
+<tr>
+<td>ATCH</td>
+<td><code>0xXX</code></td>
+<td>Canal de communication</td>
+</tr>
+<tr>
+<td>ATEE</td>
+<td><code>0x1</code></td>
+<td>Chiffrement (activé )</td>
+</tr>
+<tr>
+<td>ATKY</td>
+<td><code>0xXXXX</code></td>
+<td>Clé de chiffrement</td>
+</tr>
+</tbody>
+</table>
+<h3>Initialisation</h3>
+<p>Pour configurer les modules, il faut d'abord entrer en mode AT en envoyant <code>+++</code>.
+Une fois <code>OK\r</code> reçu, on envoie les commandes AT (<code>ATMY</code>, <code>ATDL</code>, ...) puis on quitte le mode AT en envoyant <code>ATCN\r</code>.</p>
+<p>Une fois le module configuré, tout ce qui est envoyé par UART est envoyé tel quel à n'importe quel module du même réseau.</p>
+			</article>
+		</section>
+
+		<script src="http://127.0.0.1:8000/static/script.js"></script>
+	</body>
+</html>

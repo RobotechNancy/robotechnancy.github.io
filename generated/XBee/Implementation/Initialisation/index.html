@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Wiki Robotech Nancy - Initialisation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Implémentation de l'initialisation des modules XBee">
+
+		<link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css">
+		<link rel="apple-touch-icon" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="icon" type="image/webp" href="http://127.0.0.1:8000/static/images/icons/logo.webp">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700&display=swap">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://127.0.0.1:8000/">
+					<img src="http://127.0.0.1:8000/static/images/icons/logo.webp" width="40" height="40" alt="Logo Robotech Nancy">
+					<span>Wiki Robotech Nancy</span>
+				</a>
+				<button type="button" class="open-nav" aria-label="Ouvrir la navigation" onclick="document.body.classList.toggle('nav-open')"></button>
+			</h1>
+
+			<nav>
+				<div>
+					
+    
+
+    <a href="http://127.0.0.1:8000/Cartes/">Cartes utilisées</a>
+    
+
+    <a href="http://127.0.0.1:8000/Wiki/">Modifier ce wiki</a>
+    
+
+    <details>
+        <summary>Build avec CMake</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CMake/Installation/">Installer CMake</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Executable/">Créer un exécutable</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Lier/">Lier des librairies</a>
+    
+
+    <a href="http://127.0.0.1:8000/CMake/Librairie/">Créer une librairie</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Projets STM32</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/STM32/Installation/">Installation</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/Projet/">Créer un projet</a>
+    
+
+    <a href="http://127.0.0.1:8000/STM32/CubeMX/">Configurer une carte</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Bus CAN</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CAN/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Raspberry/">Librairie Raspberry</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/STM32/">Librairie STM32</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Librairie/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/CAN/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Modules XBee</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/XBee/Principe/">Principe</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Librairie/">Utiliser la librairie</a>
+    
+
+    <details>
+        <summary>Implémentation</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Format/">Format des trames</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Initialisation/">Initialisation</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Reception/">Réception de données</a>
+    
+
+    <a href="http://127.0.0.1:8000/XBee/Implementation/Envoi/">Envoi de données</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Odométrie</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/Odometrie/ArUCO/">Marqueurs ArUCO</a>
+    
+
+    <a href="http://127.0.0.1:8000/Odometrie/Optique/">Capteur optique</a>
+    
+
+        </div>
+    </details>
+    
+
+    <details>
+        <summary>Signaux PWM</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/PWM/STM32/">STM32</a>
+    
+
+    <details>
+        <summary>PCA9685</summary>
+        <div>
+            
+    <a href="http://127.0.0.1:8000/PWM/PCA9685/Librairie/">Utiliser la librairie</a>
+    
+
+    <a href="http://127.0.0.1:8000/PWM/PCA9685/Implementation/">Implémentation</a>
+    
+
+        </div>
+    </details>
+    
+
+        </div>
+    </details>
+    
+
+				</div>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>XBee/Implementation/Initialisation</h2>
+				<h3 class="no-anchor">Initialisation</h3>
+			</div>
+			<article class="content">
+				<p>Toute l'initialisation se fait dans <code>XBee::open</code> qui ouvre le port série et appelle <code>XBee::checkATConfig</code> pour vérifier la configuration du module :</p>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="n">XBee</span><span class="w"> </span><span class="nf">xbee</span><span class="p">(</span><span class="n">XB_ADDR_ROBOT_01</span><span class="p">);</span><span class="w"> </span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">xbee</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/ttyAMA0&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">XB_E_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Code d&#39;erreur dans define_xbee.h</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3>Choix de l'adresse</h3>
+<p>Toutes les adresses sont sur un octet (0 à 255), définies dans <code>define_xbee.h</code> et purement arbitraires:</p>
+<ul>
+<li><code>XB_ADDR_ROBOT_01</code> : <code>0x01</code>, adresse du gros robot</li>
+<li><code>XB_ADDR_ROBOT_02</code> : <code>0x02</code>, adresse du petit robot</li>
+<li><code>XB_ADDR_CAMERA_01</code> : <code>0x03</code>, première adresse pour une caméra</li>
+<li><code>XB_ADDR_CAMERA_02</code> : <code>0x04</code>, deuxième adresse pour une caméra</li>
+</ul>
+<h3>Choix du port série</h3>
+<p>Le choix du port série dépend du PC utilisé :</p>
+<ul>
+<li>Sur une Raspberry Pi, le port est généralement <code>/dev/ttyAMA0</code> ou <code>/dev/ttyS0</code></li>
+<li>Sur un PC, le port est généralement <code>/dev/ttyUSB0</code></li>
+</ul>
+<p>Si ce n'est pas le cas, <code>lsusb</code> permet de lister tous les appareils USB connectés au PC. Il est aussi possible que le module XBee soit mal configuré, dans ce cas, il faut utiliser <a href="https://www.digi.com/products/embedded-systems/digi-xbee/digi-xbee-tools/xctu">XCTU</a> pour le réinitialiser ou appuyer sur le bouton reset de l'adaptateur USB.</p>
+<p>En interne, le port série est ouver avec <code>seriallib::openDevice</code> et utilise les paramètres suivants (configuration par défaut des modules XBee) :</p>
+<ul>
+<li>Baudrate : <code>9600</code></li>
+<li>Parité : <code>SERIAL_PARITY_NONE</code></li>
+<li>Nombre de bits : <code>SERIAL_DATABITS_8</code></li>
+<li>Nombre de stop bits : <code>SERIAL_STOPBITS_1</code></li>
+</ul>
+<h3>Configuration AT</h3>
+<p>Le mode AT permet de lire et modifier les paramètres d'un module XBee.
+C'est la fonction <code>XBee::checkATConfig</code> qui s'occupe de vérifier la configuration du module :</p>
+<ul>
+<li>Tout d'abord, elle entre en mode AT en envoyant <code>+++</code> sur le port série (<code>XBee::enterATMode</code>)</li>
+<li>Ensuite, elle vérifie chaque paramètre et le modifie si nécessaire, par exemple, le baudrate :</li>
+</ul>
+<div class="codehilite"><pre tabindex='0'><span></span><code><span class="c1">// Avec XB_AT_M_GET, la valeur du paramètre est lue et comparée au second argument</span>
+<span class="c1">// Avec XB_AT_M_SET, la valeur du paramètre est modifiée pour correspondre au second argument</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sendATCommand</span><span class="p">(</span><span class="n">XB_AT_CMD_BAUDRATE</span><span class="p">,</span><span class="w"> </span><span class="n">XB_AT_V_BAUDRATE</span><span class="p">,</span><span class="w"> </span><span class="n">XB_AT_M_GET</span><span class="p">))</span>
+<span class="w">        </span><span class="n">logger</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Vaudrate vérifié avec succès&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sendATCommand</span><span class="p">(</span><span class="n">XB_AT_CMD_BAUDRATE</span><span class="p">,</span><span class="w"> </span><span class="n">XB_AT_V_BAUDRATE</span><span class="p">,</span><span class="w"> </span><span class="n">XB_AT_M_SET</span><span class="p">))</span>
+<span class="w">    </span><span class="n">logger</span><span class="p">(</span><span class="n">INFO</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Baudrate configuré avec succès&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">logger</span><span class="p">(</span><span class="n">CRITICAL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Impossible de configurer le baudrate&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">XB_E_AT_BAUDRATE</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<ul>
+<li>On appelle <code>XBee::writeATConfig</code> pour valider les changements</li>
+<li>Enfin, on sort du mode AT en envoyant <code>ATCN</code> sur le port série (<code>XBee::exitATMode</code>)</li>
+</ul>
+			</article>
+		</section>
+
+		<script src="http://127.0.0.1:8000/static/script.js"></script>
+	</body>
+</html>

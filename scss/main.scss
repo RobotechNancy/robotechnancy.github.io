@@ -1,0 +1,20 @@
+@import "normalize";
+@import "typography";
+@import "tables";
+@import "layout";
+
+@import "code_light";
+@media (prefers-color-scheme: dark) {
+    @import "code_dark";
+}
+
+:root {
+    --accent-color: #3583d6;
+    --content-color: #222;
+	--alt-background: #f5f5f5;
+
+    @media (prefers-color-scheme: dark) {
+		--content-color: #fff;
+		--alt-background: #333232;
+	}
+}

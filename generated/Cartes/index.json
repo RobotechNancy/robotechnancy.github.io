@@ -1,0 +1,8 @@
+{
+    "hidden": "false",
+    "title": "Cartes utilis\u00e9es",
+    "description": "Toutes les cartes utilis\u00e9es pour le projet",
+    "order": "1",
+    "uri": "Cartes",
+    "page_content": "<p>Pour tout ce qui est prise de d\u00e9cision et reconnaissance d'images, des Raspberry Pi sont utilis\u00e9es :</p>\n<p><img alt=\"GPIO Raspberry Pi\" src=\"http://127.0.0.1:8000/static/images/boards/GPIO.webp\" style=\"display: inline-block;\" />\n<img alt=\"Tailles Raspberry Pi\" src=\"http://127.0.0.1:8000/static/images/boards/RPI.webp\" style=\"display: inline-block;\" /></p>\n<p>Pour le reste, des NUCLEO-L432KC sont utilis\u00e9es :\n<img alt=\"NUCLEO-L432KC\" src=\"http://127.0.0.1:8000/static/images/boards/L432KC.webp\" /></p>"
+}
