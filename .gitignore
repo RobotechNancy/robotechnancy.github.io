@@ -1,5 +1,3 @@
-/_site
-/.idea
-/.jekyll-cache
-.sass-cache
-.jekyll-metadata
+.idea
+.vscode
+generated
