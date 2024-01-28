@@ -4,7 +4,7 @@
 
 Le PWM (Pulse Width Modulation) consiste à moduler la largeur d'une impulsion pour contrôler la puissance moyenne délivrée à un composant.
 C'est un signal carré dont le rapport cyclique (temps haut / temps total) est variable :
-![PWM](/static/images/pwm/signals.webp)
+![PWM](/static/images/PWM/signals.webp)
 
 Deux paramètres sont à prendre en compte :
 
@@ -15,14 +15,14 @@ Deux paramètres sont à prendre en compte :
 
 Avant de régler le timer, il faut configurer la clock que va utiliser le timer (menu `Clock Configuration`).
 Ici, on utilise le timer `TIM1` qui est sur le bus `APB2` et qui a une fréquence de 4MHz :
-![Prescaler clock](/static/images/pwm/clock_config.webp){:loading="lazy"}
+![Prescaler clock](/static/images/PWM/clock_config.webp){:loading="lazy"}
 
 > Pour trouver quelle clock le timer utilise, il faut regarder la [datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf) du microcontrôleur, dans la section  `Memory mapping` (ici, page 60).
 > [!TIP]
 
 Ensuite, on peut régler le timer TIM1 qu'on utilisera pour générer le signal PWM.
 Ici, l'objectif était d'avoir trois signaux, d'où le mode PWM sur 3 channels :
-![TIM1](/static/images/pwm/timer_config.webp){:loading="lazy"}
+![TIM1](/static/images/PWM/timer_config.webp){:loading="lazy"}
 
 Il est aussi nécessaire de calculer la valeur du prescaler à partir de la clock (4MHz), 
 du compteur utilisé (4096) et de la fréquence voulue (50Hz) : `4MHz ÷ (4096*50Hz) - 1 = 18`.
