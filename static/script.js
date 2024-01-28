@@ -1,4 +1,15 @@
-function prepare() {
+function updateWithJSON(json) {
+    document.title = "Wiki Robotech Nancy - " + json["title"];
+    document.querySelector('meta[name="description"]').content = json["description"];
+
+    let main = document.querySelector('.main');
+
+    main.querySelector('.content').innerHTML = json["page_content"];
+    main.querySelector('h2').innerText = json["uri"] || "Wiki Robotech Nancy";
+    main.querySelector('h3').innerText = json["title"];
+}
+
+function postFetch() {
     document.querySelectorAll("h3").forEach(h3 => {
         if (h3.classList.contains("no-anchor"))
             return;
@@ -16,51 +27,7 @@ function prepare() {
             e.target.scrollIntoView();
         });
     });
+
+    window.scrollTo(0, 0);
+    document.body.classList.remove('nav-open');
 }
-
-function update(path, push = true) {
-    fetch(path + "index.json")
-        .then(resp => resp.json())
-        .then(json => {
-            document.title = "Wiki Robotech Nancy - " + json["title"];
-            document.querySelector('meta[name="description"]').content = json["description"];
-
-            let main = document.querySelector('.main');
-
-            main.querySelector('.content').innerHTML = json["page_content"];
-            main.querySelector('h2').innerText = json["uri"] || "Wiki Robotech Nancy";
-            main.querySelector('h3').innerText = json["title"];
-
-            if (push)
-                window.history.pushState({}, '', path);
-
-            prepare();
-            window.scrollTo(0, 0);
-            document.body.classList.remove('nav-open');
-        })
-        .catch(err => {
-            console.log("Failed to fetch page: ", err);
-        });
-}
-
-prepare();
-let curPath = window.location.pathname;
-
-document.querySelectorAll('a').forEach(a => {
-    if ((a.href.baseVal || a.href).startsWith(window.location.origin)) {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-
-            if (a.href != window.location.href) {
-                update(a.href);
-            }
-        });
-    }
-});
-
-window.addEventListener('popstate', _ => {
-    if (window.location.pathname != curPath) {
-        update(window.location.href, false);
-        curPath = window.location.pathname;
-    }
-});
