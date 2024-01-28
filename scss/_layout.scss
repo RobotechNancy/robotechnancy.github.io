@@ -170,6 +170,25 @@ header {
 
 }
 
+#loader.active {
+	top: 0;
+	width: 100%;
+	height: 2px;
+    position: fixed;
+    background-color: var(--accent-color);
+    animation: loader .8s forwards;
+
+    @keyframes loader {
+        0% { width: 0; }
+        99% { width: 100%; }
+        100% { opacity: 0; }
+    }
+
+	@media (max-width: $mobile-break) {
+		top: $nav-header-height;
+	}
+}
+
 .main {
 	margin-top: $space + $nav-header-height;
 

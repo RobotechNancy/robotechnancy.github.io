@@ -1,3 +1,7 @@
+function preFetch() {
+    loader.classList.add('active');
+}
+
 function updateWithJSON(json) {
     document.title = "Wiki Robotech Nancy - " + json["title"];
     document.querySelector('meta[name="description"]').content = json["description"];
@@ -30,4 +34,5 @@ function postFetch() {
 
     window.scrollTo(0, 0);
     document.body.classList.remove('nav-open');
+
 }

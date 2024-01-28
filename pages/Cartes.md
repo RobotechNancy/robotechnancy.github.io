@@ -6,6 +6,7 @@ Pour tout ce qui est prise de décision et reconnaissance d'images, des Raspberr
 
 ![GPIO Raspberry Pi](/static/images/boards/GPIO.webp){: style="display: inline-block;"}
 ![Tailles Raspberry Pi](/static/images/boards/RPI.webp){: style="display: inline-block;"}
+{: style="text-align: center;"}
 
 Pour le reste, des NUCLEO-L432KC sont utilisées :
 ![NUCLEO-L432KC](/static/images/boards/L432KC.webp)
