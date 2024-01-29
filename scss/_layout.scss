@@ -128,7 +128,7 @@ header {
 				content: '▹ ';
 			}
 
-			[open] > summary::before {
+			&[open] > summary::before {
 				content: '▿ ';
 			}
 		}
