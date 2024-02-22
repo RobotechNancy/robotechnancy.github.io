@@ -1,17 +1,6 @@
 if (typeof preFetch !== 'function') { function preFetch() {} }
 if (typeof postFetch !== 'function') { function postFetch() {} }
 
-function overrideLinks() {
-    document.querySelectorAll('a').forEach(a => {
-        if (a.href.startsWith(window.location.origin) && !a.hasAttribute('onclick')) {
-            a.onclick = e => {
-                e.preventDefault();
-                updatePage(a.href);
-            };
-        }
-    });
-}
-
 async function updatePage(path) {
     preFetch();
 
@@ -22,15 +11,10 @@ async function updatePage(path) {
         document.documentElement.innerHTML = text;
     }
 
-    overrideLinks();
     postFetch();
-
-    window.history.pushState({}, '', path);
 }
 
 postFetch();
-overrideLinks();
-
 let curPath = window.location.pathname;
 
 window.addEventListener('popstate', async _ => {
@@ -41,3 +25,23 @@ window.addEventListener('popstate', async _ => {
     curPath = window.location.pathname;
     await updatePage(window.location.href);
 });
+
+window.addEventListener('click', e => {
+    let targetAnchor = e.target.closest('a');
+    if (!targetAnchor || !targetAnchor.hasAttribute("href")) {
+        return;
+    }
+
+    href = (targetAnchor) ? targetAnchor.href : e.target.href;
+    e.preventDefault();
+
+    if (href == window.location.href) {
+        return;
+    }
+
+    if (href.startsWith(window.location.origin)) {
+        e.preventDefault();
+        updatePage(href);
+        window.history.pushState({}, '', href);
+    }
+})
