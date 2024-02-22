@@ -1,3 +1,5 @@
+let loader = document.getElementById('loader')
+
 function preFetch() {
     loader.classList.add('active');
 }
@@ -33,7 +35,6 @@ function postFetch() {
     });
 
     window.scrollTo(0, 0);
-    document.body.classList.remove('nav-open');
-
     loader.classList.remove('active');
+    document.body.classList.remove('nav-open');
 }
