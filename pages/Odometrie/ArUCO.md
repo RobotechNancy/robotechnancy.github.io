@@ -29,7 +29,7 @@ git clone https://github.com/opencv/opencv_contrib.git
 mv opencv_contrib/modules/aruco modules
 
 cmake -DOPENCV_EXTRA_MODULES_PATH=./modules ..
-sudo make install -j3
+sudo make install # Ajouter -j3 accélère la compilation mais peut faire crasher la Raspberry Pi
 ```
 
 > Le processus d'installation peut prendre plusieures heures sur une Raspberry Pi.
