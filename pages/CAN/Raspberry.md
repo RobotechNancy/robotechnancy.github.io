@@ -9,7 +9,6 @@ Pour installer la librairie CAN sur Linux, il faut :
 - Utiliser le script d'installation : `sudo ./lib_manager install Logs CAN`
 
 > Pour mettre à jour la librairie, `git pull` puis `sudo ./lib_manager install CAN`
-> [!TIP]
 
 ### Configuration du bus
 
@@ -48,7 +47,7 @@ Important, il faut démarrer l'interface CAN avant de pouvoir l'utiliser :
 sudo ip link set up vcan0
 
 # Démarrer l'interface can0
-sudo ip link set can0 up type can bitrate <BITRATE> loopback off
+sudo ip link set can0 up type can bitrate 500000 loopback off
 ```
 
 ### Envoyer des données
@@ -56,13 +55,17 @@ sudo ip link set can0 up type can bitrate <BITRATE> loopback off
 Pour envoyer une données, il suffit d'utiliser `CAN::send` :
 ```cpp
 can.send(
-    CAN_ADDR_ODOMETRIE,     // Receveur
-    FCT_ACCUSER_RECEPTION,  // Fonction
+    CANBUS_PRIO_STD,        // Priorité
+    CANBUS_BASE_ROULANTE,   // Receveur
+    MODE_DEBUG,             // Mode de fonctionnement
+    FCT_DPL_AVANCE,         // Fonction
     {0x01},                 // Données
     1,                      // ID de la demande (arbitraire)
     false                   // Demande => false
 );
 ```
+
+Ici, on envoie un message de priorité standard à la base roulante en mode debug qui lui demande d'avancer sans attendre de réponse.
 
 ### Recevoir des données
 
@@ -70,7 +73,7 @@ Il existe deux manières de recevoir des données :
 
 - De manière synchrone (bloque le programme), avec `CAN::send` :
 ```cpp
-can_result_t res = can2.send(CAN_ADDR_RASPBERRY, FCT_ACCUSER_RECEPTION, {0x01}, 1, false, 2);
+can_result_t res = can2.send(CANBUS_PRIO_STD, CANBUS_RASPBERRY, FCT_ACCUSER_RECEPTION, {0x01}, 1, false, 2);
 
 switch (res.status) {
     case CAN_OK:

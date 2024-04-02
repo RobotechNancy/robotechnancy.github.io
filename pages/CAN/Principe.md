@@ -7,7 +7,7 @@ C'est un bus orienté message composé de deux fils (CAN-H et CAN-L) qui permett
 ![Schéma CAN](/static/images/CAN/schema.webp){: loading="lazy" }
 
 > Pour avoir une architecture modulaire et réactive, tous les noeuds sont connectés en configuration `High Speed`
-(jusqu'à 1 Mbit/s au lieu de 125 kbit/s)
+(jusqu'à 1 Mbit/s au lieu de 125 kbit/s). Ici, on utilise une connexion à 500 kbit/s.
 
 ### Transmission
 
@@ -34,5 +34,5 @@ C'est une trame qui contient des meta-données sur le message et qui sert aux no
 
 Il est important de comprendre :
 
-- Il n'y a pas de notion d'adresse à proprement parler, les noeuds ne font qu'appliquer des filtres sur les messages reçus
+- Il n'y a pas de notion d'adresse à proprement parler, les noeuds ne font qu'appliquer des __filtres__ sur les messages reçus
 - Les champs d'identification et le champ de données sont deux choses différentes

@@ -4,10 +4,10 @@
 
 On utilise le protocole `2.0b` est utilisé pour avoir une trame applicative sur 29 bits (au lieu de 11) et jusqu'à 8 octets de données :
 
-| Champ          |       EMIT_ADDR       |       RECV_ADDR       |      FCT_CODE       |           MSG_ID           |    IS_RESP     |
-| :------------- | :-------------------: | :-------------------: | :-----------------: | :------------------------: | :------------: |
-| Nombre de bits |       8 (0-255)       |       8 (0-255)       |      8 (0-255)      |          4 (0-15)          |    1 (0-1)     |
-| Description    | Adresse de l'emetteur | Adresseur du receveur | Fonction à réaliser | ID de la trame applicative | Réponse ou non |
+| Champ          |       PRIORITY        |       EMIT_ADDR       |       RECV_ADDR       |      FCT_MODE        |      FCT_CODE       |           MSG_ID           |  IS_RESPONSE   |
+| :------------- | :-------------------: | :-------------------: | :-------------------: | :------------------: | :-----------------: | :------------------------: | :------------: |
+| Nombre de bits |        2 (0-3)        |        4 (0-15)       |        4 (0-15)       |       4 (0-15)       |     10 (0-1023)     |          4 (0-15)          |    1 (0-1)     |
+| Description    |  Priorité du message  | Adresse de l'envoyeur |  Adresse du receveur  |Mode de fonctionnement| Fonction à réaliser | ID de la trame applicative | Réponse ou non |
 
 Les controlleurs CAN (MCP2515 ou celui intégré aux L432KC) ne supportent que les protocoles CAN 2.0 et CAN 2.0b avec 8 octets de données.
 Seuls les messages valides activent les interruptions, les autres sont ignorés.
@@ -17,19 +17,17 @@ Le filtrage des adresses est fait par la librairie et utilise ces constantes :
 
 - Dans `CAN::readBuffer` côté Raspberry :
 ```cpp
-frame.receiverAddress = (buffer.can_id & CAN_MASK_RECEIVER_ADDR) >> CAN_OFFSET_RECEIVER_ADDR;
+// On filtre pour n'avoir que la partie qui correspond à l'adresse du récepteur
+// et on la décale pour avoir la vraie valeur
+frame.ReceiverAddress = (buffer.can_id & CAN_MASK_RECEIVER_ADDR) >> CAN_OFFSET_RECEIVER_ADDR;
 
-if (address != frame.receiverAddress && frame.receiverAddress != CAN_ADDR_BROADCAST) {
+if (address != frame.ReceiverAddress && frame.ReceiverAddress != CANBUS_BROADCAST) {
     return -1;
 }
 ```
-- Dans `CAN_RECEIVE` côté STM32 :
+- Dans `CAN_YOINK` côté STM32 :
 ```c
-rep->receiverAddress = (RxHeader.ExtId & CAN_MASK_RECEIVER_ADDR) >> CAN_OFFSET_RECEIVER_ADDR;
-
-if (rep->receiverAddress != NODE_ADDRESS && rep->receiverAddress != CAN_ADDR_BROADCAST) {
-    return HAL_ERROR;
-}
+frame->ReceiverAddress = (RxHeader.ExtId & CAN_MASK_RECEIVER_ADDR) >> CAN_OFFSET_RECEIVER_ADDR;
 ```
 
 Pour mieux comprendre les masques et décalages, voici un schéma : 
