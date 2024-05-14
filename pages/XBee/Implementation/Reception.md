@@ -10,8 +10,8 @@ Un délai de 2ms est ajouté entre chaque lecture pour éviter d'arrêter la lec
 
 Une fois les données lues, elles sont traitées par `XBee::processBuffer` qui a pour but de vérifier que les données reçues correspondent à une trame valide.
 
-> Pour l'instant, le cas où plusieurs trames sont reçues en même temps n'est pas géré.
 > [!WARNING]
+> Pour l'instant, le cas où plusieurs trames sont reçues en même temps n'est pas géré.
 
 ### Gestion des réponses
 

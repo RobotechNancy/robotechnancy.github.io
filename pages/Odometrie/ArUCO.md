@@ -32,9 +32,9 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=./modules ..
 sudo make install # Ajouter -j3 accélère la compilation mais peut faire crasher la Raspberry Pi
 ```
 
+> [!WARNING]
 > Le processus d'installation peut prendre plusieures heures sur une Raspberry Pi.
 > Il est aussi possible de cross-compiler OpenCV (non testé).
-> [!WARNING]
 
 ### Calibration
 
