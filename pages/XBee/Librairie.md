@@ -8,8 +8,8 @@ La librairie XBee est utilisable uniquement sur Linux, pour l'installer :
 - Se placer dans le dossier cloné : `cd Communication`
 - Utiliser le script d'installation : `sudo ./lib_manager install Logs XBee`
 
-> Pour mettre à jour la librairie, `git pull` puis `sudo ./lib_manager install XBee`
 > [!TIP]
+> Pour mettre à jour la librairie, `git pull` puis `sudo ./lib_manager install XBee`
 
 ### Initialisation
 
@@ -30,8 +30,8 @@ Par exemple, sur une Raspberry Pi, c'est généralement `/dev/ttyAMA0` alors que
 
 Si une mauvaise configuration est à l'origine d'une erreur d'initialisation, vous pouvez utiliser [XCTU](https://www.digi.com/products/embedded-systems/digi-xbee/digi-xbee-tools/xctu) pour la corriger. La librairie utilise les paramètres par défauts d'un module XBee.
 
-> Si vous utiliser l'adaptateur USB, il est possible de réinitialiser la configuration en appuyant sur le bouton reset.
 > [!TIP]
+> Si vous utiliser l'adaptateur USB, il est possible de réinitialiser la configuration en appuyant sur le bouton reset.
 
 ### Envoyer des données
 

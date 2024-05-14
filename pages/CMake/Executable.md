@@ -22,8 +22,8 @@ make      # Compile le projet
 ./my_project
 ```
 
-> Pour éviter les erreurs, il faut inclure **tous** les fichiers source dans `add_executable`
 > [!WARNING]
+> Pour éviter les erreurs, il faut inclure **tous** les fichiers source dans `add_executable`
 
 Optionnellement, pour les fichiers source, il est possible d'éviter les chemins relatifs pour inclure les headers :
 
