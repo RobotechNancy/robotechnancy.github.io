@@ -8,12 +8,13 @@ Le premier programme est la calibration. C’est ce qui permet de modéliser la 
   
 Ce programme contient deux fonctions exécutables :
   
-#### “board” 
+### “board” 
 qui permet de générer une grille ArUCO en utilisant les informations issues de la configuration (dictionnaire ArUCO choisi et les infos marqueurs : taille et espacement), qui est ensuite imprimé et utilisé pour calibrer la caméra avec l’autre fonction.
   
-  
-- Cette grille est donc utilisée avec la fonction “calibrate” 
-#### “calibrate”
+&nbsp;
+Cette grille est donc utilisée avec la fonction “calibrate” 
+
+### “calibrate”
 qui permet de prendre des captures de la grille sous différents angles, orientations et éloignements. 
 Elle fonctionne comme suit :
   
