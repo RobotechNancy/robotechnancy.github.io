@@ -1,4 +1,4 @@
-[order]:       # (2)
+[order]:       # (1)
 [title]:       # (Capteur optique)
 [description]: # (Documentation sur le capteur optique)
 
