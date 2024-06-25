@@ -1,5 +1,5 @@
 [order]:       # (1)
-[title]:       # (Marqueurs ArUCO)
+[title]:       # (Présentation générale)
 [description]: # (Documentation sur les marqueurs ArUCO)
 
 Des tags ArUCO (en rouge) sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, des modules sont placés sur des balises (en bleu ou jaune) :
