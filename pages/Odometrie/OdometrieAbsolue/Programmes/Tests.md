@@ -9,6 +9,7 @@ Ces fonctions pourront aussi être utiles pour les prochaines personnes de l’�
   
 Il y a 4 fonctions différentes :
   
+&nbsp;
 #### "testDetection"
   
 Cette fonction permet de tester la détection des codes ArUCO.
@@ -18,7 +19,7 @@ Cela permet de voir quels sont les codes qui sont détectés et voir leur orient
   
 Nous avons souvent utilisé cette fonction pour vérifier que la caméra fonctionnait bien et aussi avant de lancer l’estimation pour s’assurer des codes détectés.
   
-  
+&nbsp;
 #### "testPosition"
   
 Cette fonction permet de tester la position image de codes détectés par leur coin 1.
@@ -28,14 +29,14 @@ La fonction nous donne donc la position des codes par leurs coins 1 dans l’ima
   
 Cela a est utile pour comprendre et vérifier le positionnement image issue de la reconnaissance par OpenCV.
   
-  
+&nbsp;
 #### "testCoherence"
   
 Cette fonction permet de tester la cohérence des codes détectés, c’est-à-dire savoir si le code détecté est bien conforme aux dimensions, avec les 4 coins bien corrects par les coordonnées images (pixels).
 Lors de l’exécution, on affiche les ids et les coordonnées sur l’image en pixels des 4 coins, ainsi que le résultat du calcul de cohérence. Il y a une attente de 2 secondes pour éviter trop de données d’un coup.
 La fonction nous donne donc la position des 4 coins 1 dans l’image, où le repère (0;0) est placé en haut à gauche de l’image..
   
-  
+&nbsp;
 #### "testPosition"
   
 Cette fonction permet de tester la position du poteau-caméra.
