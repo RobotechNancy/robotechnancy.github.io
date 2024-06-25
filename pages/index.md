@@ -13,8 +13,9 @@ Le wiki couvre les sujets suivants :
 
 - Développement STM32 et Raspberry
 - Méthodes de communication (CAN, I2C, ...)
-- Fonctionnement des différents composants
+- Fonctionnement des différents composants/matériels
 - Utilisation des différentes librairies custom
+- Le fonctionnement et l'utilisation de l'odométrie
 - Comment modifier ce wiki
 
 > Ce wiki est inspiré de la template [Edition](https://github.com/CloudCannon/edition-jekyll-template)
