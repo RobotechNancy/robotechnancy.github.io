@@ -20,11 +20,16 @@ Cette grille est donc utilisée avec la fonction “calibrate”
 [> ./ArUCO calibrate]
 
 qui permet de prendre des captures de la grille sous différents angles, orientations et éloignements. 
+
 Elle fonctionne comme suit :
   
 -La grille de calibration est détecté
+
 -On appuie sur « c » pour prendre des captures de l’image
+
 -Une fois les nombreuses captures prises, la fonction compare des données issues de la reconnaissance de la grille physique à la même grille d’origine reconstruite numériquement (utilisation des informations de configuration)
+
 -Cette comparaison permet de calculer des paramètres de la caméra
+
 -Ces paramètres sont ensuite enregistrés dans le fichier "camera_params.yml"
   

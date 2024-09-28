@@ -13,7 +13,9 @@ C’est un code carré constitué d’un cadre noir avec à l’intérieur une m
 *Exemple de code ArUCO (ici code 53 en taille 4x4)*
 
 Pour utiliser les codes ArUCO, on définit les dimensions, le type de codage et la taille utilisé par le choix d’un dictionnaire qui contient les informations permettant de reconnaître correctement les codes.
+
 Dans notre cas, nous utilisons des codes de taille 100x100 mm avec un codage interne 4x4.
+
 Ces codes sont placés sur les robots et sur l'aire de jeu du plateau.
   
 &nbsp;
