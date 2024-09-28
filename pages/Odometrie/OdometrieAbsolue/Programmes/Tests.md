@@ -37,7 +37,7 @@ Lors de l’exécution, on affiche les ids et les coordonnées sur l’image en 
 La fonction nous donne donc la position des 4 coins 1 dans l’image, où le repère (0;0) est placé en haut à gauche de l’image..
   
 &nbsp;
-#### "testPosition"
+#### "cameraPosition"
   
 Cette fonction permet de tester la position du poteau-caméra.
 En fonction de la caméra et de l’équipe actuelle, cela permet de savoir si caméra est bien placé au bon endroit sur le plateau.

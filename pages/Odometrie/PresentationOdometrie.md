@@ -2,9 +2,8 @@
 [title]:       # (Présentation Odométrie)
 [description]: # (Documentation sur l'odométrie)
 
-L'odométrie est une technique utilisée pour pouvoir estimer la position d'un objet en mouvement
-dans l'espace.
-L'objet bouge dans une zone et l'odométrie permet d'obtenir sa position le plus précisément possible selon la istuation et l'équpement.
+L'odométrie est une technique utilisée pour pouvoir estimer la position d'un objet en mouvement dans l'espace.
+L'objet bouge dans une zone et l'odométrie permet d'obtenir sa position le plus précisément possible selon la situation et l'équpement.
   
 Dans notre cas, nous voulons estimer la position du robot dans l'air de jeu avec l'odométrie.
 ![Robot sur le plateau de jeu](/static/images/aruco/robotplateau.webp){:loading="lazy"}
@@ -14,10 +13,9 @@ Il existe deux types d'odométrie : l'odométrie relative et l'odométrie absolu
   
 ### L'odométrie relative :
 Elle consiste à obtenir la position actuelle de l'objet par rapport à la position précédente.
-On obtient cette position par exemple au moyen de capteurs installés sur l'objet lui-
-même.
+On obtient cette position par exemple au moyen de capteurs installés sur l'objet lui-même.
   
-Dans notre cas, nous utilisons actuellement un capteur optique avec des lumières pour mesurer le mouvement, et un gyroscope pour la mesure de l'orientation, étant sur le robot.
+Dans notre cas, nous utilisons actuellement un capteur optique avec des lumières pour mesurer le mouvement, et un gyroscope pour la mesure de l'orientation, étant tout deux sur le robot.
   
   
 ### L'odométrie absolue :
