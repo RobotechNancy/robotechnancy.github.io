@@ -2,8 +2,8 @@
 [title]:       # (Liens)
 [description]: # (Liens utiles)
 
-Liens utilies pour le travail sur l'odométrie absolue (ArUCO)
-  
+__Liens utilies pour le travail sur l'odométrie absolue (ArUCO) :__
+&nbsp;
 https://docs.opencv.org/3.4/d5/dae/tutorial_aruco_detection.html
 https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html
 https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html
