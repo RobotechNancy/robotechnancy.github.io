@@ -7,6 +7,7 @@ Matériel utilisé pour l'odométrie absolue
 ### Les Poteaux-Caméras
   
 Nous utilisons donc des caméras afin de pouvoir voir le plateau et faire la reconnaissance et l’estimation.
+
 Nous avons à notre disposition 3 poteaux fabriqués sur lesquels nous avons travaillé avec le pôle mécanique et le pôle électronique. 
 
 On retrouve dans ces poteaux une caméra qui se compose de différents éléments :
