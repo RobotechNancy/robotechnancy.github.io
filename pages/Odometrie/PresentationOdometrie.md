@@ -7,6 +7,7 @@ L'objet bouge dans une zone et l'odométrie permet d'obtenir sa position le plus
   
 Dans notre cas, nous voulons estimer la position du robot dans l'air de jeu avec l'odométrie.
 ![Robot sur le plateau de jeu](/static/images/aruco/robotplateau.webp){:loading="lazy"}
+*Photo du plateau de jeu avec vieille base robot*
   
 Il existe deux types d'odométrie : l'odométrie relative et l'odométrie absolue.
   
@@ -16,6 +17,7 @@ Elle consiste à obtenir la position actuelle de l'objet par rapport à la posit
 On obtient cette position par exemple au moyen de capteurs installés sur l'objet lui-même.
   
 Dans notre cas, nous utilisons actuellement un capteur optique avec des lumières pour mesurer le mouvement, et un gyroscope pour la mesure de l'orientation, étant tout deux sur le robot.
+On prends la dernière position et on calcul avec le déplacement la nouvelle position.
   
   
 ### L'odométrie absolue :
