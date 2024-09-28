@@ -10,6 +10,7 @@ Un code ArUCO est un marqueur visuel utilisé en vision par ordinateur pour la d
 C’est un code carré constitué d’un cadre noir avec à l’intérieur une matrice binaire (noir/blanc) qui permet de déterminer l’identifiant et l’orientation du code en question.
 
 ![Image code exemple id 53](/static/images/aruco/codeexemple53.webp){:loading="lazy"}
+*Exemple de code ArUCO (ici code 53 en taille 4x4)*
 
 Pour utiliser les codes ArUCO, on définit les dimensions, le type de codage et la taille utilisé par le choix d’un dictionnaire qui contient les informations permettant de reconnaître correctement les codes.
 Dans notre cas, nous utilisons des codes de taille 100x100 mm avec un codage interne 4x4.
@@ -38,6 +39,7 @@ Ici, on détermine s'il s'agit bien de marqueurs en analysant leur codification 
 Les codes ArUCO de références sont positionnés sur le plateau dont leurs coordonnées et leurs identifiants sont connus, ce qui permet de les utiliser par caméras afin de récupérer les autres codes par rapport à un de ces codes de référence.
 
 ![Terrain de jeu plateau avec codes](/static/images/aruco/playground.webp){:loading="lazy"}
+*Plateau de jeu 2024*
 
 Ici, il y a (encadrés orange-rouge) :
 -le code 20 en haut à gauche (701 ; 1551)

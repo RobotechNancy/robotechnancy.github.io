@@ -4,6 +4,7 @@
 
 Des tags ArUCO (en rouge) sont placés sur le plateau et les éléments de jeu. Pour situer ces tags, des modules sont placés sur des balises (en bleu ou jaune) :
 ![Terrain de jeu](/static/images/aruco/playground.webp){:loading="lazy"}
+*Plateau de jeu 2024*
 
 Chaque balise est montée d'un module contenant :
 
